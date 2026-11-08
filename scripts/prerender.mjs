@@ -5,10 +5,10 @@
 //   dist/404.html               not-found page (GitHub Pages serves it for unknown paths)
 //   dist/sitemap.xml, dist/robots.txt, dist/site.webmanifest
 // Runs after `vite build` and `vite build --ssr` (see package.json "build").
-import { createHash } from 'node:crypto'
 import { mkdir, readFile, writeFile, readdir, rm } from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
+import { cspHash, inlineScripts } from './inline-scripts.mjs'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const dist = path.join(root, 'dist')
@@ -76,7 +76,7 @@ function lcpPreload(html) {
  * Styles allow inline: the prerendered markup carries style="" attributes (CSS custom properties).
  */
 function securityMeta(html) {
-  const hashes = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map((m) => `'sha256-${createHash('sha256').update(m[1].replace(/\r\n?/g, '\n')).digest('base64')}'`)
+  const hashes = inlineScripts(html).map(cspHash)
   const policy = [
     "default-src 'self'",
     `script-src 'self' ${hashes.join(' ')}`.trim(),
