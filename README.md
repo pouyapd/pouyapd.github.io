@@ -206,6 +206,18 @@ Build command `npm run build`, output directory `dist`, environment variable `SI
 
 ---
 
+## Security
+
+The site is static: no server, no database, no accounts, no cookies, no third-party scripts or fonts. What is in place, and what GitHub Pages cannot do:
+
+- **Content-Security-Policy** as a `<meta>` on every page, written by `scripts/prerender.mjs`: scripts only from the site itself plus each page's inline script by its SHA-256 hash (no `'unsafe-inline'`/`'unsafe-eval'`), images/fonts/connections from the site only, no frames, workers, plugins or foreign form targets. `npm run check` fails if a page lacks it or an inline script is not covered; a browser test checks that an injected script is blocked. If you add an inline `<script>`, the hash is added automatically; a script from another origin needs the policy changed.
+- **Referrer-Policy** `strict-origin-when-cross-origin` (meta).
+- **HTTPS + HSTS** are set by GitHub Pages.
+- **Not possible on GitHub Pages** (they are HTTP response headers; their `<meta>` forms are ignored by browsers): `X-Content-Type-Options`, `X-Frame-Options` / CSP `frame-ancestors` (framing protection), `Permissions-Policy`, CSP reporting. They need a host that sets headers (Cloudflare Pages, Netlify) or a proxy in front (e.g. Cloudflare with header rules). The site has no logged-in state or actions a framing attack could abuse, so this is a hardening gap, not an open hole.
+- **Deployment workflow**: no token permissions by default, per job only what it needs; actions pinned to commit SHAs (Dependabot proposes updates, `.github/dependabot.yml`); `npm ci --ignore-scripts` (no dependency needs an install script); checkout does not keep the token.
+- **Repository** (Settings): Dependabot alerts and security updates, secret scanning with push protection, CodeQL code scanning, workflow tokens read-only by default, and a ruleset that blocks force-pushes to and deletion of `main`.
+- Third-party reference images of unknown licence are kept out of the repository (`.gitignore`).
+
 ## Adding a real inquiry form later
 
 GitHub Pages cannot run server code, so the site uses email instead of a form that would silently drop submissions. To add a form:

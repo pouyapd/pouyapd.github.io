@@ -2,6 +2,7 @@
 // Fails (exit 1) on: missing local files referenced from HTML/CSS/manifest,
 // in-page anchors without a target, missing deploy files, broken metadata,
 // images without alt, more or fewer than one <h1>.
+import { createHash } from 'node:crypto'
 import { readFile, readdir, access } from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -160,6 +161,24 @@ for (const m of html.matchAll(/<img\b[^>]*>/g)) {
 }
 if (!/<html lang="[a-z-]+" dir="(ltr|rtl)"/.test(html)) errors.push('missing html lang/dir')
 if (!/<main\b/.test(html)) errors.push('missing <main> landmark')
+
+// 7b. Content Security Policy on every page, before any script, covering each inline script by hash
+for (const page of ['index.html', '404.html', ...projectPages]) {
+  const doc = await readFile(path.join(dist, page), 'utf8')
+  const csp = doc.match(/<meta http-equiv="Content-Security-Policy" content="([^"]+)">/)
+  if (!csp) {
+    errors.push(`${page}: no Content-Security-Policy`)
+    continue
+  }
+  if (doc.indexOf(csp[0]) > doc.indexOf('<script')) errors.push(`${page}: the Content-Security-Policy comes after a script`)
+  const scriptSrc = csp[1].split(';').map((d) => d.trim()).find((d) => d.startsWith('script-src')) ?? ''
+  if (/'unsafe-inline'|'unsafe-eval'|\*/.test(scriptSrc)) errors.push(`${page}: script-src is not strict (${scriptSrc})`)
+  for (const m of doc.matchAll(/<script>([\s\S]*?)<\/script>/g)) {
+    // browsers hash the script with its line breaks normalised to LF
+    const hash = `'sha256-${createHash('sha256').update(m[1].replace(/\r\n?/g, '\n')).digest('base64')}'`
+    if (!scriptSrc.includes(hash)) errors.push(`${page}: an inline script is not allowed by the Content-Security-Policy`)
+  }
+}
 
 // 8. No developer-facing instructions in the public build
 for (const page of ['index.html', '404.html', ...projectPages]) {

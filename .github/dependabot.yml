@@ -1,0 +1,20 @@
+# Proposes updates as pull requests (nothing is merged automatically): the pinned action SHAs in
+# .github/workflows/deploy.yml, and npm packages (minor and patch grouped; majors one by one, to test).
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      actions:
+        patterns: ['*']
+
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    groups:
+      minor-and-patch:
+        update-types: [minor, patch]

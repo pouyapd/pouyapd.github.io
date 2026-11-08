@@ -5,6 +5,7 @@
 //   dist/404.html               not-found page (GitHub Pages serves it for unknown paths)
 //   dist/sitemap.xml, dist/robots.txt, dist/site.webmanifest
 // Runs after `vite build` and `vite build --ssr` (see package.json "build").
+import { createHash } from 'node:crypto'
 import { mkdir, readFile, writeFile, readdir, rm } from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
@@ -66,16 +67,46 @@ function lcpPreload(html) {
   return source ? [`<link rel="preload" as="image" type="image/avif" imagesrcset="${source[1]}" imagesizes="${source[2]}" fetchpriority="high">`] : []
 }
 
+/**
+ * Content Security Policy, as a <meta> (GitHub Pages sets no response headers). Browsers enforce it
+ * for scripts, styles, images, fonts and connections; frame-ancestors, sandbox and reporting only
+ * work as real headers. Scripts: this site's own files, plus each inline script by its hash (taken
+ * from the finished page, so the policy always matches it; line breaks normalised to LF, as browsers
+ * hash them); JSON-LD blocks are data, not scripts.
+ * Styles allow inline: the prerendered markup carries style="" attributes (CSS custom properties).
+ */
+function securityMeta(html) {
+  const hashes = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map((m) => `'sha256-${createHash('sha256').update(m[1].replace(/\r\n?/g, '\n')).digest('base64')}'`)
+  const policy = [
+    "default-src 'self'",
+    `script-src 'self' ${hashes.join(' ')}`.trim(),
+    "style-src 'self' 'unsafe-inline'",
+    "img-src 'self' data:",
+    "font-src 'self'",
+    "connect-src 'self'",
+    "manifest-src 'self'",
+    "worker-src 'none'",
+    "frame-src 'none'",
+    "object-src 'none'",
+    "base-uri 'self'",
+    "form-action 'self'",
+    'upgrade-insecure-requests',
+  ].join('; ')
+  return [`<meta http-equiv="Content-Security-Policy" content="${policy}">`, '<meta name="referrer" content="strict-origin-when-cross-origin">']
+}
+
 async function page(route) {
   const html = ssr.render(route)
   const concept = await conceptTags(route)
   // a concept page uses the studio's sans only in its slim bar, and not the studio's serif
   const fonts = concept.length ? fontPreloads.filter((l) => l.includes('geist')) : fontPreloads
   const head = [ssr.head(route), ...fonts, ...concept, ...(route === 'home' ? [] : lcpPreload(html))]
-  return template
+  const out = template
     .replace('<html lang="en" dir="ltr">', `<html lang="${ssr.locale.lang}" dir="${ssr.locale.dir}">`)
     .replace('<!--app-head-->', head.join('\n    '))
     .replace('<div id="root"><!--app-html--></div>', `<div id="root"${route === 'home' ? '' : ` data-route="${route}"`}>${html}</div>`)
+  // the policy goes first in <head>, before any script it governs
+  return out.replace(/(<meta name="viewport"[^>]*>)/, `$1\n    ${securityMeta(out).join('\n    ')}`)
 }
 
 const urls = []

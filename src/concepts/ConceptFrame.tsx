@@ -13,7 +13,13 @@ import './concept-frame.css'
 export function ConceptFrame({ site, children }: { site: ConceptSite; children: ReactNode }) {
   // arriving with #section from another page: scroll there once the page has rendered
   useEffect(() => {
-    const id = decodeURIComponent(location.hash.slice(1))
+    // a malformed escape in a shared link (#%E0%A4) must not take the page down: then there is no target
+    let id: string
+    try {
+      id = decodeURIComponent(location.hash.slice(1))
+    } catch {
+      return
+    }
     const el = id && document.getElementById(id)
     if (el) requestAnimationFrame(() => el.scrollIntoView({ block: 'start' }))
   }, [])
