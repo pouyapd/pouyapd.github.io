@@ -21,6 +21,7 @@ import type { ConceptSite } from '../types'
 export const sites: ConceptSite[] = [
   {
     slug: 'maison-aurel',
+    searchTitle: 'Jewellery e-commerce website design',
     title: 'Maison Aurel',
     sector: 'Fine jewellery · E-commerce',
     kind: 'Concept study',
@@ -123,6 +124,7 @@ export const sites: ConceptSite[] = [
   },
   {
     slug: 'lune',
+    searchTitle: 'Beauty salon website with online booking',
     title: 'Lune Atelier',
     sector: 'Beauty salon · Booking and shop',
     kind: 'Concept study',
@@ -236,6 +238,7 @@ export const sites: ConceptSite[] = [
   },
   {
     slug: 'anar',
+    searchTitle: 'Restaurant website with table reservations',
     title: 'Anar Dining Room',
     sector: 'Restaurant · Reservations',
     kind: 'Concept study',
@@ -327,6 +330,7 @@ export const sites: ConceptSite[] = [
   },
   {
     slug: 'tensile',
+    searchTitle: 'Fitness club website with class timetable',
     title: 'Tensile Athletic Club',
     sector: 'Fitness club · Memberships and classes',
     kind: 'Concept study',

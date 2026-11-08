@@ -36,14 +36,19 @@ export function conceptEntry(route: Route): string | undefined {
 }
 
 /**
- * Whether a page belongs in search results and the sitemap. The demo checkouts are
- * steps inside a shop, not pages anyone searches for; the 404 is not a page at all.
+ * Whether a page belongs in search results and the sitemap. The demo checkouts are steps inside a
+ * shop, not pages anyone searches for; the product pages of the concept shops (Maison Aurel's pieces,
+ * Lune's products) show prices for things that are not for sale, so they stay out of search results
+ * (their links are still followed); the 404 is not a page at all.
  */
 export function indexable(route: Route): boolean {
   if (route === 'not-found') return false
   const page = parseRoute(route, getContent().work.sites)
-  return !(page.kind === 'concept' && /(^|\/)checkout$/.test(page.path))
+  return !(page.kind === 'concept' && (/(^|\/)checkout$/.test(page.path) || /^(pieces|shop)\/[^/]+$/.test(page.path)))
 }
+
+/** "An online boutique…" → "an online boutique…", to follow a dash. */
+const lowerFirst = (s: string) => s.charAt(0).toLowerCase() + s.slice(1)
 
 const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;')
 
@@ -58,18 +63,23 @@ export function head(route: Route): string {
     route === 'home'
       ? `${site.name} — ${site.titleSuffix}`
       : project
-        ? `${project.title} — ${project.own ? 'how the identity was designed' : 'how the concept was designed'} · ${site.name}`
+        ? project.own
+          ? `${project.title} — how the identity was designed · ${site.name}`
+          : // what was made, in searchable words, then whose case study it is
+            `${project.searchTitle ?? 'Website design'}: ${project.title} case study · ${site.name}`
         : live
           ? live.site.own
             ? `Brand guidelines · ${site.name}`
             : `${subTitle ? `${subTitle} — ` : ''}${live.site.title} · concept website by ${site.name}`
           : `${content.notFound.title} · ${site.name}`
   const description = project
-    ? `${project.kind}: ${project.summary}`
+    ? project.own
+      ? `${project.kind}: ${project.summary}`
+      : `A concept case study for a fictional brand — ${lowerFirst(project.summary)}`
     : live
       ? live.site.own
         ? `The ${site.name} brand guidelines: the monogram, colour, typography and usage rules.`
-        : `A concept website for a fictional brand, designed and built by ${site.name}: ${live.site.summary}`
+        : `Concept website by ${site.name} for a fictional brand — ${lowerFirst(live.site.summary)}`
       : site.description
   const canonical = absoluteUrl(route === 'home' ? '' : `${route}/`)
   // a featured project's pages and case study share its own card (public/og/<slug>.jpg, `npm run og`)
@@ -156,6 +166,8 @@ function organization(): Record<string, unknown> {
     url: absoluteUrl(),
     logo: absoluteUrl(site.brand.avatar),
     description: site.description,
+    // the services the home page lists, nothing more
+    knowsAbout: getContent().services.items.map((s) => s.title),
   }
   if (site.contact.email) org.email = site.contact.email
   if (site.social.length) org.sameAs = site.social.map((s) => s.href)

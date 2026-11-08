@@ -116,6 +116,17 @@ export const en: PageContent = {
         ],
       },
       {
+        id: 'apps',
+        title: 'Web applications and interfaces',
+        summary: 'When a website has to do more than inform: booking, checkout, timetables and other multi-step flows, designed as clear interfaces and built as fast, accessible front ends that work on any phone.',
+        includes: ['Interface and UX design', 'Multi-step flows and forms', 'Front-end development (React, TypeScript)', 'Accessibility'],
+        examples: [
+          { label: 'Booking, in Lune Atelier', href: 'work/lune/#book' },
+          { label: 'Checkout, in Maison Aurel', href: 'work/maison-aurel/checkout/' },
+          { label: 'Free trial, in Tensile', href: 'work/tensile/trial/' },
+        ],
+      },
+      {
         id: 'motion',
         title: 'Motion and 3D, where they help',
         summary: 'Product views you can turn, rendered key images and interface motion — added where they help someone choose or understand, with a fast still version for every device.',
@@ -163,7 +174,7 @@ export const en: PageContent = {
     points: [
       { title: 'Design and code, together', text: 'The pages are designed and coded in the same studio, so the details you approve survive the build.' },
       { title: 'Honest about the work', text: 'The projects shown are concept studies for fictional brands, and labelled that way. Client work will appear as it launches.' },
-      { title: 'Iran and abroad', text: 'Available for projects in Iran and internationally, with calls and reviews online.' },
+      { title: 'Across Europe and beyond', text: 'Available for projects across Europe, in Iran and internationally, with calls and reviews online.' },
     ],
     link: { label: 'The studio’s identity and brand guidelines', href: 'work/p-design/' },
   },

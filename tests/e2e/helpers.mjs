@@ -1,6 +1,6 @@
 // Shared set-up for the browser tests (tests/e2e/*.test.mjs, run by scripts/test-e2e.mjs).
 // They drive the built site in Chrome through playwright-core: no test framework beyond node:test.
-import { readFileSync } from 'node:fs'
+import { readFileSync, readdirSync } from 'node:fs'
 import { createRequire } from 'node:module'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -10,6 +10,19 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 
 /** The served build (scripts/test-e2e.mjs starts `vite preview` and sets it). */
 export const BASE = process.env.E2E_BASE ?? 'http://localhost:4173/'
+
+/** Every page built into dist/ (index.html files), as paths under BASE ('' is the home page). */
+export function builtPaths() {
+  const out = []
+  const walk = (dir, rel) => {
+    for (const e of readdirSync(dir, { withFileTypes: true })) {
+      if (e.isDirectory()) walk(path.join(dir, e.name), `${rel}${e.name}/`)
+      else if (e.name === 'index.html') out.push(rel)
+    }
+  }
+  walk(path.join(root, 'dist'), '')
+  return out.sort()
+}
 
 /** Every page in the built sitemap, as paths under BASE ('' is the home page). */
 export function sitemapPaths() {
@@ -31,8 +44,8 @@ export function launch() {
  * A page that records console errors, uncaught exceptions and failed requests;
  * `page.problems()` returns them. `reducedMotion` emulates the user preference.
  */
-export async function open(browser, url = '', { viewport = DESKTOP, reducedMotion = 'no-preference', permissions = [] } = {}) {
-  const context = await browser.newContext({ viewport, reducedMotion, permissions })
+export async function open(browser, url = '', { viewport = DESKTOP, reducedMotion = 'no-preference', permissions = [], bypassCSP = false } = {}) {
+  const context = await browser.newContext({ viewport, reducedMotion, permissions, bypassCSP })
   const page = await context.newPage()
   const problems = []
   page.on('console', (m) => m.type() === 'error' && problems.push(`console: ${m.text()}`))
@@ -71,7 +84,10 @@ export async function until(page, fn, arg, timeout = 5000) {
 
 const axeSource = readFileSync(createRequire(import.meta.url).resolve('axe-core/axe.min.js'), 'utf8')
 
-/** Runs axe-core (WCAG 2.0–2.2 A and AA rules) on the page and returns the violations. */
+/**
+ * Runs axe-core (WCAG 2.0–2.2 A and AA rules) on the page and returns the violations. axe is injected as an
+ * inline script, which the site's Content-Security-Policy blocks: open the page with `bypassCSP: true`.
+ */
 export async function axe(page, exclude = []) {
   await page.addScriptTag({ content: axeSource })
   return page.evaluate(

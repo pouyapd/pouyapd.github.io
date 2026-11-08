@@ -17,9 +17,9 @@ export interface SocialLink {
 export const site = {
   name: 'P. DESIGN',
   /** Used in <title> after the name. */
-  titleSuffix: 'Brand-led websites, e-commerce and booking sites',
+  titleSuffix: 'Web Design and Development Studio',
   description:
-    'P. DESIGN is an independent studio that designs and builds premium websites — brand-led marketing sites, e-commerce and websites for service businesses — with motion and 3D where they help.',
+    'Independent studio for web design and development: premium websites, online shops and web applications for brands, startups and service businesses.',
 
   /** Language and direction of the current build. Persian would be { lang: 'fa', dir: 'rtl', ogLocale: 'fa_IR' }. */
   locale: { lang: 'en', dir: 'ltr', ogLocale: 'en_US' } as const,

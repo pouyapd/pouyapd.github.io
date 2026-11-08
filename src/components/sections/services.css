@@ -149,6 +149,19 @@
   border-block-start: var(--border-hairline);
 }
 
+/* three text entries: side by side on wide screens, one under another below (never one left alone) */
+@media (min-width: 1000px) {
+  .services__more:has(> :nth-child(3)) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 999px) {
+  .services__more:has(> :nth-child(3)) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 .service--text .service__title {
   font-size: var(--step-1);
 }

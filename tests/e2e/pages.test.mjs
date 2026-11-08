@@ -3,10 +3,10 @@
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { after, before, describe, test } from 'node:test'
-import { BASE, DESKTOP, PHONE, axe, launch, open, sitemapPaths } from './helpers.mjs'
+import { BASE, DESKTOP, PHONE, axe, builtPaths, launch, open, sitemapPaths } from './helpers.mjs'
 
-/** Pages that are built but deliberately not in the sitemap (marked noindex). */
-const UNLISTED = ['work/maison-aurel/checkout/', 'work/lune/checkout/']
+/** Pages that are built but deliberately not in the sitemap (marked noindex): the demo checkouts and the concept shops' product pages. */
+const UNLISTED = builtPaths().filter((p) => /checkout\/$|^work\/maison-aurel\/pieces\/[^/]+\/$|^work\/lune\/shop\/[^/]+\/$/.test(p))
 const SIZES = [
   [320, 720], [360, 780], [375, 812], [390, 844], [430, 932], [640, 960], [768, 1024], [1024, 768], [1280, 800], [1440, 900], [1920, 1080],
   // phones on their side
@@ -35,7 +35,8 @@ const overflow = (page) =>
   })
 
 describe('every page', () => {
-  const pages = [...sitemapPaths(), ...UNLISTED]
+  // every page that is built, listed in the sitemap or not
+  const pages = builtPaths()
   // the narrowest phone too: a fixed minimum anywhere shows up first at 320 px
   for (const viewport of [{ width: 320, height: 720 }, PHONE, DESKTOP]) {
     test(`loads cleanly, with one <h1> and no sideways scrolling (${pages.length} pages, ${viewport.width}px)`, async () => {
@@ -69,6 +70,36 @@ describe('every page', () => {
       const waiting = await page.$$eval('img:not([src])', (is) => is.length)
       assert.ok(waiting > 0, 'some images are deferred on load (the check is meaningful)')
       assert.equal(shown, 0, `${shown} sourceless images are visible`)
+      await page.context().close()
+    }
+  })
+
+  test('the Content-Security-Policy is enforced: an injected inline script is blocked, the site runs', async () => {
+    for (const path of ['', 'work/tensile/', 'work/lune/case-study/']) {
+      const page = await open(browser, path, { viewport: DESKTOP })
+      const result = await page.evaluate(() => new Promise((resolve) => {
+        const violations = []
+        document.addEventListener('securitypolicyviolation', (e) => violations.push(e.violatedDirective))
+        const s = document.createElement('script')
+        s.textContent = 'window.__injected = true'
+        document.head.append(s)
+        setTimeout(() => resolve({ ran: window.__injected === true, violations, js: document.documentElement.classList.contains('js') }), 300)
+      }))
+      assert.equal(result.ran, false, `/${path}: the injected script must not run`)
+      assert.ok(result.violations.some((d) => d.startsWith('script-src')), `/${path}: the browser reports the blocked script`)
+      assert.ok(result.js, `/${path}: the page's own inline script ran (its hash is allowed)`)
+      // the blocked injection is the only violation: nothing the site itself loads breaks the policy
+      assert.deepEqual(page.problems().filter((p) => !/Content Security Policy|__injected/.test(p)), [])
+      await page.context().close()
+    }
+  })
+
+  test('a shared link with a malformed #escape still opens the page', async () => {
+    for (const path of ['work/lune/#%E0%A4%A', 'work/maison-aurel/collection/#%', '#%E0%A4%A']) {
+      const page = await open(browser, path, { viewport: PHONE })
+      await page.waitForTimeout(500)
+      assert.equal(await page.$$eval('h1', (h) => h.length), 1, `/${path} renders`)
+      assert.deepEqual(page.problems(), [])
       await page.context().close()
     }
   })
@@ -168,7 +199,7 @@ describe('accessibility (axe-core)', () => {
     test(`no WCAG A/AA violations on ${PAGES.length} representative pages (${viewport.width}px)`, async () => {
       const found = []
       for (const path of PAGES) {
-        const page = await open(browser, path, { viewport, reducedMotion: 'reduce' })
+        const page = await open(browser, path, { viewport, reducedMotion: 'reduce', bypassCSP: true })
         await walk(page)
         for (const v of await axe(page)) found.push(`/${path} ${v.id} (${v.impact}): ${v.nodes.join(', ')}`)
         await page.context().close()

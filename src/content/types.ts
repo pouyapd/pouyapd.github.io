@@ -87,6 +87,8 @@ export interface ConceptSite {
   /** Shown in Selected Work on the home page (default true); others stay reachable at their routes. */
   featured?: boolean
   title: string
+  /** What the project is, in the words someone would search for (case-study title). */
+  searchTitle?: string
   sector: string
   /** Honest status label, e.g. "Concept study". */
   kind: string
