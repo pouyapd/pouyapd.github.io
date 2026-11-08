@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-16 -28 32 56" role="img" aria-labelledby="t">
+  <title id="t">P. DESIGN</title>
+  <!-- p: left half of the bowl and the descender -->
+  <path d="M0 -13A13 13 0 0 0 0 13M-13 0V28" stroke="#101315" stroke-width="6" fill="none"/>
+  <!-- d: right half of the bowl and the ascender (the p turned 180 degrees) -->
+  <path d="M0 -13A13 13 0 0 1 0 13M13 0V-28" stroke="#4F7A0C" stroke-width="6" fill="none"/>
+</svg>

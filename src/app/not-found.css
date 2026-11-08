@@ -1,0 +1,39 @@
+.not-found {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-block-size: 100svh;
+  padding: var(--space-l) var(--gutter);
+  overflow: clip;
+  background:
+    radial-gradient(60% 50% at 70% 100%, rgb(242 240 233 / 0.18), transparent 70%),
+    linear-gradient(to bottom, #1b2129, var(--color-bg));
+}
+
+.not-found__home {
+  justify-self: start;
+}
+
+.not-found__body {
+  align-self: center;
+  display: grid;
+  gap: var(--space-m);
+  justify-items: start;
+  max-inline-size: 40rem;
+}
+
+.not-found__code {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: clamp(5rem, 3rem + 10vw, 11rem);
+  line-height: 0.8;
+  color: var(--color-warm);
+}
+
+.not-found__title {
+  font-size: var(--step-4);
+}
+
+.not-found__text {
+  color: var(--color-text-muted);
+}

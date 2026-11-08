@@ -1,0 +1,325 @@
+<!doctype html>
+<!-- Concept study: Anar Dining Room, a fictional Persian restaurant. Captured by `npm run mockups`.
+     Photographs: Unsplash License, graded by tools/photos/prepare.py — credits in tools/photos/anar/sources.tsv.
+     data-shot marks the sections captured on their own for the case-study page. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anar Dining Room — concept</title>
+<link rel="stylesheet" href="./fonts.css">
+<style>
+  :root { --pom: #4a1019; --pom-2: #2f0a10; --pom-3: #5c1621; --cream: #f4ead8; --cream-2: #eadcc3; --saffron: #e0a532; --saffron-2: #f0c46a; --olive: #3f4a34; --ink: #24140f; --muted: #7b6553; --line: rgba(36,20,15,.15); --line-l: rgba(244,234,216,.16); }
+  body { background: var(--cream); color: var(--ink); font: 400 16px/1.65 'Inter', sans-serif; }
+  .wrap { width: min(1312px, 100% - 64px); margin-inline: auto; }
+  .serif { font-family: 'Fraunces', serif; font-weight: 380; letter-spacing: -0.02em; font-variation-settings: 'SOFT' 100, 'opsz' 96; }
+  em { font-style: italic; }
+  img { width: 100%; height: 100%; object-fit: cover; }
+  .kicker { font: 600 11px/1 'Inter'; letter-spacing: .24em; text-transform: uppercase; color: var(--saffron); }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 12px; height: 54px; padding: 0 28px; border-radius: 999px; background: var(--saffron); color: var(--pom-2); font: 600 14px/1 'Inter'; }
+  .btn--ghost { background: transparent; color: var(--cream); box-shadow: inset 0 0 0 1px rgba(244,234,216,.5); }
+  .btn--dark { background: var(--pom); color: var(--cream); }
+
+  /* nav over the hero */
+  .top { position: absolute; inset: 0 0 auto; z-index: 3; color: var(--cream); }
+  nav { display: grid; grid-template-columns: auto 1fr auto; gap: 60px; align-items: center; height: 96px; }
+  .logo { font: italic 400 36px/1 'Fraunces'; letter-spacing: -0.02em; display: flex; align-items: baseline; gap: 12px; }
+  .logo small { font: 600 10px/1 'Inter'; letter-spacing: .3em; text-transform: uppercase; font-style: normal; opacity: .8; }
+  nav ul { display: flex; gap: 34px; font: 500 14px/1 'Inter'; justify-content: center; }
+  .navr { display: flex; gap: 22px; align-items: center; font-size: 14px; }
+  .navr .btn { height: 46px; padding: 0 22px; }
+  .burger { display: none; }
+
+  .hero { position: relative; height: 900px; color: var(--cream); overflow: hidden; }
+  .hero > img { position: absolute; inset: 0; object-position: 50% 60%; }
+  .hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(36,9,12,.92) 6%, rgba(36,9,12,.35) 52%, rgba(36,9,12,.55)); }
+  .hero .wrap { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 72px; }
+  .hero h1 { font-size: 136px; line-height: .9; margin: 22px 0 0; max-width: 10ch; }
+  .hero h1 em { color: var(--saffron-2); }
+  .hero-row { display: grid; grid-template-columns: 1.2fr repeat(3, auto) auto; gap: 56px; align-items: end; margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--line-l); }
+  .hero-row p { max-width: 36ch; color: rgba(244,234,216,.8); font-size: 17px; }
+  .hero-row div { font-size: 14px; color: rgba(244,234,216,.75); }
+  .hero-row b { display: block; font: 600 11px/1 'Inter'; letter-spacing: .2em; text-transform: uppercase; color: var(--saffron); margin-bottom: 10px; }
+  .hero .concept-tag { position: absolute; top: 120px; right: 32px; z-index: 2; }
+
+  .sec { padding: 130px 0; }
+  /* kitchen */
+  .kitchen { display: grid; grid-template-columns: 1fr 1.1fr; gap: 90px; align-items: center; }
+  .kitchen h2 { font-size: 74px; line-height: .98; margin: 22px 0 26px; }
+  .kitchen h2 em { color: var(--pom-3); }
+  .kitchen .lead { color: var(--muted); font-size: 18px; max-width: 42ch; }
+  .sigs { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 44px; }
+  .sigs div { border-top: 2px solid var(--pom); padding-top: 18px; }
+  .sigs b { font: italic 400 28px/1.1 'Fraunces'; color: var(--pom); display: block; margin-bottom: 8px; }
+  .sigs span { color: var(--muted); font-size: 14.5px; }
+  .kitchen-art { position: relative; height: 700px; }
+  .kitchen-art .a { position: absolute; inset: 0 90px 0 0; border-radius: 340px 340px 0 0; overflow: hidden; }
+  .kitchen-art .b { position: absolute; right: 0; bottom: -40px; width: 250px; height: 250px; border-radius: 50%; overflow: hidden; outline: 12px solid var(--cream); }
+
+  /* menu */
+  .menu { background: var(--pom); color: var(--cream); }
+  .mhead { display: flex; justify-content: space-between; align-items: end; margin-bottom: 60px; }
+  .mhead h2 { font-size: 80px; line-height: .95; margin-top: 22px; }
+  .mhead h2 em { color: var(--saffron-2); }
+  .mhead p { max-width: 38ch; color: rgba(244,234,216,.72); }
+  .courses { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .course .ph { aspect-ratio: 4/3.2; border-radius: 4px; overflow: hidden; margin-bottom: 28px; }
+  .course h3 { font: italic 400 30px/1 'Fraunces'; color: var(--saffron-2); padding-bottom: 18px; border-bottom: 1px solid var(--line-l); }
+  .course li { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; padding: 18px 0; border-bottom: 1px solid var(--line-l); }
+  .course li b { font: 400 21px/1.2 'Fraunces'; }
+  .course li i { font-style: normal; font-weight: 600; color: var(--saffron-2); }
+  .course li span { grid-column: span 2; color: rgba(244,234,216,.66); font-size: 14px; }
+  .mfoot { display: flex; justify-content: space-between; align-items: center; margin-top: 50px; color: rgba(244,234,216,.66); font-size: 14px; }
+  .chips { display: flex; gap: 10px; }
+  .chips span { padding: 9px 14px; border-radius: 999px; box-shadow: inset 0 0 0 1px var(--line-l); font-size: 13px; color: var(--cream); }
+
+  /* reserve */
+  .reserve { display: grid; grid-template-columns: 1fr 1.08fr; gap: 72px; align-items: center; }
+  .reserve h2 { font-size: 80px; line-height: .95; margin: 22px 0 24px; }
+  .reserve h2 em { color: var(--pom-3); }
+  .reserve .lead { color: var(--muted); max-width: 40ch; }
+  .rimg { margin-top: 44px; height: 300px; border-radius: 4px; overflow: hidden; position: relative; }
+  .rimg p { position: absolute; left: 20px; bottom: 18px; color: var(--cream); font: italic 400 22px/1.2 'Fraunces'; }
+  .rimg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(36,9,12,.7), transparent 55%); }
+  .rimg p { z-index: 1; }
+  .panel { background: #fffaf1; border-radius: 10px; padding: 40px; box-shadow: 0 50px 90px -56px rgba(74,16,25,.55); }
+  .panel h3 { font: 400 32px/1 'Fraunces'; margin-bottom: 26px; }
+  .fields { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 10px; margin-bottom: 28px; }
+  .fields div { padding: 14px 16px; border-radius: 8px; box-shadow: inset 0 0 0 1px var(--line); }
+  .fields small { display: block; font: 600 10.5px/1 'Inter'; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .fields b { font-weight: 600; font-size: 15px; }
+  .lbl { display: flex; justify-content: space-between; font: 600 11px/1 'Inter'; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+  .times { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; margin-bottom: 26px; }
+  .times span { text-align: center; padding: 13px 0; border-radius: 999px; box-shadow: inset 0 0 0 1px var(--line); font-weight: 600; font-size: 14px; }
+  .times .on { background: var(--pom); color: var(--cream); box-shadow: none; }
+  .times .off { color: rgba(36,20,15,.28); text-decoration: line-through; }
+  .seat { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 30px; }
+  .seat span { padding: 14px; border-radius: 8px; box-shadow: inset 0 0 0 1px var(--line); font-size: 14px; }
+  .seat span b { display: block; font-weight: 600; }
+  .seat span small { color: var(--muted); font-size: 12.5px; }
+  .seat .on { box-shadow: inset 0 0 0 2px var(--saffron); background: rgba(224,165,50,.08); }
+  .panel .btn { width: 100%; height: 60px; font-size: 15px; }
+  .fine { text-align: center; margin-top: 14px; font-size: 13px; color: var(--muted); }
+
+  /* tea */
+  .tea { background: var(--pom-2); color: var(--cream); overflow: hidden; }
+  .tea .wrap { display: grid; grid-template-columns: 0.9fr 1fr 0.9fr; gap: 40px; align-items: center; }
+  .tea .ph { aspect-ratio: 3/4; border-radius: 4px; overflow: hidden; }
+  .tea .ph.r { border-radius: 300px 300px 4px 4px; margin-top: 120px; }
+  .tea .mid { text-align: center; padding: 0 10px; }
+  .tea h2 { font-size: 66px; line-height: 1; margin: 22px 0 22px; }
+  .tea h2 em { color: var(--saffron-2); }
+  .tea p { color: rgba(244,234,216,.72); max-width: 36ch; margin: 0 auto 32px; }
+
+  /* private room + gallery */
+  .private { display: grid; grid-template-columns: 1.15fr 1fr; gap: 0; background: var(--cream-2); border-radius: 6px; overflow: hidden; }
+  .private .ph { position: relative; min-height: 600px; }
+  .private .ph img { position: absolute; inset: 0; }
+  .private .body { padding: 72px 70px; display: flex; flex-direction: column; justify-content: center; }
+  .private h2 { font-size: 60px; line-height: 1; margin: 22px 0 22px; }
+  .private h2 em { color: var(--pom-3); }
+  .private p { color: var(--muted); margin-bottom: 30px; max-width: 38ch; }
+  .private ul { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 24px; margin-bottom: 36px; font-size: 14.5px; }
+  .private li::before { content: '—'; color: var(--saffron); margin-right: 10px; }
+  .gal { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: 280px 280px; gap: 14px; margin-top: 14px; }
+  .gal div { overflow: hidden; border-radius: 4px; }
+  .gal .w { grid-column: span 2; }
+  .gal .t { grid-row: span 2; }
+
+  footer { background: var(--ink); color: rgba(244,234,216,.78); padding: 96px 0 36px; }
+  .ft { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; }
+  .ft .logo { color: var(--cream); }
+  .ft p { margin-top: 20px; max-width: 30ch; font-size: 14.5px; }
+  .ft h4 { margin: 0 0 18px; font: 600 11px/1 'Inter'; letter-spacing: .2em; text-transform: uppercase; color: var(--saffron); }
+  .ft li { font-size: 14.5px; line-height: 2.1; }
+  .legal { display: flex; justify-content: space-between; margin-top: 70px; padding-top: 24px; border-top: 1px solid var(--line-l); font-size: 12.5px; color: rgba(244,234,216,.55); }
+
+  @media (max-width: 700px) {
+    body { font-size: 15px; }
+    .wrap { width: calc(100% - 40px); }
+    nav { grid-template-columns: 1fr auto auto; gap: 10px; height: 70px; }
+    nav ul, .navr a:not(.btn) { display: none; }
+    .logo { font-size: 28px; }
+    .logo small { display: none; }
+    .navr .btn { height: 40px; padding: 0 16px; font-size: 13px; }
+    .burger { display: grid; gap: 5px; width: 40px; height: 40px; place-content: center; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(244,234,216,.4); }
+    .burger i { width: 16px; height: 1.5px; background: var(--cream); }
+    .hero { height: 760px; }
+    .hero .concept-tag { top: 84px; left: 20px; right: auto; }
+    .hero .wrap { padding-bottom: 40px; }
+    .hero h1 { font-size: 64px; }
+    .hero-row { grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-top: 28px; }
+    .hero-row p { grid-column: 1 / -1; font-size: 15.5px; }
+    .hero-row .btn { grid-column: 1 / -1; }
+    .hero-row div { font-size: 12.5px; }
+    .sec { padding: 76px 0; }
+    .kitchen, .reserve { grid-template-columns: 1fr; gap: 50px; }
+    .kitchen h2, .reserve h2 { font-size: 48px; }
+    .kitchen .lead { font-size: 16px; }
+    .sigs { gap: 16px; }
+    .sigs b { font-size: 22px; }
+    .kitchen-art { height: 440px; }
+    .kitchen-art .a { right: 50px; border-radius: 220px 220px 0 0; }
+    .kitchen-art .b { width: 150px; height: 150px; bottom: -24px; outline-width: 8px; }
+    .mhead { flex-direction: column; align-items: start; gap: 20px; margin-bottom: 40px; }
+    .mhead h2 { font-size: 52px; }
+    .courses { grid-template-columns: 1fr; gap: 48px; }
+    .mfoot { flex-direction: column; gap: 18px; align-items: start; }
+    .chips { flex-wrap: wrap; }
+    .panel { padding: 26px 18px; }
+    .fields { grid-template-columns: 1fr 1fr; }
+    .fields div:first-child { grid-column: span 2; }
+    .times { grid-template-columns: repeat(3, 1fr); }
+    .seat { grid-template-columns: 1fr; }
+    .rimg { height: 220px; }
+    .tea .wrap { grid-template-columns: 1fr 1fr; gap: 14px; }
+    .tea .mid { grid-column: 1 / -1; order: -1; padding: 0 0 20px; }
+    .tea h2 { font-size: 44px; }
+    .tea .ph.r { margin-top: 50px; }
+    .private { grid-template-columns: 1fr; }
+    .private .ph { min-height: 280px; height: 280px; }
+    .private .body { padding: 44px 22px 50px; }
+    .private h2 { font-size: 40px; }
+    .private ul { grid-template-columns: 1fr; }
+    .gal { grid-template-columns: 1fr 1fr; grid-template-rows: 220px 160px 160px; gap: 10px; }
+    .gal .t, .gal .w { grid-row: auto; grid-column: span 2; }
+    .gal div:nth-child(n+5) { display: none; }
+    .ft { grid-template-columns: 1fr 1fr; gap: 36px 20px; }
+    .ft > div:first-child { grid-column: 1 / -1; }
+    .legal { flex-direction: column; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+  <header class="top"><div class="wrap">
+    <nav>
+      <div class="logo">Anar<small>Dining room</small></div>
+      <ul><li>Menu</li><li>Our kitchen</li><li>Tea</li><li>Private dining</li><li>Visit</li></ul>
+      <div class="navr"><a>Gift cards</a><a class="btn">Reserve a table</a><span class="burger"><i></i><i></i></span></div>
+    </nav>
+  </div></header>
+
+  <section class="hero" data-shot="hero">
+    <img src="/tools/photos/anar/out/room-lights.jpg" alt="">
+    <span class="concept-tag">Concept study · P. DESIGN</span>
+    <div class="wrap">
+      <p class="kicker">Persian kitchen · Wood fire · Saffron</p>
+      <h1 class="serif">A table set for <em>slow evenings.</em></h1>
+      <div class="hero-row">
+        <p>Recipes from the regions of Iran, cooked over fire and served to share — in a room lit for long conversations.</p>
+        <div><b>Dinner</b>Tue – Sun</div>
+        <div><b>Kitchen</b>18:00 – 23:00</div>
+        <div><b>Private room</b>Up to 14 guests</div>
+        <a class="btn">Tables tonight →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" data-shot="kitchen">
+    <div class="wrap kitchen">
+      <div>
+        <p class="kicker" style="color:var(--pom-3)">Our kitchen</p>
+        <h2 class="serif">Old recipes, cooked <em>over open flame.</em></h2>
+        <p class="lead">We cook with the seasons: herbs from the morning market, rice steamed until it forms a golden crust, and pomegranate in almost everything.</p>
+        <div class="sigs">
+          <div><b>Tahdig</b><span>The golden crust of the pot — crisp, buttery, shared at every table.</span></div>
+          <div><b>Saffron</b><span>Ground by hand to order, bloomed slowly, never rushed.</span></div>
+        </div>
+      </div>
+      <div class="kitchen-art">
+        <div class="a"><img src="/tools/photos/anar/out/tahdig.jpg" alt="" style="object-position:50% 50%"></div>
+        <div class="b"><img src="/tools/photos/anar/out/pomegranate-tree.jpg" alt="" style="object-position:50% 40%"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec menu" data-shot="menu">
+    <div class="wrap">
+      <div class="mhead"><div><p class="kicker">Tonight</p><h2 class="serif">From the <em>menu</em></h2></div><p>Dishes are made to share — two or three per guest. Ask us to cook for the table and we will choose for you.</p></div>
+      <div class="courses">
+        <div class="course"><div class="ph"><img src="/tools/photos/anar/out/spread.jpg" alt=""></div><h3>To begin</h3><ul>
+          <li><b>Kashk-e bademjan</b><i>€12</i><span>Smoked aubergine, whey, crisp mint, walnuts</span></li>
+          <li><b>Sabzi khordan</b><i>€9</i><span>Fresh herbs, feta, radish, warm sangak bread</span></li>
+          <li><b>Mast-o khiar</b><i>€8</i><span>Yoghurt, cucumber, dried rose, raisins</span></li></ul></div>
+        <div class="course"><div class="ph"><img src="/tools/photos/anar/out/saffron-plate.jpg" alt=""></div><h3>From the fire</h3><ul>
+          <li><b>Jujeh kabab</b><i>€24</i><span>Saffron and lemon chicken, charred tomato</span></li>
+          <li><b>Ghormeh sabzi</b><i>€22</i><span>Slow herb stew, kidney beans, dried lime</span></li>
+          <li><b>Fesenjan</b><i>€26</i><span>Pomegranate and walnut stew, slow-cooked</span></li></ul></div>
+        <div class="course"><div class="ph"><img src="/tools/photos/anar/out/tahdig-3.jpg" alt=""></div><h3>To share &amp; finish</h3><ul>
+          <li><b>Tahchin</b><i>€19</i><span>Baked saffron rice, barberries, pistachio</span></li>
+          <li><b>Sholeh zard</b><i>€9</i><span>Saffron rice pudding, rosewater, cinnamon</span></li>
+          <li><b>Faloodeh</b><i>€8</i><span>Rosewater sorbet, lime, sour cherry</span></li></ul></div>
+      </div>
+      <div class="mfoot"><div class="chips"><span>Vegetarian options</span><span>Gluten-free rice</span><span>Feast for the table · €58 pp</span></div><a class="btn">See the full menu</a></div>
+    </div>
+  </section>
+
+  <section class="sec" data-shot="reserve">
+    <div class="wrap reserve">
+      <div>
+        <p class="kicker" style="color:var(--pom-3)">Reservations</p>
+        <h2 class="serif">Find your <em>table.</em></h2>
+        <p class="lead">Book up to thirty days ahead. Same-day tables appear here as soon as they free up.</p>
+        <div class="rimg"><img src="/tools/photos/anar/out/room-candle.jpg" alt="" style="object-position:50% 60%"><p>The front room, by candlelight</p></div>
+      </div>
+      <div class="panel">
+        <h3>Tonight, two guests</h3>
+        <div class="fields"><div><small>Date</small><b>Friday, 14 Nov</b></div><div><small>Guests</small><b>2 people</b></div><div><small>Occasion</small><b>None</b></div></div>
+        <p class="lbl"><span>Available times</span><span>6 tables left</span></p>
+        <div class="times"><span class="off">18:00</span><span>18:30</span><span class="on">19:15</span><span>19:45</span><span class="off">20:30</span><span>21:15</span></div>
+        <p class="lbl"><span>Seating</span></p>
+        <div class="seat"><span class="on"><b>Dining room</b><small>By the windows</small></span><span><b>Fire counter</b><small>Watch the kitchen</small></span><span><b>Courtyard</b><small>Heated, covered</small></span></div>
+        <a class="btn btn--dark">Reserve 19:15 for two</a>
+        <p class="fine">No deposit for tables of up to six. Free cancellation until 15:00.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec tea" data-shot="tea">
+    <div class="wrap">
+      <div class="ph"><img src="/tools/photos/anar/out/samovar.jpg" alt="" style="object-position:40% 50%"></div>
+      <div class="mid">
+        <p class="kicker">After dinner</p>
+        <h2 class="serif">Tea from the <em>samovar.</em></h2>
+        <p>Brewed strong, poured clear and served with dates, saffron rock sugar and something sweet. Stay as long as you like.</p>
+        <a class="btn btn--ghost">The tea list</a>
+      </div>
+      <div class="ph r"><img src="/tools/photos/anar/out/tea-pour.jpg" alt="" style="object-position:50% 40%"></div>
+    </div>
+  </section>
+
+  <section class="sec" data-shot="private">
+    <div class="wrap">
+      <div class="private">
+        <div class="ph"><img src="/tools/photos/anar/out/room-wood.jpg" alt=""></div>
+        <div class="body">
+          <p class="kicker" style="color:var(--pom-3)">Private dining</p>
+          <h2 class="serif">A room for <em>fourteen.</em></h2>
+          <p>Birthdays, engagements, long Friday dinners — a set feast cooked for your table, in our room behind the kitchen.</p>
+          <ul><li>Set feasts from €58</li><li>Up to 14 guests</li><li>Your own playlist</li><li>Menus for children</li></ul>
+          <a class="btn btn--dark" style="align-self:start">Enquire about a date</a>
+        </div>
+      </div>
+      <div class="gal">
+        <div class="t"><img src="/tools/photos/anar/out/tahdig-2.jpg" alt=""></div>
+        <div class="w"><img src="/tools/photos/anar/out/spread-2.jpg" alt=""></div>
+        <div><img src="/tools/photos/anar/out/tea-carpet.jpg" alt=""></div>
+        <div><img src="/tools/photos/anar/out/sabzi.jpg" alt=""></div>
+        <div class="w"><img src="/tools/photos/anar/out/table-overhead.jpg" alt="" style="object-position:50% 40%"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="ft">
+        <div><div class="logo">Anar<small>Dining room</small></div><p>A Persian dining room for long dinners and good company.</p></div>
+        <div><h4>Visit</h4><ul><li>Tuesday – Sunday</li><li>18:00 – 23:00</li><li>Address on booking</li></ul></div>
+        <div><h4>Explore</h4><ul><li>Menu</li><li>Private dining</li><li>Gift cards</li></ul></div>
+        <div><h4>Follow</h4><ul><li>Journal</li><li>Newsletter</li></ul></div>
+      </div>
+      <div class="legal"><span>Anar is a fictional restaurant. Photographs: Unsplash (see credits).</span><span>Concept study designed by P. DESIGN</span></div>
+    </div>
+  </footer>
+</body>
+</html>

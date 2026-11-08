@@ -1,0 +1,186 @@
+/* Contact: the page closes on large, quiet type and the address — no decoration. */
+
+.contact {
+  overflow: clip;
+  isolation: isolate;
+  padding-block-end: var(--section-pad);
+  border-block-start: var(--border-hairline);
+}
+
+.contact__inner {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+  row-gap: var(--space-2xl);
+}
+
+.contact__lead {
+  grid-column: 1 / span 7;
+  display: grid;
+  gap: var(--space-l);
+  align-content: start;
+}
+
+/* what to include, and elsewhere: level with the address at its foot, beside the headline */
+.contact__side {
+  grid-column: 9 / -1;
+  align-self: end;
+  display: grid;
+  gap: var(--space-xl);
+}
+
+.contact__title {
+  font-size: clamp(2.5rem, 1.4rem + 4.4vw, 5.75rem);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+  max-inline-size: 12ch;
+}
+
+.contact__title .accent {
+  display: inline-block;
+  font-size: 1.08em;
+  letter-spacing: -0.015em;
+}
+
+.contact__intro {
+  font-size: var(--step-1);
+  line-height: 1.5;
+  color: var(--color-text-muted);
+  max-inline-size: 40ch;
+}
+
+.contact__action {
+  display: grid;
+  gap: var(--space-s);
+  align-content: start;
+  margin-block-start: var(--space-l);
+}
+
+.contact__label {
+  font-size: var(--step--2);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-warm);
+}
+
+.contact__email {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  justify-self: start;
+  max-inline-size: 100%;
+  font-size: clamp(1.5rem, 0.9rem + 2.8vw, 3.25rem);
+  font-weight: var(--weight-light);
+  letter-spacing: var(--tracking-tight);
+  line-height: 1.15;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  background: linear-gradient(currentColor, currentColor) left bottom / 100% 1px no-repeat;
+  padding-block-end: 0.12em;
+  transition: color var(--dur-base) var(--ease-out);
+}
+
+.contact__email .icon {
+  flex: none;
+  font-size: 0.7em;
+  color: var(--color-accent);
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+@media (hover: hover) {
+  .contact__email:hover {
+    color: var(--color-accent);
+  }
+
+  .contact__email:hover .icon {
+    transform: translate(3px, -3px);
+  }
+}
+
+.contact__tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-s);
+  margin-block-start: var(--space-s);
+}
+
+html:not(.js) .contact__copy {
+  display: none;
+}
+
+.contact__social {
+  display: grid;
+  gap: var(--space-xs);
+}
+
+.contact__social ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.contact__social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  min-block-size: 2.75rem;
+  padding: 0.55em 1.05em;
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-pill);
+  font-size: var(--step--1);
+  text-decoration: none;
+  transition:
+    border-color var(--dur-base) var(--ease-out),
+    background-color var(--dur-base) var(--ease-out);
+}
+
+.contact__social .icon {
+  font-size: 1.1em;
+}
+
+.contact__social .contact__social-arrow {
+  font-size: 0.85em;
+  color: var(--color-text-subtle);
+  transition: transform var(--dur-base) var(--ease-out), color var(--dur-base) var(--ease-out);
+}
+
+@media (hover: hover) {
+  .contact__social a:hover {
+    border-color: var(--color-text);
+    background: rgb(242 240 233 / 0.05);
+  }
+
+  .contact__social a:hover .contact__social-arrow {
+    color: var(--color-text);
+    transform: translate(2px, -2px);
+  }
+}
+
+.contact__checklist ol {
+  display: grid;
+  margin-block-start: var(--space-s);
+}
+
+.contact__checklist li {
+  display: flex;
+  gap: var(--space-s);
+  padding-block: var(--space-xs);
+  border-block-end: var(--border-hairline);
+  font-size: var(--step--1);
+  color: var(--color-text-muted);
+}
+
+.contact__check-num {
+  flex: none;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text-subtle);
+}
+
+@media (max-width: 900px) {
+  .contact__lead,
+  .contact__side {
+    grid-column: 1 / -1;
+  }
+}

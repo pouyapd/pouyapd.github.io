@@ -1,0 +1,104 @@
+<!doctype html>
+<!-- Concept study: Meridian Atelier, a fictional architecture practice (Services → web design preview). -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meridian Atelier — concept</title>
+<link rel="stylesheet" href="./fonts.css">
+<style>
+  :root { --stone: #e9e5dd; --stone-2: #dcd6cb; --ink: #151515; --muted: #6f6a62; --bronze: #8a6f4e; }
+  body { background: var(--stone); color: var(--ink); font: 400 16px/1.6 'Manrope', sans-serif; }
+  .wrap { width: min(1320px, 100% - 64px); margin-inline: auto; }
+  .cap { font: 600 11px/1 'Manrope'; letter-spacing: .24em; text-transform: uppercase; }
+  nav { display: grid; grid-template-columns: 1fr auto auto; gap: 48px; align-items: center; height: 88px; border-bottom: 1px solid rgba(21,21,21,.12); }
+  .logo { font: 700 15px/1 'Manrope'; letter-spacing: .3em; text-transform: uppercase; }
+  .logo span { color: var(--bronze); }
+  nav ul { display: flex; gap: 40px; } nav ul li { font: 500 13px 'Manrope'; letter-spacing: .08em; }
+  .hero { display: grid; grid-template-columns: 5fr 7fr; gap: 0; min-height: 760px; border-bottom: 1px solid rgba(21,21,21,.12); }
+  .hero .text { padding: 90px 60px 60px 0; display: flex; flex-direction: column; justify-content: space-between; }
+  .hero h1 { font: 300 84px/.98 'Manrope'; letter-spacing: -0.045em; }
+  .hero h1 b { font-weight: 600; }
+  .hero p { max-width: 34ch; color: var(--muted); font-size: 17px; margin-top: 30px; }
+  .hero .meta { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding-top: 30px; border-top: 1px solid rgba(21,21,21,.12); }
+  .hero .meta div { font-size: 14px; color: var(--muted); } .hero .meta b { display: block; color: var(--ink); font-weight: 600; font-size: 28px; letter-spacing: -0.02em; }
+  .hero figure { position: relative; } .hero figure img { width: 100%; height: 100%; object-fit: cover; }
+  .hero figcaption { position: absolute; left: 24px; bottom: 24px; display: flex; gap: 14px; align-items: center; }
+  .hero figcaption span:last-child { color: #f2f0e9; font: 500 13px 'Manrope'; letter-spacing: .06em; }
+
+  .index { padding: 110px 0; }
+  .index header { display: flex; justify-content: space-between; align-items: end; margin-bottom: 40px; }
+  .index h2 { font: 300 54px/1 'Manrope'; letter-spacing: -0.04em; }
+  .proj { display: grid; grid-template-columns: 70px 2fr 1.2fr 1fr 120px; align-items: center; padding: 26px 0; border-top: 1px solid rgba(21,21,21,.14); font-size: 15px; }
+  .proj:last-child { border-bottom: 1px solid rgba(21,21,21,.14); }
+  .proj h3 { font: 400 28px/1.1 'Manrope'; letter-spacing: -0.03em; }
+  .proj .n, .proj .y { color: var(--muted); } .proj .y { text-align: right; }
+  .proj.on { background: var(--ink); color: var(--stone); padding-inline: 20px; margin-inline: -20px; }
+  .proj.on .n, .proj.on .y { color: #b9b2a6; }
+
+  .tiles { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 16px; padding-bottom: 110px; }
+  .tile img { width: 100%; height: 460px; object-fit: cover; }
+  .tile p { display: flex; justify-content: space-between; margin-top: 14px; font-size: 14px; } .tile p span { color: var(--muted); }
+
+  .practice { background: var(--ink); color: var(--stone); padding: 120px 0; }
+  .practice .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+  .practice h2 { font: 300 60px/1.02 'Manrope'; letter-spacing: -0.04em; }
+  .practice h2 b { font-weight: 600; color: #c9ae86; }
+  .practice p { color: #b9b2a6; font-size: 17px; max-width: 46ch; }
+  .practice ul { margin-top: 40px; border-top: 1px solid rgba(233,229,221,.14); }
+  .practice li { display: flex; justify-content: space-between; padding: 18px 0; border-bottom: 1px solid rgba(233,229,221,.14); }
+  footer { padding: 70px 0 40px; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; }
+  footer h4 { margin: 0 0 14px; } footer li { color: var(--muted); font-size: 14px; margin-bottom: 8px; }
+  .legal { display: flex; justify-content: space-between; padding: 24px 0 40px; border-top: 1px solid rgba(21,21,21,.12); color: var(--muted); font-size: 12px; }
+
+  @media (max-width: 700px) {
+    .wrap { width: calc(100% - 40px); }
+    nav { grid-template-columns: 1fr auto; height: 64px; } nav ul { display: none; }
+    .hero { grid-template-columns: 1fr; } .hero figure { order: -1; height: 380px; margin-inline: -20px; }
+    .hero .text { padding: 40px 0; gap: 40px; } .hero h1 { font-size: 46px; }
+    .index { padding: 70px 0; } .index h2 { font-size: 36px; }
+    .proj { grid-template-columns: 40px 1fr auto; } .proj .t { display: none; } .proj .c { display: none; } .proj h3 { font-size: 22px; }
+    .tiles { grid-template-columns: 1fr; } .tile img { height: 260px; }
+    .practice { padding: 70px 0; } .practice .grid { grid-template-columns: 1fr; gap: 30px; } .practice h2 { font-size: 38px; }
+    footer { grid-template-columns: 1fr 1fr; } .legal { flex-direction: column; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <nav><div class="logo">Meridian <span>Atelier</span></div><ul><li data-target=".index">Projects</li><li data-target=".practice">Practice</li><li data-target=".tiles">Journal</li><li data-target="footer">Contact</li></ul><span class="cap">Menu ＋</span></nav>
+    <section class="hero">
+      <div class="text">
+        <div><p class="cap" style="color:var(--bronze)">Architecture &amp; interiors</p><h1 style="margin-top:28px">Buildings shaped by <b>light and procession.</b></h1><p>A small practice designing houses, galleries and quiet public rooms — places that unfold slowly as you move through them.</p></div>
+        <div class="meta"><div><b>Houses</b>Private residences</div><div><b>Culture</b>Galleries &amp; pavilions</div></div>
+      </div>
+      <figure><img src="/tools/references/out/architecture-house.png" alt="" style="object-position:58% 50%"><figcaption><span class="concept-tag">Concept study · P. DESIGN</span><span>Courtyard house — reference image</span></figcaption></figure>
+    </section>
+  </div>
+  <div class="wrap">
+    <section class="index">
+      <header><h2>Selected projects</h2><span class="cap">Index · 06</span></header>
+      <div class="proj"><span class="n">01</span><h3>Colonnade Pavilion</h3><span class="t">Culture</span><span class="c">Waterfront</span><span class="y">Study</span></div>
+      <div class="proj on"><span class="n">02</span><h3>Courtyard House</h3><span class="t">Residential</span><span class="c">Hillside</span><span class="y">Study</span></div>
+      <div class="proj"><span class="n">03</span><h3>Gate of Light</h3><span class="t">Hospitality</span><span class="c">Coastal</span><span class="y">Study</span></div>
+      <div class="proj"><span class="n">04</span><h3>Field of Plinths</h3><span class="t">Urban</span><span class="c">Masterplan</span><span class="y">Study</span></div>
+    </section>
+    <section class="tiles">
+      <div class="tile"><img src="/tools/references/out/architecture-cantilever.png" alt=""><p>Courtyard House <span>Residential</span></p></div>
+      <div class="tile"><img src="/tools/references/out/architecture-living.png" alt=""><p>Living level <span>Interiors</span></p></div>
+      <div class="tile"><img src="/tools/references/out/architecture-garden.png" alt=""><p>Olive courtyard <span>Landscape</span></p></div>
+    </section>
+  </div>
+  <section class="practice">
+    <div class="wrap grid">
+      <h2>We design the <b>walk</b> as carefully as the walls.</h2>
+      <div><p>Each project starts with how a visitor arrives, pauses and leaves. Light, thresholds and materials follow from that path.</p>
+        <ul><li><span>Architecture</span><span>→</span></li><li><span>Interiors</span><span>→</span></li><li><span>Landscape</span><span>→</span></li></ul></div>
+    </div>
+  </section>
+  <div class="wrap">
+    <footer><div><div class="logo">Meridian <span>Atelier</span></div></div><div><h4 class="cap">Studio</h4><ul><li>Practice</li><li>Journal</li></ul></div><div><h4 class="cap">Contact</h4><ul><li>Enquiries</li><li>Careers</li></ul></div></footer>
+    <div class="legal"><span>Meridian Atelier is a fictional practice.</span><span>Concept study designed by P. DESIGN</span></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!doctype html>
+<!-- Social preview for one project (1200×630): ?slug=<slug>. Rendered to og-<slug>.png by
+     `npm run og`; `npm run assets` then writes public/og/<slug>.jpg. Everything comes from the
+     site itself: the project's colours, sector and captures (src/content/en/projects.ts,
+     media.json) and its name in its own typeface (wordmarks.json). It is labelled as a
+     concept website, as on the site. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  @font-face { font-family: 'Geist'; src: url(/node_modules/@fontsource-variable/geist/files/geist-latin-wght-normal.woff2) format('woff2'); font-weight: 100 900; }
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
+  .card { position: relative; width: 1200px; height: 630px; overflow: hidden; background: var(--stage); color: var(--ink); font-family: Geist, sans-serif; }
+  /* the project's own light, as behind its portfolio card */
+  .card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(60% 80% at 78% 40%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 70%); }
+  .content { position: absolute; left: 72px; top: 64px; bottom: 60px; width: 340px; display: flex; flex-direction: column; justify-content: space-between; }
+  .logo { height: 52px; width: auto; align-self: flex-start; }
+  .meta { margin: 0 0 22px; font-size: 14px; font-weight: 500; letter-spacing: .14em; line-height: 1.5; text-transform: uppercase; color: color-mix(in srgb, var(--ink) 66%, transparent); }
+  /* sized in the script: 74 px tall, or narrower names fit the 340 px column */
+  .mark { display: block; }
+  .mark path { fill: var(--ink); }
+  .label { display: flex; gap: 14px; align-items: center; margin: 0; font-size: 17px; color: color-mix(in srgb, var(--ink) 78%, transparent); }
+  .label::before { content: ''; width: 28px; height: 1px; background: var(--accent); }
+  .browser { position: absolute; left: 540px; top: 92px; width: 760px; height: 476px; border-radius: 12px; overflow: hidden; background: #15171a;
+    box-shadow: 0 0 0 1px rgb(255 255 255 / .08), 0 40px 80px -30px rgb(0 0 0 / .6); }
+  .bar { height: 34px; display: flex; align-items: center; gap: 8px; padding: 0 16px; background: #1c1f23; }
+  .bar i { width: 10px; height: 10px; border-radius: 50%; background: rgb(255 255 255 / .18); }
+  .bar span { margin: 0 auto; padding: 4px 18px; border-radius: 99px; background: rgb(255 255 255 / .07); color: rgb(242 240 233 / .6); font-size: 13px; transform: translateX(-26px); }
+  .shot { display: block; width: 100%; height: calc(100% - 34px); object-fit: cover; object-position: 50% 0; }
+  .phone { position: absolute; left: 468px; top: 262px; width: 170px; height: 352px; padding: 8px; border-radius: 30px; background: linear-gradient(145deg, #2c2f33, #0f1012);
+    box-shadow: 0 0 0 1px rgb(255 255 255 / .1), 0 30px 60px -20px rgb(0 0 0 / .7); }
+  .phone img { display: block; width: 100%; height: 100%; border-radius: 22px; object-fit: cover; object-position: 50% 0; }
+</style>
+</head>
+<body>
+  <div class="card" id="card">
+    <div class="content">
+      <img class="logo" id="logo" alt="">
+      <div>
+        <p class="meta" id="sector"></p>
+        <svg class="mark" id="mark" aria-hidden="true"><path id="mark-path" /></svg>
+      </div>
+      <p class="label">Concept website by P. DESIGN</p>
+    </div>
+    <div class="browser"><div class="bar"><i></i><i></i><i></i><span id="url"></span></div><img class="shot" id="desktop" alt=""></div>
+    <div class="phone"><img id="mobile" alt=""></div>
+  </div>
+  <script type="module">
+    import { sites } from '/src/content/en/projects.ts'
+    import marks from '/src/content/generated/wordmarks.json'
+    import media from '/src/content/generated/media.json'
+    import { isLight } from '/src/app/style.ts'
+
+    const slug = new URLSearchParams(location.search).get('slug')
+    const site = sites.find((s) => s.slug === slug)
+    const card = document.getElementById('card')
+    for (const k of ['stage', 'ink', 'accent']) card.style.setProperty(`--${k}`, site[k])
+    document.getElementById('logo').src = isLight(site.stage) ? '/brand/logo-ink.svg' : '/brand/logo.svg'
+    document.getElementById('sector').textContent = site.sector
+    document.getElementById('url').textContent = site.url
+    const m = marks[slug]
+    const mark = document.getElementById('mark')
+    mark.setAttribute('viewBox', m.viewBox)
+    const [, , vw, vh] = m.viewBox.split(/\s+/).map(Number)
+    const h = Math.min(74, (340 * vh) / vw)
+    mark.style.height = `${h}px`
+    mark.style.width = `${(h * vw) / vh}px`
+    document.getElementById('mark-path').setAttribute('d', m.d)
+    // the largest width of each capture, never enlarged
+    const src = (name) => `/media/sites/${name}-${media.sites[name].widths.at(-1)}.webp`
+    document.getElementById('desktop').src = src(`${site.preview}-desktop`)
+    document.getElementById('mobile').src = src(`${site.preview}-mobile`)
+    await Promise.all([...document.images].map((i) => i.decode()))
+    await document.fonts.ready
+    window.__ready = true
+  </script>
+</body>
+</html>

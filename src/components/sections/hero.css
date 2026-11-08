@@ -1,0 +1,502 @@
+/* Hero ---------------------------------------------------------------------
+   One image, used as supplied (tools/hero/sunset-portal.png): a monumental
+   stone gateway in still water at sunset, the sun in the arch, a small figure
+   on the walkway. The architecture stays on the right; the copy sits on the
+   image's darkest part, the open sky on the left, with only a light shade
+   behind it.
+   Landscape and tablets: the whole image, object-fit: cover.
+   Phones held upright: a crop of the same image (the figure, the arch and the
+   sun) as a band at the top, the copy below it over the water.
+   Motion: the image settles very slowly into its framing once, on arrival
+   (transform only, no repaint); nothing moves with reduced motion. */
+
+.hero {
+  --enter-base: 300ms;
+  /* where the composition sits inside the cover crop: keep the gateway and the figure */
+  --frame: 64% 38%;
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  min-block-size: max(100svh, 40rem);
+  overflow: clip;
+  isolation: isolate;
+  background: var(--color-bg);
+}
+
+.hero__stage {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  /* the blurred copy of the image, until it has loaded */
+  background: var(--ph) var(--frame) / cover no-repeat;
+}
+
+.hero__still,
+.hero__still img {
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.hero__still img {
+  object-fit: cover;
+  object-position: var(--frame);
+}
+
+/* A light shade, not a filter: a little depth under the header, a soft fall-off
+   behind the copy on the left, and a short hand-off into the page below.
+   The gateway, the sun and the figure are never under it. */
+.hero__shade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom, rgb(var(--color-scrim) / 0.5) 0%, rgb(var(--color-scrim) / 0.16) 11%, transparent 20%),
+    linear-gradient(90deg, rgb(var(--color-scrim) / 0.58) 0%, rgb(var(--color-scrim) / 0.44) 24%, rgb(var(--color-scrim) / 0.18) 40%, transparent 54%),
+    linear-gradient(to top, var(--color-bg) 0%, rgb(var(--color-scrim) / 0.4) 5%, transparent 13%);
+}
+
+.hero__inner {
+  position: relative;
+  z-index: var(--z-content);
+  align-self: center;
+  padding-block: calc(var(--header-h) + var(--space-l)) var(--space-xl);
+}
+
+.hero__content {
+  max-inline-size: min(48rem, 58vw);
+}
+
+/* eyebrow: the studio in one quiet line, warm stone like the stone in the image */
+.hero .hero__id {
+  margin-block-end: var(--space-l);
+  color: var(--color-warm);
+  font-size: 0.6875rem;
+  letter-spacing: 0.26em;
+}
+
+.hero .hero__id::before {
+  inline-size: 2.25rem;
+  opacity: 0.7;
+}
+
+.hero__title {
+  font-size: clamp(2.6rem, 0.9rem + 3.9vw, 5.1rem);
+  font-weight: var(--weight-light);
+  line-height: 1.02;
+  letter-spacing: -0.042em;
+  text-wrap: initial;
+}
+
+.hero__line {
+  display: block;
+  overflow: clip;
+  padding-block-end: 0.12em;
+  margin-block-end: -0.12em;
+}
+
+.hero__line-inner {
+  display: inline-block;
+}
+
+/* the one serif word: Instrument Serif italic, set a touch larger so its x-height meets Geist's */
+.hero__accent {
+  font-size: 1.12em;
+  line-height: 0.9;
+  letter-spacing: -0.012em;
+  padding-inline-end: 0.04em;
+}
+
+.hero__intro {
+  max-inline-size: 36ch;
+  margin-block-start: var(--space-xl);
+  color: rgb(242 240 233 / 0.86);
+  font-size: var(--step-0);
+  line-height: 1.62;
+  text-wrap: pretty;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-m) var(--space-xl);
+  margin-block-start: var(--space-xl);
+}
+
+.hero__actions .arrow-link {
+  color: var(--color-text);
+}
+
+/* footer row: the scroll cue ----------------------------------------------- */
+
+.hero__footer {
+  position: relative;
+  z-index: var(--z-content);
+  display: flex;
+  align-items: flex-end;
+  padding-block-end: var(--space-l);
+}
+
+.scroll-cue {
+  display: inline-grid;
+  justify-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-2xs);
+  margin: calc(var(--space-2xs) * -1);
+  text-decoration: none;
+  color: var(--color-text-muted);
+  font-size: 0.625rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.scroll-cue__track {
+  position: relative;
+  inline-size: 1px;
+  block-size: 3.25rem;
+  background: linear-gradient(to bottom, var(--color-line-strong), transparent);
+  overflow: hidden;
+}
+
+.scroll-cue__dot {
+  position: absolute;
+  inset-inline-start: -2px;
+  inset-block-start: 0;
+  inline-size: 5px;
+  block-size: 5px;
+  border-radius: 50%;
+  background: var(--color-text);
+}
+
+@media (hover: hover) {
+  .scroll-cue:hover {
+    color: var(--color-text);
+  }
+}
+
+/* entrance: the copy arrives line by line; the image fades up from its blurred copy and settles */
+@media (prefers-reduced-motion: no-preference) {
+  .hero [data-enter] {
+    animation: hero-rise 1s var(--ease-out) backwards;
+    animation-delay: calc(var(--enter-base) + var(--i, 0) * 110ms);
+  }
+
+  .hero .hero__line-inner[data-enter] {
+    animation-name: hero-line;
+    animation-duration: 1.2s;
+  }
+
+  .hero__still img {
+    animation: still-in 0.9s var(--ease-out) backwards;
+  }
+
+  /* one slow settle into the final framing (about 3 %), then still; it grows from the top edge,
+     so the top of the portal never rises into the header */
+  .hero__still {
+    transform-origin: 66% 0%;
+    animation: hero-settle 22s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  }
+
+  .scroll-cue__dot {
+    animation: cue-fall 2.4s var(--ease-in-out) 2s infinite;
+  }
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+  }
+}
+
+@keyframes hero-line {
+  from {
+    transform: translate3d(0, 105%, 0);
+  }
+}
+
+@keyframes still-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes hero-settle {
+  from {
+    transform: scale(1.035);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes cue-fall {
+  0% {
+    transform: translateY(-6px);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  80%,
+  100% {
+    transform: translateY(3.25rem);
+    opacity: 0;
+  }
+}
+
+/* layouts ------------------------------------------------------------------ */
+
+/* wider than 16:9 (most desktop browser windows, once toolbars are subtracted): the crop takes only the
+   water at the bottom, so the top of the portal keeps clear of the navigation */
+@media (min-aspect-ratio: 16/9) {
+  .hero {
+    --frame: 64% 0%;
+  }
+}
+
+/* squarer landscape screens (4:3, 3:2): the crop takes more from the right, so the figure keeps clear of the copy */
+@media (max-aspect-ratio: 3/2) and (min-aspect-ratio: 4/5) {
+  .hero {
+    --frame: 40% 38%;
+  }
+}
+
+/* short landscape screens (phones on their side): smaller type, the copy higher */
+@media (max-height: 34rem) and (min-aspect-ratio: 4/5) {
+  .hero {
+    --frame: 64% 38%;
+    min-block-size: 100svh;
+  }
+
+  .hero__inner {
+    padding-block: calc(var(--header-h) + var(--space-2xs)) var(--space-m);
+  }
+
+  .hero .hero__id {
+    margin-block-end: var(--space-s);
+    letter-spacing: 0.18em;
+  }
+
+  .hero__title {
+    font-size: clamp(1.9rem, 0.6rem + 2.6vw, 3.2rem);
+  }
+
+  .hero__intro {
+    max-inline-size: 44ch;
+    margin-block-start: var(--space-s);
+    font-size: var(--step--1);
+  }
+
+  /* the copy takes a larger share of the width here, so the shade reaches a little further */
+  .hero__shade {
+    background:
+      linear-gradient(to bottom, rgb(var(--color-scrim) / 0.5) 0%, rgb(var(--color-scrim) / 0.16) 16%, transparent 28%),
+      linear-gradient(90deg, rgb(var(--color-scrim) / 0.66) 0%, rgb(var(--color-scrim) / 0.54) 30%, rgb(var(--color-scrim) / 0.3) 48%, transparent 64%);
+  }
+
+  /* compact actions: the row stays clear of the figure (on these screens the image cannot crop sideways) */
+  .hero__actions {
+    gap: var(--space-s);
+    margin-block-start: var(--space-m);
+  }
+
+  .hero__actions .btn {
+    --btn-h: 2.75rem;
+    --btn-pad: 1.1rem;
+  }
+
+  .hero__actions .arrow-link {
+    gap: var(--space-xs);
+    letter-spacing: 0.1em;
+  }
+
+  .hero__actions .arrow-link__ring {
+    inline-size: 2.75rem;
+    block-size: 2.75rem;
+  }
+
+  .hero__footer {
+    display: none;
+  }
+}
+
+/* small phones on their side: the copy keeps to the left half, clear of the gateway */
+@media (max-height: 34rem) and (min-aspect-ratio: 4/5) and (max-width: 50rem) {
+  .hero__content {
+    max-inline-size: 54vw;
+  }
+
+  /* here the copy covers half the picture: a soft local shade behind it, gone before the figure */
+  .hero__shade {
+    background:
+      linear-gradient(to bottom, rgb(var(--color-scrim) / 0.62) 0%, rgb(var(--color-scrim) / 0.22) 18%, transparent 30%),
+      radial-gradient(ellipse 62% 75% at 18% 58%, rgb(var(--color-scrim) / 0.42), transparent 72%),
+      linear-gradient(90deg, rgb(var(--color-scrim) / 0.66) 0%, rgb(var(--color-scrim) / 0.54) 30%, rgb(var(--color-scrim) / 0.3) 48%, transparent 64%);
+  }
+
+  .hero .hero__id {
+    font-size: 0.5625rem;
+    letter-spacing: 0.14em;
+  }
+
+  .hero .hero__id::before {
+    display: none;
+  }
+
+  .hero__title {
+    font-size: clamp(1.6rem, 4.3vw, 2.1rem);
+  }
+
+  .hero__intro {
+    max-inline-size: 38ch;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+  }
+
+  .hero__actions .btn {
+    --btn-h: 2.5rem;
+    --btn-pad: 1rem;
+  }
+
+  .hero__actions .arrow-link__ring {
+    inline-size: 2.5rem;
+    block-size: 2.5rem;
+  }
+}
+
+/* upright screens: the image as a band at the top, the copy below it over the water */
+@media (max-aspect-ratio: 4/5) {
+  .hero {
+    --frame: 84% 50%;
+    display: flex;
+    flex-direction: column;
+    min-block-size: 0;
+  }
+
+  .hero__stage {
+    position: relative;
+    inset: auto;
+    flex: none;
+    inline-size: 100%;
+    aspect-ratio: 1.3;
+  }
+
+  .hero__shade {
+    background:
+      linear-gradient(to bottom, rgb(var(--color-scrim) / 0.55) 0%, rgb(var(--color-scrim) / 0.12) 14%, transparent 24%),
+      linear-gradient(to top, var(--color-bg) 0%, rgb(var(--color-scrim) / 0.6) 12%, transparent 30%);
+  }
+
+  .hero__inner {
+    align-self: stretch;
+    margin-block-start: calc(var(--space-2xl) * -1);
+    padding-block: 0 var(--space-2xl);
+  }
+
+  .hero__content {
+    max-inline-size: 38rem;
+  }
+
+  .hero__footer {
+    display: none;
+  }
+
+  .hero__title {
+    font-size: clamp(2.1rem, 0.4rem + 6.6vw, 4rem);
+  }
+
+  .hero__intro {
+    margin-block-start: var(--space-l);
+  }
+
+  .hero__actions {
+    margin-block-start: var(--space-l);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .hero__still {
+      transform-origin: 70% 60%;
+    }
+  }
+}
+
+/* phones held upright: the picture starts below the header, so the logo and the menu sit on the dark ground and
+   the top of the portal stays free. The band is the whole image, framed on the figure, the portal and the sun;
+   it is never taller than leaves room for the enquiry on the first screen (17rem: the copy down to the button). */
+@media (max-aspect-ratio: 4/5) and (max-width: 40em) {
+  .hero {
+    --frame: 73% 0%;
+    padding-block-start: var(--header-h);
+  }
+
+  .hero__stage {
+    aspect-ratio: 1.05;
+    max-block-size: max(calc(100svh - var(--header-h) - 17rem), 46vw);
+  }
+
+  /* a short blend from the dark ground into the sky at the top, and the hand-off to the copy at the bottom */
+  .hero__shade {
+    background:
+      linear-gradient(to bottom, var(--color-bg) 0%, rgb(var(--color-scrim) / 0) 5%),
+      linear-gradient(to top, var(--color-bg) 0%, rgb(var(--color-scrim) / 0.6) 12%, transparent 30%);
+  }
+
+  .hero__inner {
+    margin-block-start: calc(var(--space-xl) * -1);
+    padding-block-end: var(--space-xl);
+  }
+
+  .hero .hero__id {
+    margin-block-end: var(--space-s);
+    font-size: 0.625rem;
+    letter-spacing: 0.2em;
+  }
+
+  .hero .hero__id::before {
+    inline-size: 1.25rem;
+  }
+
+  .hero__title {
+    font-size: clamp(1.9rem, 9.3vw, 2.6rem);
+    letter-spacing: -0.04em;
+  }
+
+  .hero__intro {
+    margin-block-start: var(--space-s);
+    font-size: 0.9375rem;
+    line-height: 1.58;
+  }
+
+  .hero__actions {
+    gap: var(--space-s) var(--space-l);
+    margin-block-start: var(--space-l);
+  }
+}
+
+/* tall phones (HERO_PORTRAIT in Hero.tsx): the portrait crop — the figure, the arch, the sun, larger.
+   The band never cuts the figure (its feet are at 104 % of the width) and otherwise leaves room for the enquiry. */
+@media (max-aspect-ratio: 49/100) and (max-width: 40em) {
+  .hero {
+    --frame: 50% 0%;
+  }
+
+  .hero__stage {
+    aspect-ratio: 680 / 860;
+    max-block-size: max(calc(100svh - var(--header-h) - 17rem), calc(104vw + 1.25rem));
+    background-image: var(--ph-portrait);
+  }
+}
+
+/* narrow phones: the studio line stays on one line */
+@media (max-aspect-ratio: 4/5) and (max-width: 24.5rem) {
+  .hero .hero__id {
+    letter-spacing: 0.16em;
+  }
+
+  .hero .hero__id::before {
+    display: none;
+  }
+}

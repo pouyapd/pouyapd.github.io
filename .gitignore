@@ -1,0 +1,31 @@
+node_modules/
+dist/
+dist-ssr/
+*.local
+.env
+.env.*
+!.env.example
+
+# scene renderer: intermediate PNGs (optimised web assets live in public/media)
+tools/scene/out/
+tools/mockups/out/
+tools/scene/__pycache__/
+.playwright-mcp/
+
+.DS_Store
+Thumbs.db
+tools/posters/out/
+tools/scene/sky/
+tools/captures/out/
+
+# Python caches
+__pycache__/
+*.pyc
+
+# kept on disk, never published:
+# third-party reference images of unknown licence (see tools/references/README.md)
+tools/references/
+# two photographs set aside because they show a real brand's product label
+tools/photos/lune/unused/
+# the retired Meridian capture: unused, and it contains a third-party photograph (tools/references)
+public/media/sites/meridian-*

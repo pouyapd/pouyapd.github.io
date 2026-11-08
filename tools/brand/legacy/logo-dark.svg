@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 632.5 100" role="img" aria-labelledby="t">
+  <title id="t">P. DESIGN</title>
+  <defs><clipPath id="cap"><rect x="0" y="0" width="632.5" height="100"/></clipPath></defs>
+  <path fill="#101315" fill-rule="evenodd" d="M0 0H32A31 31 0 0 1 32 62H26V100H0Z M26 17V45H32A14 14 0 0 0 32 17Z"/>
+  <circle fill="#5B7A1E" cx="79.5" cy="91.5" r="8.5"/>
+  <path fill="none" stroke="#101315" stroke-width="9" stroke-linejoin="miter" stroke-miterlimit="4" clip-path="url(#cap)" d="M136.5 4.5H158.5A45.5 45.5 0 0 1 158.5 95.5H136.5Z M287 4.5H239.5V95.5H287M239.5 50H281 M362.54 15.19A22.75 22.75 0 0 0 343.25 4.50A22.75 22.75 0 0 0 320.50 27.25A22.75 22.75 0 0 0 343.25 50.00A22.75 22.75 0 0 1 366.00 72.75A22.75 22.75 0 0 1 343.25 95.50A22.75 22.75 0 0 1 323.96 84.81 M402.0 -5V105 M519.35 21.99A45.5 45.5 0 1 0 529.0 50V50H487.5 M565.0 105V-5L628.0 105V-5"/>
+</svg>

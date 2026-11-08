@@ -1,0 +1,60 @@
+/* Website demo: a real, scrollable page in a browser frame ------------------ */
+
+.sv-site {
+  position: relative;
+  padding-block-end: 8%;
+  padding-inline-end: 6%;
+}
+
+.sv-site__browser {
+  --vp-ratio: 16 / 10.5;
+}
+
+/* scrolling reaches the page again at either end (no scroll trap on a homepage) */
+.sv-site .page-preview--native {
+  overscroll-behavior: auto;
+  scrollbar-color: rgb(16 19 21 / 0.35) transparent;
+}
+
+.sv-site__phone {
+  position: absolute;
+  inset-inline-end: 0;
+  inset-block-end: 0;
+  inline-size: 21%;
+  pointer-events: none;
+}
+
+/* the captured menu items, made clickable */
+.site-demo__menu {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.site-demo__hot {
+  position: absolute;
+  padding: 0;
+  border: 0;
+  border-radius: 3px;
+  background: transparent;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: background-color var(--dur-fast) var(--ease-soft);
+}
+
+/* a comfortable target even where the capture is small */
+.site-demo__hot::before {
+  content: '';
+  position: absolute;
+  inset: max(-10px, -120%) max(-6px, -20%);
+}
+
+.site-demo__hot:hover,
+.site-demo__hot[aria-current='true'] {
+  background: rgb(138 111 78 / 0.16);
+}
+
+.site-demo__hot:focus-visible {
+  outline: 2px solid #8a6f4e;
+  outline-offset: 3px;
+}

@@ -1,0 +1,120 @@
+/* ==========================================================================
+   P. DESIGN — design tokens
+   Change colours, type and motion here; components only use these variables.
+   Breakpoints (used literally in media queries, CSS can't read vars there):
+     --bp-sm 640px · --bp-md 900px · --bp-lg 1200px · --bp-xl 1600px
+   ========================================================================== */
+
+:root {
+  /* --- palette ---------------------------------------------------------- */
+  --c-charcoal: #101315;
+  --c-charcoal-2: #151a1d;
+  --c-midnight: #202831;
+  --c-slate: #2c3641;
+  --c-ivory: #f2f0e9;
+  --c-stone: #bdb8af; /* warm neutral for labels and fine lines (no second accent colour) */
+  --c-lime: #c5f05c; /* the one accent: actions, focus, the favicon tile */
+  --c-mist: #a6adb3;
+  --c-mist-dim: #8a9299; /* ≥ 4.5:1 on charcoal and on the hero's darkest sky */
+
+  /* semantic */
+  --color-bg: var(--c-charcoal);
+  --color-bg-raised: var(--c-charcoal-2);
+  --color-surface: var(--c-midnight);
+  --color-text: var(--c-ivory);
+  --color-text-muted: var(--c-mist);
+  --color-text-subtle: var(--c-mist-dim);
+  --color-accent: var(--c-lime);
+  --color-warm: var(--c-stone);
+  --color-line: rgb(242 240 233 / 0.12);
+  --color-line-strong: rgb(242 240 233 / 0.24);
+  --color-scrim: 16 19 21; /* rgb channels of --c-charcoal for alpha gradients */
+
+  /* --- typography ------------------------------------------------------- */
+  --font-sans: 'Geist Variable', 'Geist', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-accent: 'Instrument Serif', 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+  /* Persian: add 'Vazirmatn Variable' in front of --font-sans for the fa build. */
+
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+
+  /* fluid type scale — min @ 360px, max @ 1600px */
+  --step--2: clamp(0.6875rem, 0.67rem + 0.08vw, 0.75rem);   /* 11–12  labels */
+  --step--1: clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem);   /* 13–14  small  */
+  --step-0: clamp(1rem, 0.96rem + 0.18vw, 1.125rem);         /* 16–18  body   */
+  --step-1: clamp(1.1875rem, 1.1rem + 0.4vw, 1.5rem);        /* 19–24  lead   */
+  --step-2: clamp(1.5rem, 1.3rem + 0.9vw, 2.25rem);          /* 24–36  h3     */
+  --step-3: clamp(2rem, 1.6rem + 1.9vw, 3.5rem);             /* 32–56  h2     */
+  --step-4: clamp(2.5rem, 1.8rem + 3.2vw, 5rem);             /* 40–80  large  */
+  --step-hero: clamp(2.75rem, 1.6rem + 5.2vw, 7.25rem);      /* 44–116 hero   */
+
+  --leading-tight: 0.98;
+  --leading-snug: 1.15;
+  --leading-body: 1.6;
+  --tracking-display: -0.035em;
+  --tracking-tight: -0.02em;
+  --tracking-label: 0.16em;
+
+  /* --- spacing ---------------------------------------------------------- */
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-s: 1rem;
+  --space-m: 1.5rem;
+  --space-l: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: clamp(3.5rem, 2.8rem + 3vw, 6rem);
+  --space-3xl: clamp(5rem, 3.6rem + 6vw, 10rem);
+  --section-pad: clamp(4.5rem, 3rem + 5vw, 8rem);
+
+  /* --- layout ----------------------------------------------------------- */
+  --content-max: 90rem;          /* 1440px */
+  --content-narrow: 46rem;
+  --gutter: clamp(1.25rem, 0.6rem + 3.2vw, 4.5rem);
+  --grid-columns: 12;
+  --grid-gap: clamp(1rem, 0.6rem + 1.6vw, 2rem);
+  --header-h: clamp(4.25rem, 3.9rem + 1.2vw, 5.5rem);
+
+  /* --- shape ------------------------------------------------------------ */
+  --radius-0: 0;
+  --radius-s: 2px;
+  --radius-m: 6px;
+  --radius-pill: 999px;
+  --border-hairline: 1px solid var(--color-line);
+
+  /* --- elevation / layers ----------------------------------------------- */
+  --z-scene: 0;
+  --z-content: 2;
+  --z-header: 50;
+  --z-dialog: 100;
+  --shadow-soft: 0 30px 80px -30px rgb(0 0 0 / 0.6);
+
+  /* --- motion ----------------------------------------------------------- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);        /* expo-out: arrivals      */
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);    /* symmetric: transitions  */
+  --ease-soft: cubic-bezier(0.33, 1, 0.68, 1);      /* gentle UI feedback      */
+  --dur-fast: 180ms;
+  --dur-base: 420ms;
+  --dur-slow: 900ms;
+  --dur-cinematic: 1600ms;
+  --stagger: 90ms;
+  --reveal-distance: 28px;
+
+  /* --- focus ------------------------------------------------------------ */
+  --focus-ring: 2px solid var(--color-accent);
+  --focus-offset: 3px;
+
+  color-scheme: dark;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 1ms;
+    --dur-base: 1ms;
+    --dur-slow: 1ms;
+    --dur-cinematic: 1ms;
+    --stagger: 0ms;
+    --reveal-distance: 0px;
+  }
+}

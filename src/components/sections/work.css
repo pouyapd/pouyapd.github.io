@@ -1,0 +1,167 @@
+/* Selected work ------------------------------------------------------------
+   Four projects, each in its own colours (--stage, --ink, --accent) and
+   typeface (the wordmark), and each presented in its own way (work/*.tsx,
+   with their own CSS). Shared here: the card, its text and its actions. */
+
+.work {
+  background: var(--color-bg);
+}
+
+.work__cases {
+  display: grid;
+  gap: clamp(1rem, 0.6rem + 1.4vw, 2rem);
+}
+
+/* every card: the project's own colours and an edge for stages close to the page's */
+.case {
+  --pad: clamp(1.5rem, 0.8rem + 3vw, 4rem);
+  position: relative;
+  display: grid;
+  padding: var(--pad);
+  border-radius: 10px;
+  background: var(--stage);
+  color: var(--ink);
+  overflow: clip;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 9%, transparent);
+}
+
+/* the text */
+.case__body {
+  min-inline-size: 0;
+}
+
+.case__meta {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-s);
+  margin: 0;
+  font-size: var(--step--2);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--ink) 80%, transparent);
+}
+
+.case__index {
+  font-variant-numeric: tabular-nums;
+}
+
+.case__title {
+  margin-block: clamp(1rem, 0.7rem + 1.4vw, 1.75rem) var(--space-m);
+  line-height: 1;
+}
+
+.case__link {
+  display: inline-block;
+  color: inherit;
+  text-decoration: none;
+  border-radius: var(--radius-s);
+}
+
+.case__link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 6px;
+}
+
+.wordmark {
+  display: block;
+  block-size: auto;
+}
+
+.case__title--maison-aurel .wordmark {
+  inline-size: clamp(14rem, 9rem + 12vw, 23rem);
+}
+
+.case__title--lune .wordmark {
+  inline-size: clamp(8rem, 5rem + 7vw, 12rem);
+}
+
+.case__title--tensile .wordmark {
+  inline-size: clamp(11rem, 7rem + 10vw, 19rem);
+}
+
+.case__title--p-design .wordmark {
+  inline-size: clamp(12rem, 8rem + 10vw, 20rem);
+}
+
+.case__title--anar .wordmark {
+  inline-size: clamp(8rem, 5rem + 7vw, 12rem);
+}
+
+.case__summary {
+  max-inline-size: 42ch;
+  margin: 0;
+  font-size: var(--step-0);
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--ink) 82%, transparent);
+}
+
+.case__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-s) var(--space-l);
+  margin-block-start: var(--space-l);
+}
+
+/* primary: the working website — solid in the project's ink */
+.case__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7em;
+  min-block-size: 3rem;
+  padding: 0.75em 1.4em;
+  border-radius: var(--radius-pill);
+  background: var(--ink);
+  color: var(--stage);
+  font-size: var(--step--1);
+  font-weight: var(--weight-medium);
+  text-decoration: none;
+  transition: background-color var(--dur-base) var(--ease-out);
+}
+
+.case__cta .icon {
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+@media (hover: hover) {
+  .case__cta:hover {
+    background: color-mix(in srgb, var(--ink) 86%, var(--accent));
+  }
+
+  .case__cta:hover .icon {
+    transform: translateX(3px);
+  }
+}
+
+.case__cta:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+/* secondary: the case study — a quiet text link */
+.case__notes {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 3rem;
+  color: inherit;
+  font-size: var(--step--1);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.35em;
+}
+
+.case__notes:hover {
+  text-decoration-thickness: 2px;
+}
+
+.case__notes:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@media (max-width: 640px) {
+  .case {
+    border-radius: 8px;
+  }
+}

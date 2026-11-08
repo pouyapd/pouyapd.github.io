@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-labelledby="t">
+  <title id="t">P. DESIGN</title>
+  <rect width="48" height="48" rx="11" fill="#C5F05C"/>
+  <g transform="translate(24 24) scale(0.676)">
+  <g fill="none" stroke="#101315" stroke-width="7.2">
+      <path d="M-24.8 0a12.4 12.4 0 1 0 24.8 0a12.4 12.4 0 1 0 -24.8 0"/>
+      <path d="M0 0a12.4 12.4 0 1 0 24.8 0a12.4 12.4 0 1 0 -24.8 0"/>
+      <!-- p: from the x-height to the descender; d: from the baseline to the ascender -->
+      <path d="M-24.8 -15.4V24M24.8 15.4V-24"/>
+    </g>
+  </g>
+</svg>

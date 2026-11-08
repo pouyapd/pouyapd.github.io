@@ -1,0 +1,243 @@
+/* Technique — the Tensile preview. Two rows: the text beside the website (a
+   browser with the whole home page, which glides on hover, and the
+   timetable on a phone), over the club's photograph; then three more pages
+   of the website beside its live technique module, in its own browser
+   frame under the first (it sizes itself in container units). */
+
+.case--technique {
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  grid-template-areas:
+    'text site'
+    'pages demo';
+  gap: clamp(2rem, 1rem + 3vw, 4rem) clamp(2rem, 1rem + 4vw, 5rem);
+  align-items: center;
+  isolation: isolate;
+}
+
+.tech__photo {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  z-index: -1;
+  inline-size: 64%;
+  block-size: 58%;
+}
+
+.tech__photo picture,
+.tech__photo img {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  background-size: cover;
+}
+
+.tech__photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--stage) 60%, transparent) 0%, color-mix(in srgb, var(--stage) 78%, transparent) 55%, var(--stage) 100%),
+    linear-gradient(0deg, var(--stage), transparent 45%);
+}
+
+.tech__text {
+  grid-area: text;
+}
+
+.case__title--tensile .wordmark {
+  inline-size: clamp(13rem, 7rem + 12vw, 22rem);
+}
+
+.tech__text .case__note {
+  max-inline-size: 40ch;
+}
+
+/* the website: the home page in a browser, the timetable on a phone */
+.tech__site {
+  grid-area: site;
+  position: relative;
+  padding-block-end: 6%;
+  padding-inline-start: 9%;
+}
+
+.tech__phone {
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-end: 0;
+  inline-size: 21%;
+  z-index: 2;
+}
+
+.tech__phone picture,
+.tech__phone img {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+/* one part of the website, working */
+.tech__demo {
+  grid-area: demo;
+  align-self: start;
+  /* its width is the frame's: the module stacks when the frame is 560 px or narrower (technique.css) */
+  container: tech-demo / inline-size;
+}
+
+/* A frame that narrow (phones, and the 1001–1240 px layouts) takes its height from the stacked
+   module, so the 3D stage keeps its proportion instead of what a fixed 16:10 frame leaves after the
+   title, the lifts and the cue (93 px tall at 1001 px, 28 px at 320 px). */
+@container tech-demo (max-width: 560px) {
+  .tech__browser--demo .browser__viewport {
+    aspect-ratio: auto;
+    container-type: inline-size;
+  }
+
+  .tech__browser--demo .tq--compact {
+    position: relative;
+    inset: auto;
+    grid-template-rows: auto auto auto;
+  }
+
+  .tech__browser--demo .tq--compact .tq__cues {
+    gap: 6px;
+  }
+
+  /* holds about the module's height until it loads (a 4:3 picture, the title, the lifts and a cue) */
+  .tech__browser--demo .tech__wait {
+    position: static;
+    display: block;
+    block-size: calc(75cqw + 14.4rem);
+  }
+}
+
+/* on a phone the picture is square, as on the Tensile site's own phone layout */
+@container tech-demo (max-width: 440px) {
+  .tech__browser--demo .tq--compact {
+    --tq-pic: 1 / 1;
+  }
+
+  .tech__browser--demo .tech__wait {
+    block-size: calc(46cqw + 27.3rem);
+  }
+}
+
+.tech__wait {
+  position: absolute;
+  inset: 0;
+  background: #0e0f10;
+}
+
+/* three more pages, each a link into the website */
+.tech__pages {
+  grid-area: pages;
+  align-self: start;
+  display: grid;
+  gap: var(--space-s);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tech__pages a {
+  display: grid;
+  grid-template-columns: minmax(0, 11fr) minmax(0, 9fr);
+  gap: var(--space-s);
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+}
+
+.tech__thumb {
+  display: block;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--ink) 14%, transparent);
+  transition: box-shadow 0.3s var(--ease-out);
+}
+
+.tech__thumb picture,
+.tech__thumb img {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+.tech__page {
+  display: grid;
+  gap: 0.2rem;
+  font-size: var(--step--1);
+  line-height: 1.45;
+}
+
+.tech__page span {
+  color: color-mix(in srgb, var(--ink) 72%, transparent);
+}
+
+@media (hover: hover) {
+  .tech__pages a:hover .tech__thumb {
+    box-shadow: 0 0 0 1px var(--accent);
+  }
+
+  .tech__pages a:hover b {
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
+  }
+}
+
+.tech__pages a:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
+@media (max-width: 1000px) {
+  .case--technique {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      'text'
+      'site'
+      'demo'
+      'pages';
+  }
+
+  .tech__photo {
+    inline-size: 100%;
+    block-size: 34%;
+  }
+
+  .tech__photo::after {
+    background: linear-gradient(180deg, color-mix(in srgb, var(--stage) 55%, transparent) 0%, color-mix(in srgb, var(--stage) 80%, transparent) 60%, var(--stage) 100%);
+  }
+
+  .tech__pages {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .tech__pages a {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+  }
+}
+
+@media (max-width: 640px) {
+  .tech__site {
+    padding-inline-start: 12%;
+  }
+
+  .tech__phone {
+    inline-size: 26%;
+  }
+
+  .tech__pages {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .tech__pages a {
+    grid-template-columns: minmax(0, 11fr) minmax(0, 9fr);
+    align-items: center;
+  }
+}

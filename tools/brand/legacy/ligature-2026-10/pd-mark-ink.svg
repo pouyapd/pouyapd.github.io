@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-29 -28 58 56" role="img" aria-labelledby="t">
+  <title id="t">P. DESIGN</title>
+  <g fill="none" stroke="#101315" stroke-width="6">
+    <path d="M-26 0a13 13 0 1 0 26 0a13 13 0 1 0 -26 0"/>
+    <path d="M0 0a13 13 0 1 0 26 0a13 13 0 1 0 -26 0"/>
+    <!-- p: from the x-height to the descender; d: from the baseline to the ascender -->
+    <path d="M-26 -15.5V28M26 15.5V-28"/>
+  </g>
+</svg>

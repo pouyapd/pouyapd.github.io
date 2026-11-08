@@ -1,0 +1,287 @@
+/* Assemble — the Anar Dining Room preview. The text runs across the top;
+   below it, the composition is a size container (cqw), so every card, the
+   browser and the phone scale together. Each capture's layout position is
+   its place in a screen (--b… for the browser, --p… for the phone, --bn…/--pn…
+   on phones); scrollProgress only moves it there from its scattered place. */
+
+.case--assemble {
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(1.5rem, 1rem + 2vw, 3rem);
+}
+
+.assemble__text {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: var(--space-l) clamp(2rem, 1rem + 4vw, 5rem);
+  align-items: end;
+}
+
+.assemble__side {
+  display: grid;
+  gap: var(--space-m);
+}
+
+.assemble__side .case__note,
+.assemble__side .case__actions {
+  margin: 0;
+}
+
+.assemble__links {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-block-start: 1px solid color-mix(in srgb, var(--ink) 16%, transparent);
+  font-size: var(--step--1);
+}
+
+.assemble__links li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 0.75rem;
+  padding-block: 0.6rem;
+  border-block-end: 1px solid color-mix(in srgb, var(--ink) 16%, transparent);
+}
+
+.assemble__links a {
+  min-inline-size: 7.5rem;
+  color: inherit;
+  font-weight: var(--weight-medium);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--accent) 70%, transparent);
+  text-underline-offset: 0.3em;
+}
+
+.assemble__links span {
+  color: color-mix(in srgb, var(--ink) 66%, transparent);
+}
+
+/* the track sets how long the assembly lasts; the pin holds the composition meanwhile */
+.assemble__track {
+  block-size: clamp(1800px, 300vh, 2800px);
+}
+
+.assemble__pin {
+  position: sticky;
+  inset-block-start: 0;
+  display: grid;
+  place-items: center;
+  block-size: 100svh;
+  padding-block: calc(var(--header-h) + 0.5rem) 1.5rem;
+}
+
+.assemble {
+  position: relative;
+  container-type: inline-size;
+  inline-size: min(100%, calc((100svh - var(--header-h) - 2.5rem) / 0.52));
+  aspect-ratio: 100 / 52;
+}
+
+.assemble__card {
+  position: absolute;
+  inset-inline-start: var(--bl);
+  inset-block-start: var(--bt);
+  inline-size: var(--bw);
+  block-size: var(--bh);
+  overflow: hidden;
+  border-radius: 0.5cqw;
+  background: #24140f;
+  box-shadow: 0 2cqw 4cqw -1.5cqw rgb(0 0 0 / 0.55);
+  transform-origin: 50% 50%;
+  transition:
+    border-radius 0.35s var(--ease-out),
+    box-shadow 0.35s var(--ease-out);
+}
+
+.assemble__card--phone {
+  inset-inline-start: var(--pl);
+  inset-block-start: var(--pt);
+  inline-size: var(--pw);
+  block-size: var(--ph);
+  border-radius: 1.8cqw;
+}
+
+.assemble__card picture,
+.assemble__card img {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  background-size: cover;
+}
+
+.assemble__card--desktop[data-landed='true'] {
+  border-radius: 0 0 0.9cqw 0.9cqw;
+}
+
+.assemble__card[data-landed='true'] {
+  box-shadow: none;
+}
+
+.assemble__card:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 4px;
+}
+
+/* the screens appear around the captures once they have arrived */
+.assemble__browser,
+.assemble__phone {
+  position: absolute;
+  opacity: var(--frame, 1);
+  pointer-events: none;
+}
+
+/* stacking: browser body, desktop captures (10+), phone body, phone captures (20+) — so where the
+   phone overlaps the browser, its frame is never hidden under a desktop capture */
+.assemble__browser {
+  z-index: 1;
+}
+
+.assemble__phone {
+  z-index: 19;
+}
+
+.assemble__browser {
+  inset-inline-start: var(--bl);
+  inset-block-start: calc(var(--bt) - 2.6cqw);
+  inline-size: var(--bw);
+  block-size: calc(var(--bh) + 2.6cqw);
+  border-radius: 0.9cqw;
+  background: #1b1512;
+  box-shadow:
+    0 0 0 1px rgb(244 234 216 / 0.12),
+    0 3cqw 6cqw -2.5cqw rgb(0 0 0 / 0.7);
+}
+
+.assemble__bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5cqw;
+  block-size: 2.6cqw;
+  padding-inline: 1cqw;
+}
+
+.assemble__bar i {
+  inline-size: 0.65cqw;
+  block-size: 0.65cqw;
+  border-radius: 50%;
+  background: rgb(244 234 216 / 0.2);
+}
+
+.assemble__bar span {
+  margin-inline: auto;
+  padding: 0.25cqw 1.6cqw;
+  border-radius: 999px;
+  background: rgb(244 234 216 / 0.08);
+  color: rgb(244 234 216 / 0.6);
+  font-size: max(9px, 0.85cqw);
+  letter-spacing: 0.02em;
+  transform: translateX(-1.6cqw);
+}
+
+.assemble__phone {
+  inset-inline-start: calc(var(--pl) - 0.9cqw);
+  inset-block-start: calc(var(--pt) - 0.9cqw);
+  inline-size: calc(var(--pw) + 1.8cqw);
+  block-size: calc(var(--ph) + 1.8cqw);
+  border-radius: 2.6cqw;
+  background: linear-gradient(145deg, #3a2a24, #140d0b);
+  box-shadow:
+    0 0 0 1px rgb(244 234 216 / 0.14),
+    0 3cqw 5cqw -2cqw rgb(0 0 0 / 0.75);
+}
+
+@media (max-width: 900px) {
+  .assemble__text {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* phones and upright tablets (TALL in Assemble.tsx) */
+@media (max-width: 760px), (max-aspect-ratio: 4/5) {
+  .assemble__track {
+    block-size: 260vh;
+  }
+
+  /* taller than wide, so the held composition fills most of a phone screen (see SCREEN.narrow) */
+  .assemble {
+    inline-size: min(100%, calc((100svh - var(--header-h) - 2.5rem) / 1.56));
+    aspect-ratio: 100 / 156;
+  }
+
+  .assemble__card {
+    inset-inline-start: var(--bnl);
+    inset-block-start: var(--bnt);
+    inline-size: var(--bnw);
+    block-size: var(--bnh);
+  }
+
+  .assemble__card--phone {
+    inset-inline-start: var(--pnl);
+    inset-block-start: var(--pnt);
+    inline-size: var(--pnw);
+    block-size: var(--pnh);
+    border-radius: 3.6cqw;
+  }
+
+  .assemble__card--desktop[data-landed='true'] {
+    border-radius: 0 0 1.6cqw 1.6cqw;
+  }
+
+  .assemble__browser {
+    inset-inline-start: var(--bnl);
+    inset-block-start: calc(var(--bnt) - 4.2cqw);
+    inline-size: var(--bnw);
+    block-size: calc(var(--bnh) + 4.2cqw);
+    border-radius: 1.6cqw;
+  }
+
+  .assemble__bar {
+    block-size: 4.2cqw;
+    gap: 0.9cqw;
+    padding-inline: 2cqw;
+  }
+
+  .assemble__bar i {
+    inline-size: 1.1cqw;
+    block-size: 1.1cqw;
+  }
+
+  .assemble__phone {
+    inset-inline-start: calc(var(--pnl) - 1.6cqw);
+    inset-block-start: calc(var(--pnt) - 1.6cqw);
+    inline-size: calc(var(--pnw) + 3.2cqw);
+    block-size: calc(var(--pnh) + 3.2cqw);
+    border-radius: 5cqw;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .assemble__card {
+    transition: none;
+  }
+}
+
+/* reduced motion, or no JavaScript: the finished composition, not held */
+@media (prefers-reduced-motion: reduce) {
+  .assemble__track {
+    block-size: auto;
+  }
+
+  .assemble__pin {
+    position: static;
+    block-size: auto;
+    padding: 0;
+  }
+}
+
+html:not(.js) .assemble__track {
+  block-size: auto;
+}
+
+html:not(.js) .assemble__pin {
+  position: static;
+  block-size: auto;
+  padding: 0;
+}

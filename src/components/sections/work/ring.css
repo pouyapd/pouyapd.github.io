@@ -1,0 +1,143 @@
+/* Ring — the Maison Aurel preview. The website leads: a large browser and a
+   phone over the lower right of the scene, leaning with the pointer
+   (useTilt) and gliding through the page on hover. The ring is the accent:
+   smaller, upper left, standing in a warm pool of light on the card's own
+   dark ground (a transparent canvas, so its contact shadow falls on the
+   card itself). */
+
+.case--ring {
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: clamp(2rem, 1rem + 4vw, 5.5rem);
+  align-items: center;
+}
+
+.ring__scene {
+  position: relative;
+  aspect-ratio: 4 / 3;
+}
+
+/* the light the ring stands in: one soft key from above, falling off into the stage */
+.ring__light {
+  position: absolute;
+  inset: -12% -8% -6% -14%;
+  background:
+    radial-gradient(21% 24% at 17% 22%, color-mix(in srgb, var(--accent) 15%, transparent), transparent 72%),
+    radial-gradient(13% 4.5% at 18% 40%, rgb(0 0 0 / 0.3), transparent 75%);
+  pointer-events: none;
+}
+
+.ring__canvas,
+.ring__still {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  inline-size: 30%;
+  block-size: 41%;
+}
+
+.ring__canvas {
+  touch-action: pan-y;
+  cursor: grab;
+  opacity: 0;
+  transition: opacity 0.9s var(--ease-out);
+}
+
+.ring__canvas:active {
+  cursor: grabbing;
+}
+
+.ring__scene[data-state='live'] .ring__canvas {
+  opacity: 1;
+}
+
+/* a still of the same model until the live one is drawn (and in its place without WebGL): the whole
+   render at the box's height, framed as the live ring is (both 14–90 % of the height); only its own
+   edges fade into the ground, so the whole ring stays, band included */
+.ring__still {
+  display: flex;
+  justify-content: center;
+  transition: opacity 0.9s var(--ease-out);
+}
+
+.ring__still picture {
+  display: contents;
+}
+
+.ring__still img {
+  display: block;
+  inline-size: auto;
+  max-inline-size: none;
+  block-size: 100%;
+  mask-image: radial-gradient(closest-side, #000 84%, transparent 100%);
+}
+
+.ring__scene[data-state='live'] .ring__still {
+  opacity: 0;
+}
+
+/* the real website, over the lower right of the scene */
+.case--ring .case__devices {
+  position: absolute;
+  inset-inline-end: -2%;
+  inset-block-end: 3%;
+  inline-size: 80%;
+  transform: perspective(1400px) rotateX(calc(var(--tilt-y, 0) * -3deg)) rotateY(calc(var(--tilt-x, 0) * 4deg));
+  transition: transform 0.6s var(--ease-out);
+}
+
+.case--ring .case__browser {
+  box-shadow:
+    0 30px 60px -20px rgb(0 0 0 / 0.6),
+    0 10px 24px -12px rgb(0 0 0 / 0.45);
+}
+
+.case--ring .case__phone {
+  position: absolute;
+  inline-size: 21%;
+  inset-inline-start: -9%;
+  inset-block-end: -5%;
+  box-shadow: 0 24px 48px -18px rgb(0 0 0 / 0.65);
+  transition: translate 0.8s var(--ease-out);
+}
+
+.case--ring:is(:hover, :focus-within) .case__phone {
+  translate: 0 -6px;
+}
+
+@media (max-width: 1000px) {
+  .case--ring {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-xl);
+  }
+}
+
+@media (max-width: 640px) {
+  .ring__scene {
+    aspect-ratio: 1 / 1;
+  }
+
+  .ring__canvas,
+  .ring__still {
+    inline-size: 42%;
+    block-size: 42%;
+  }
+
+  .case--ring .case__devices {
+    inline-size: 84%;
+    inset-inline-end: -2%;
+  }
+
+  .case--ring .case__phone {
+    inline-size: 24%;
+    inset-inline-start: -8%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ring__canvas,
+  .ring__still,
+  .case--ring .case__devices,
+  .case--ring .case__phone {
+    transition: none;
+  }
+}

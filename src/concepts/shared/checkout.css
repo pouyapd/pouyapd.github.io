@@ -1,0 +1,412 @@
+/* The shared demo checkout (Checkout.tsx). Each concept sets these on its root:
+   --co-bg, --co-surface, --co-ink, --co-muted, --co-line, --co-accent, --co-on-accent,
+   --co-display (heading font), --co-radius, --co-error. */
+
+.cx-co {
+  --_bg: var(--co-bg, #fff);
+  --_surface: var(--co-surface, #f5f4f1);
+  --_ink: var(--co-ink, #151515);
+  --_muted: var(--co-muted, #5c5c5c);
+  --_line: var(--co-line, rgb(0 0 0 / 0.14));
+  --_accent: var(--co-accent, #151515);
+  --_on-accent: var(--co-on-accent, #fff);
+  --_r: var(--co-radius, 0px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 25rem);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: start;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 4.5rem) clamp(1.25rem, 4vw, 3rem) clamp(4rem, 8vw, 7rem);
+  color: var(--_ink);
+}
+
+.cx-co--done,
+.cx-co--empty {
+  display: block;
+  max-width: 42rem;
+}
+
+.cx-co__title {
+  font-family: var(--co-display, inherit);
+  font-weight: var(--co-display-weight, 400);
+  font-size: clamp(2rem, 1.5rem + 2vw, 3.2rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin: 0.4rem 0 1rem;
+}
+.cx-co__title:focus {
+  outline: none;
+}
+
+.cx-co__back,
+.cx-co__link {
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  font-size: 0.875rem;
+  color: var(--_ink);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  cursor: pointer;
+}
+
+.cx-co__honest {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  padding: 0.85rem 1rem;
+  margin: 0 0 1.75rem;
+  background: var(--_surface);
+  border-radius: var(--_r);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+.cx-co__dot {
+  flex: none;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-top: 0.45em;
+  border-radius: 50%;
+  background: var(--_accent);
+}
+
+.cx-co__steps {
+  display: flex;
+  gap: 0.25rem 1.5rem;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0 0 1rem;
+  margin: 0 0 1.75rem;
+  border-bottom: 1px solid var(--_line);
+  font-size: 0.875rem;
+  color: var(--_muted);
+}
+.cx-co__steps li > * {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.cx-co__steps li span > span,
+.cx-co__steps li button > span {
+  display: inline-grid;
+  place-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  border: 1px solid var(--_line);
+  font-size: 0.75rem;
+}
+.cx-co__steps li[aria-current='step'] {
+  color: var(--_ink);
+  font-weight: 600;
+}
+.cx-co__steps li[aria-current='step'] span > span {
+  background: var(--_accent);
+  border-color: var(--_accent);
+  color: var(--_on-accent);
+}
+.cx-co__steps button {
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: var(--_ink);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.cx-co__form fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0 0 1.75rem;
+}
+.cx-co__h {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0 0 0.9rem;
+  padding: 0;
+}
+.cx-co__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.cx-co__field {
+  display: grid;
+  gap: 0.35rem;
+  align-content: start;
+}
+.cx-co__field--wide {
+  grid-column: 1 / -1;
+}
+.cx-co__field label {
+  font-size: 0.8125rem;
+  color: var(--_muted);
+}
+.cx-co__field input,
+.cx-co__field select {
+  font: inherit;
+  font-size: 1rem;
+  color: var(--_ink);
+  background: var(--_bg);
+  border: 1px solid var(--_line);
+  border-radius: var(--_r);
+  padding: 0.8rem 0.9rem;
+  min-height: 3rem;
+  width: 100%;
+}
+.cx-co__field input:focus-visible,
+.cx-co__field select:focus-visible {
+  outline: 2px solid var(--_accent);
+  outline-offset: 1px;
+}
+.cx-co__field [aria-invalid='true'] {
+  border-color: var(--co-error, #b3261e);
+}
+.cx-co__err {
+  font-size: 0.8125rem;
+  color: var(--co-error, #b3261e);
+}
+
+.cx-co__choices {
+  display: grid;
+  gap: 0.6rem;
+}
+.cx-co__choice,
+.cx-co__check {
+  display: flex;
+  gap: 0.9rem;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid var(--_line);
+  border-radius: var(--_r);
+  cursor: pointer;
+}
+.cx-co__choice:has(input:checked) {
+  border-color: var(--_ink);
+  box-shadow: inset 0 0 0 1px var(--_ink);
+}
+.cx-co__check {
+  margin-bottom: 1.5rem;
+}
+.cx-co__choice > span:nth-child(2),
+.cx-co__check > span {
+  display: grid;
+  gap: 0.15rem;
+  flex: 1;
+}
+.cx-co__choice small,
+.cx-co__check small {
+  color: var(--_muted);
+  font-size: 0.8125rem;
+}
+.cx-co__choice input,
+.cx-co__check input {
+  accent-color: var(--_accent);
+  width: 1.15rem;
+  height: 1.15rem;
+  flex: none;
+}
+.cx-co__price {
+  font-variant-numeric: tabular-nums;
+}
+
+.cx-co__muted {
+  color: var(--_muted);
+  font-size: 0.875rem;
+  line-height: 1.55;
+  margin: 0.75rem 0 1.25rem;
+}
+
+.cx-co__btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 3.25rem;
+  padding: 0.9rem 1.75rem;
+  border: 0;
+  border-radius: var(--_r);
+  background: var(--_accent);
+  color: var(--_on-accent);
+  font: inherit;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  cursor: pointer;
+  width: 100%;
+}
+.cx-co__btn:focus-visible {
+  outline: 2px solid var(--_ink);
+  outline-offset: 3px;
+}
+.cx-co--done .cx-co__btn,
+.cx-co--empty .cx-co__btn {
+  width: auto;
+}
+
+.cx-co__review {
+  display: grid;
+  gap: 0.9rem;
+  padding: 1.1rem 0;
+  margin: 0 0 1.5rem;
+  border-block: 1px solid var(--_line);
+}
+.cx-co__review div {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: 1rem;
+  font-size: 0.9375rem;
+}
+.cx-co__review dt {
+  color: var(--_muted);
+}
+.cx-co__review dd {
+  margin: 0;
+}
+
+/* order summary */
+.cx-co__summary {
+  position: sticky;
+  top: 6rem;
+  background: var(--_surface);
+  border-radius: var(--_r);
+  padding: 1.5rem;
+}
+.cx-co__summary summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  list-style: none;
+  cursor: pointer;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.cx-co__summary summary::-webkit-details-marker {
+  display: none;
+}
+.cx-co__items {
+  display: grid;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.25rem;
+}
+.cx-co__items li {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.9rem;
+  align-items: start;
+  font-size: 0.9375rem;
+}
+.cx-co__thumb {
+  display: block;
+  width: 4rem;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: var(--_r);
+  background: var(--_bg);
+}
+.cx-co__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.cx-co__item {
+  display: grid;
+  gap: 0.15rem;
+}
+.cx-co__item a {
+  color: inherit;
+}
+.cx-co__item small {
+  color: var(--_muted);
+  font-size: 0.8125rem;
+}
+.cx-co__sums {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0 0 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--_line);
+  font-size: 0.9375rem;
+}
+.cx-co__sums div {
+  display: flex;
+  justify-content: space-between;
+}
+.cx-co__sums dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+.cx-co__grand {
+  font-weight: 600;
+  font-size: 1.0625rem;
+  padding-top: 0.5rem;
+}
+
+/* confirmation */
+.cx-co__ref {
+  font-size: 1.0625rem;
+  margin: 0 0 1.25rem;
+}
+.cx-co__receipt {
+  margin: 0 0 2rem;
+}
+.cx-co__lines {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid var(--_line);
+}
+.cx-co__lines li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--_line);
+}
+.cx-co__lines small {
+  display: block;
+  color: var(--_muted);
+  font-size: 0.8125rem;
+}
+.cx-co__total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.125rem;
+  margin: 1rem 0;
+}
+
+@media (max-width: 860px) {
+  .cx-co {
+    grid-template-columns: 1fr;
+  }
+  .cx-co__summary {
+    position: static;
+    order: -1;
+    padding: 1rem 1.1rem;
+  }
+  .cx-co__summary summary {
+    margin-bottom: 0;
+  }
+  .cx-co__summary details[open] summary {
+    margin-bottom: 1rem;
+  }
+}
+@media (max-width: 520px) {
+  .cx-co__grid {
+    grid-template-columns: 1fr;
+  }
+  .cx-co__review div {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
+}

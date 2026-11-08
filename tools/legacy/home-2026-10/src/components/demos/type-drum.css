@@ -1,0 +1,48 @@
+/* Motion & 3D: the kinetic type drum, on the same dark stage as the hero --
+   The still (poster) shows until the canvas has drawn its first frame. */
+
+.drum {
+  position: relative;
+  aspect-ratio: 16 / 11;
+  overflow: hidden;
+  border-radius: 14px;
+  background: var(--color-bg);
+  box-shadow:
+    0 0 0 1px var(--color-line),
+    0 40px 80px -40px rgb(0 0 0 / 0.7);
+}
+
+.drum__poster,
+.drum__poster img,
+.drum__canvas {
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.drum__poster img {
+  object-fit: cover;
+}
+
+.drum__canvas {
+  opacity: 0;
+  transition: opacity 0.9s var(--ease-out);
+}
+
+.drum[data-live='true'] .drum__canvas {
+  opacity: 1;
+}
+
+.drum__label {
+  position: absolute;
+  inset-inline: var(--space-m);
+  inset-block-start: var(--space-m);
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.625rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-text-subtle);
+  pointer-events: none;
+}

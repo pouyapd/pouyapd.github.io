@@ -1,0 +1,176 @@
+/* Services -----------------------------------------------------------------
+   Two by two: each service under a real page from the project that does it
+   (captured from the built website) or, for 3D, a frame of the live render.
+   The captures are framed like a screen — top-aligned, a hairline edge — so
+   they read as the websites they are, not as decoration. */
+
+.services {
+  background: var(--color-bg-raised);
+  border-block: var(--border-hairline);
+}
+
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-2xl) clamp(1.5rem, 1rem + 2.5vw, 4rem);
+}
+
+.service {
+  display: flex;
+  flex-direction: column;
+  min-inline-size: 0;
+}
+
+.service__media {
+  display: block;
+  aspect-ratio: 16 / 10;
+  margin-block-end: var(--space-l);
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--color-bg);
+  box-shadow: inset 0 0 0 1px var(--color-line);
+}
+
+.service__media picture,
+.service__media img {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  background-size: cover;
+}
+
+.service__media img {
+  transition: scale 1.2s var(--ease-out);
+}
+
+/* a screen: the hairline sits over the capture's edge */
+.service__media--shots {
+  position: relative;
+}
+
+.service__media--shots::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px var(--color-line);
+  pointer-events: none;
+}
+
+@media (hover: hover) {
+  .service:hover .service__media img {
+    scale: 1.025;
+  }
+}
+
+.service__title {
+  margin: 0 0 var(--space-s);
+  font-size: var(--step-2);
+  font-weight: var(--weight-regular);
+  line-height: 1.1;
+  letter-spacing: var(--tracking-tight);
+}
+
+.service__summary {
+  max-inline-size: 48ch;
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: var(--step-0);
+  line-height: var(--leading-body);
+}
+
+.service__includes {
+  margin: var(--space-m) 0 0;
+  color: var(--color-text-subtle);
+  font-size: var(--step--1);
+  line-height: 1.6;
+}
+
+.service__examples {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 0.6em;
+  margin: auto 0 0;
+  padding-block-start: var(--space-s);
+  font-size: var(--step--1);
+  color: var(--color-text-subtle);
+}
+
+.service__seen {
+  margin-inline-end: 0.15em;
+}
+
+.service__example {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+}
+
+.service__examples a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  min-block-size: 2.75rem;
+  color: var(--color-text);
+  font-weight: var(--weight-medium);
+  text-decoration: underline;
+  text-decoration-color: var(--color-line-strong);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.35em;
+}
+
+.service__examples .icon {
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+[dir='rtl'] .service__examples .icon {
+  transform: scaleX(-1);
+}
+
+@media (hover: hover) {
+  .service__examples a:hover {
+    text-decoration-color: currentColor;
+  }
+
+  .service__examples a:hover .icon {
+    transform: translateX(3px);
+  }
+}
+
+/* services without a picture: two text entries under a hairline */
+.services__more {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-xl) clamp(1.5rem, 1rem + 2.5vw, 4rem);
+  margin-block-start: var(--space-2xl);
+  padding-block-start: var(--space-xl);
+  border-block-start: var(--border-hairline);
+}
+
+.service--text .service__title {
+  font-size: var(--step-1);
+}
+
+.service--text .service__examples {
+  margin-block-start: var(--space-xs);
+}
+
+@media (max-width: 760px) {
+  .services__more {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-xl);
+  }
+
+  .services__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-2xl);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service__media img {
+    transition: none;
+  }
+}

@@ -1,0 +1,541 @@
+/* Technique — Tensile's lift demonstrations. Self-contained (its own colours
+   and type), so the same module works on the club's home page and, as
+   .tq--compact, inside the studio's portfolio, where it fills a browser
+   frame and is sized in container units. */
+@import '@fontsource-variable/archivo/wdth.css';
+
+.tq {
+  --tq-bg: #16181a;
+  --tq-stage: #0e0f10;
+  --tq-chalk: #f3f2ee;
+  --tq-muted: #a2a6ab;
+  --tq-signal: #ff5b1f;
+  --tq-signal-2: #ff7a47;
+  --tq-line: rgb(243 242 238 / 0.14);
+  --tq-font: 'Archivo Variable', 'Archivo', 'Arial Narrow', system-ui, sans-serif;
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+  border: 1px solid var(--tq-line);
+  background: var(--tq-bg);
+  color: var(--tq-chalk);
+  font: 400 15px/1.55 var(--tq-font);
+  font-stretch: 100%;
+}
+
+.tq button {
+  font-family: var(--tq-font);
+  cursor: pointer;
+}
+
+.tq :focus-visible {
+  outline: 2px solid var(--tq-signal);
+  outline-offset: 2px;
+}
+
+/* the stage: the figure on its own pool of floor */
+.tq__stage {
+  position: relative;
+  min-block-size: 0;
+  aspect-ratio: 4 / 3;
+  background: radial-gradient(120% 90% at 50% 38%, #1d2023 0%, var(--tq-stage) 70%);
+  border-inline-end: 1px solid var(--tq-line);
+  overflow: hidden;
+}
+
+.tq__still {
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  /* wide and framed by height, like the shader: cover keeps it on the live picture at any stage size */
+  object-fit: cover;
+  pointer-events: none;
+  transition: opacity 0.6s ease-out;
+}
+
+/* kept where WebGL fails, so the stage still shows the lift */
+.tq[data-state='live'] .tq__still {
+  opacity: 0;
+}
+
+.tq__canvas {
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+.tq__canvas:active {
+  cursor: grabbing;
+}
+
+.tq__hint {
+  position: absolute;
+  inset-block-start: 14px;
+  inset-inline-end: 16px;
+  margin: 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--tq-muted);
+  pointer-events: none;
+}
+
+.tq[data-state='failed'] .tq__hint,
+.tq[data-state='failed'] .tq__controls {
+  display: none;
+}
+
+.tq__fallback {
+  position: absolute;
+  inset: auto 20px 20px;
+  margin: 0;
+  color: var(--tq-muted);
+  font-size: 13px;
+}
+
+.tq__controls {
+  position: absolute;
+  inset: auto 0 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  background: linear-gradient(to top, rgb(14 15 16 / 0.85), rgb(14 15 16 / 0));
+}
+
+.tq__play {
+  flex: none;
+  min-inline-size: 76px;
+  min-block-size: 36px;
+  padding: 0 14px;
+  border: 1px solid rgb(243 242 238 / 0.4);
+  background: transparent;
+  color: var(--tq-chalk);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.tq__play:disabled,
+.tq__range input:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.tq__range {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-inline-size: 0;
+}
+
+.tq__range-l {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--tq-muted);
+}
+
+.tq__range input {
+  flex: 1;
+  min-inline-size: 0;
+  accent-color: var(--tq-signal);
+}
+
+/* the side: lifts, cues, classes */
+.tq__side {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding: 26px 28px;
+  min-inline-size: 0;
+}
+
+.tq__tabs {
+  display: grid;
+  border-block-start: 1px solid var(--tq-line);
+}
+
+.tq__tab {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 10px 0;
+  border: 0;
+  border-block-end: 1px solid var(--tq-line);
+  background: transparent;
+  color: var(--tq-muted);
+  font-size: clamp(26px, 1.2rem + 1vw, 36px);
+  font-weight: 800;
+  font-stretch: 62%;
+  line-height: 1;
+  letter-spacing: 0.005em;
+  text-align: start;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.tq__tab-n {
+  font-size: 12px;
+  font-stretch: 100%;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--tq-muted);
+}
+
+.tq__tab[aria-selected='true'] {
+  color: var(--tq-chalk);
+}
+
+.tq__tab[aria-selected='true'] .tq__tab-n {
+  color: var(--tq-signal);
+}
+
+@media (hover: hover) {
+  .tq__tab:hover {
+    color: var(--tq-chalk);
+  }
+}
+
+.tq__panel {
+  display: grid;
+  gap: 16px;
+}
+
+.tq__cues {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: cue;
+}
+
+.tq__cues li {
+  position: relative;
+  padding-inline-start: 28px;
+  color: var(--tq-chalk);
+  counter-increment: cue;
+}
+
+.tq__cues li::before {
+  content: counter(cue);
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 0.1em;
+  inline-size: 18px;
+  block-size: 18px;
+  border: 1px solid var(--tq-signal);
+  border-radius: 50%;
+  color: var(--tq-signal-2);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 16px;
+  text-align: center;
+}
+
+.tq__works {
+  margin: 0;
+  color: var(--tq-muted);
+  font-size: 13px;
+}
+
+.tq__works span {
+  margin-inline-end: 6px;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--tq-chalk);
+}
+
+.tq__link {
+  align-self: start;
+  color: var(--tq-chalk);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  border-block-end: 2px solid var(--tq-signal);
+}
+
+.tq__note {
+  margin: auto 0 0;
+  padding-block-start: 14px;
+  border-block-start: 1px dashed var(--tq-line);
+  color: var(--tq-muted);
+  font-size: 12px;
+}
+
+/* Stacked (the stage above the lifts): the controls take a row under the picture instead of lying on
+   its floor, where the feet and the bar end every lift. The picture keeps its proportion (--tq-pic)
+   through the stage's ::before; the canvas and the still cover exactly that part. */
+@media (max-width: 860px) {
+  .tq {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .tq:not(.tq--compact) .tq__stage {
+    display: flex;
+    flex-direction: column;
+    aspect-ratio: auto;
+  }
+
+  .tq:not(.tq--compact) .tq__stage::before {
+    content: '';
+    aspect-ratio: var(--tq-pic, 4 / 3);
+  }
+
+  .tq:not(.tq--compact) :is(.tq__still, .tq__canvas) {
+    inset: 0 0 auto;
+    block-size: auto;
+    aspect-ratio: var(--tq-pic, 4 / 3);
+  }
+
+  .tq:not(.tq--compact) .tq__controls {
+    position: static;
+    background: none;
+    border-block-start: 1px solid var(--tq-line);
+  }
+
+
+  .tq__stage {
+    border-inline-end: 0;
+    border-block-end: 1px solid var(--tq-line);
+  }
+
+  .tq__side {
+    padding: 22px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tq:not(.tq--compact) {
+    --tq-pic: 1 / 1;
+  }
+
+  .tq__controls {
+    gap: 10px;
+    padding: 10px 12px;
+  }
+
+  .tq__range-l {
+    display: none;
+  }
+}
+
+/* compact: inside the portfolio's browser frame, which is a size container ---- */
+
+.tq--compact {
+  position: absolute;
+  inset: 0;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr);
+  border: 0;
+  background: var(--tq-stage);
+  font-size: max(10px, 1.45cqw);
+}
+
+.tq--compact .tq__head {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2cqw;
+  padding: 2.6cqh 3cqw 2cqh;
+  border-block-end: 1px solid var(--tq-line);
+}
+
+.tq__kicker {
+  margin: 0;
+  font-size: max(8px, 1.05cqw);
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--tq-signal-2);
+}
+
+.tq__title {
+  margin: 0;
+  font-size: max(16px, 3.9cqw);
+  font-weight: 800;
+  font-stretch: 62%;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.tq__title em {
+  font-style: normal;
+  color: var(--tq-signal);
+}
+
+.tq--compact .tq__stage {
+  aspect-ratio: auto;
+}
+
+.tq--compact .tq__side {
+  gap: 2.4cqh;
+  padding: 2.6cqh 2.6cqw;
+}
+
+.tq--compact .tq__tab {
+  gap: 1.2cqw;
+  /* the padding follows the frame; a tab never gets shorter than a comfortable 24 px target */
+  min-block-size: 24px;
+  padding: 0.9cqh 0;
+  font-size: max(13px, 2.5cqw);
+}
+
+.tq--compact .tq__tab-n,
+.tq--compact .tq__range-l,
+.tq--compact .tq__hint {
+  font-size: max(8px, 0.95cqw);
+}
+
+.tq--compact .tq__cues {
+  gap: 1.2cqh;
+  line-height: 1.4;
+}
+
+.tq--compact .tq__cues li {
+  padding-inline-start: 2.4cqw;
+}
+
+.tq--compact .tq__cues li::before {
+  inline-size: 1.6cqw;
+  block-size: 1.6cqw;
+  font-size: max(7px, 0.9cqw);
+  line-height: calc(1.6cqw - 2px);
+}
+
+.tq--compact .tq__link {
+  margin-block-start: auto;
+  font-size: max(9px, 1.15cqw);
+}
+
+.tq--compact .tq__controls {
+  gap: 1.2cqw;
+  padding: 1.4cqh 1.6cqw;
+}
+
+.tq--compact .tq__play {
+  min-inline-size: 7cqw;
+  min-block-size: 32px;
+  font-size: max(9px, 1cqw);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tq__tab,
+  .tq__still {
+    transition: none;
+  }
+}
+
+/* a narrow frame (the portfolio on a phone): the stage above the lifts */
+@container (max-width: 560px) {
+  .tq--compact {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    font-size: 12px;
+  }
+
+  .tq--compact .tq__head {
+    padding: 14px 16px 12px;
+  }
+
+  .tq--compact .tq__title {
+    font-size: 22px;
+  }
+
+  .tq--compact .tq__kicker,
+  .tq--compact .tq__tab-n,
+  .tq--compact .tq__range-l,
+  .tq--compact .tq__hint {
+    font-size: 9px;
+  }
+
+  .tq--compact .tq__stage {
+    border-inline-end: 0;
+    border-block-end: 1px solid var(--tq-line);
+  }
+
+  .tq--compact .tq__stage {
+    display: flex;
+    flex-direction: column;
+    aspect-ratio: auto;
+  }
+
+  .tq--compact .tq__stage::before {
+    content: '';
+    aspect-ratio: var(--tq-pic, 4 / 3);
+  }
+
+  .tq--compact :is(.tq__still, .tq__canvas) {
+    inset: 0 0 auto;
+    block-size: auto;
+    aspect-ratio: var(--tq-pic, 4 / 3);
+  }
+
+  .tq--compact .tq__controls {
+    position: static;
+    background: none;
+    border-block-start: 1px solid var(--tq-line);
+  }
+
+  .tq--compact .tq__side {
+    gap: 10px;
+    padding: 12px 16px 16px;
+  }
+
+  .tq--compact .tq__tabs {
+    grid-auto-flow: column;
+    border-block-end: 1px solid var(--tq-line);
+  }
+
+  .tq--compact .tq__tab {
+    justify-content: center;
+    padding: 8px 4px;
+    border-block-end: 0;
+    font-size: 17px;
+  }
+
+  .tq--compact .tq__tab-n {
+    display: none;
+  }
+
+  .tq--compact .tq__cues li:not(:first-child) {
+    display: none;
+  }
+
+  .tq--compact .tq__cues li {
+    padding-inline-start: 24px;
+  }
+
+  .tq--compact .tq__cues li::before {
+    inline-size: 16px;
+    block-size: 16px;
+    font-size: 9px;
+    line-height: 14px;
+  }
+
+  .tq--compact .tq__link {
+    font-size: 11px;
+  }
+
+  .tq--compact .tq__controls {
+    gap: 8px;
+    padding: 8px 10px;
+  }
+
+  .tq--compact .tq__play {
+    min-inline-size: 56px;
+    font-size: 10px;
+  }
+}

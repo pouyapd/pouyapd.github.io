@@ -1,0 +1,342 @@
+<!doctype html>
+<!-- Concept study: Maison Aurel, a fictional fine-jewellery house. Captured by `npm run mockups`.
+     Photographs: Unsplash License, graded by tools/photos/prepare.py — credits in tools/photos/aurel/sources.tsv.
+     data-shot marks the sections captured on their own for the case-study page. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maison Aurel — concept</title>
+<link rel="stylesheet" href="./fonts.css">
+<style>
+  :root { --ink: #0c0b09; --ink-2: #15130f; --ink-3: #1d1a15; --ivory: #f3eee5; --gold: #c6a15b; --gold-2: #e2c48a; --stone: #9a9184; --line: rgba(243,238,229,.13); }
+  body { background: var(--ink); color: var(--ivory); font: 300 16px/1.65 'Jost', sans-serif; letter-spacing: .01em; }
+  .wrap { width: min(1312px, 100% - 64px); margin-inline: auto; }
+  .serif { font-family: 'Bodoni Moda', serif; font-weight: 400; letter-spacing: -0.015em; }
+  em { font-style: italic; color: var(--gold-2); }
+  img { width: 100%; height: 100%; object-fit: cover; }
+  .label { font: 500 11px/1 'Jost'; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 12px; height: 54px; padding: 0 30px; font: 500 12px/1 'Jost'; letter-spacing: .24em; text-transform: uppercase; box-shadow: inset 0 0 0 1px rgba(198,161,91,.7); color: var(--ivory); }
+  .btn--solid { background: var(--gold); color: var(--ink); box-shadow: none; }
+  .ulink { font: 500 12px/1 'Jost'; letter-spacing: .24em; text-transform: uppercase; padding-bottom: 8px; border-bottom: 1px solid var(--gold); }
+
+  .announce { text-align: center; padding: 11px; font: 400 11px/1 'Jost'; letter-spacing: .24em; text-transform: uppercase; color: var(--gold-2); border-bottom: 1px solid var(--line); }
+  nav { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; height: 88px; }
+  nav ul { display: flex; gap: 34px; font: 400 11.5px/1 'Jost'; letter-spacing: .22em; text-transform: uppercase; color: rgba(243,238,229,.85); }
+  nav ul:last-of-type { justify-content: flex-end; }
+  .brand { font-family: 'Bodoni Moda'; font-size: 25px; letter-spacing: .36em; text-transform: uppercase; padding-left: .36em; text-align: center; }
+  .brand small { display: block; font: 400 9px/1 'Jost'; letter-spacing: .55em; color: var(--gold); margin-top: 7px; }
+  .menu-ic { display: none; }
+  nav li { white-space: nowrap; }
+
+  /* hero: copy on the left, the pieces on the right */
+  .hero { display: grid; grid-template-columns: 0.92fr 1.08fr; min-height: 820px; border-top: 1px solid var(--line); }
+  .hero-copy { display: flex; flex-direction: column; justify-content: center; padding: 80px 72px 80px max(32px, calc((100vw - 1312px) / 2)); position: relative; }
+  .hero h1 { font-size: 104px; line-height: .94; margin: 26px 0 30px; }
+  .hero-copy > p { max-width: 36ch; color: rgba(243,238,229,.74); font-size: 18px; }
+  .actions { display: flex; gap: 14px; margin-top: 44px; }
+  .hero-meta { display: flex; gap: 40px; margin-top: 70px; padding-top: 26px; border-top: 1px solid var(--line); }
+  .hero-meta div { font-size: 13px; color: var(--stone); }
+  .hero-meta b { display: block; font: 400 22px/1.2 'Bodoni Moda'; color: var(--ivory); margin-bottom: 4px; }
+  .hero-art { position: relative; overflow: hidden; }
+  .hero-art img { object-position: 50% 55%; }
+  .hero-art::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(12,11,9,.5), transparent 30%), linear-gradient(0deg, rgba(12,11,9,.55), transparent 35%); }
+  .hero-art .caption { position: absolute; left: 36px; bottom: 32px; z-index: 1; font: 400 12px/1.5 'Jost'; letter-spacing: .18em; text-transform: uppercase; color: rgba(243,238,229,.8); }
+  .hero-art .caption b { display: block; font: italic 400 26px/1.2 'Bodoni Moda'; letter-spacing: 0; text-transform: none; color: var(--ivory); }
+  .hero-art .concept-tag { position: absolute; right: 28px; bottom: 32px; z-index: 1; }
+  .thumbs { position: absolute; right: 28px; top: 28px; z-index: 1; display: flex; gap: 10px; }
+  .thumbs span { width: 64px; height: 64px; overflow: hidden; outline: 1px solid rgba(243,238,229,.25); outline-offset: 3px; }
+  .thumbs span:first-child { outline-color: var(--gold); }
+
+  /* categories */
+  .sec { padding: 130px 0; }
+  .shead { display: flex; justify-content: space-between; align-items: end; margin-bottom: 52px; }
+  .shead h2 { font-size: 58px; line-height: 1; margin-top: 20px; }
+  .cats { display: grid; grid-template-columns: 1.3fr 1fr 1fr; grid-template-rows: 330px 330px; gap: 18px; }
+  .cat { position: relative; overflow: hidden; background: var(--ink-2); }
+  .cat:first-child { grid-row: span 2; }
+  .cat::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(12,11,9,.78), transparent 50%); }
+  .cat p { position: absolute; left: 24px; right: 24px; bottom: 22px; z-index: 1; display: flex; justify-content: space-between; align-items: end; }
+  .cat p b { font: 400 30px/1 'Bodoni Moda'; }
+  .cat p span { font: 500 11px/1 'Jost'; letter-spacing: .24em; text-transform: uppercase; color: var(--gold-2); }
+
+  /* product */
+  .pdp { display: grid; grid-template-columns: 96px 1fr 0.86fr; gap: 28px 40px; align-items: start; }
+  .pdp-thumbs { display: grid; gap: 12px; }
+  .pdp-thumbs span { aspect-ratio: 1; overflow: hidden; outline: 1px solid var(--line); outline-offset: 3px; }
+  .pdp-thumbs span.on { outline-color: var(--gold); }
+  .pdp-main { aspect-ratio: 4/4.6; overflow: hidden; background: var(--ink-2); }
+  .pdp-info { padding-top: 8px; }
+  .crumbs { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--stone); }
+  .pdp-info h2 { font-size: 56px; line-height: 1; margin: 22px 0 14px; }
+  .pdp-info .price { font: 400 26px/1 'Bodoni Moda'; color: var(--gold-2); }
+  .pdp-info .meta { color: var(--stone); margin: 18px 0 34px; max-width: 38ch; }
+  .opt { margin-bottom: 26px; }
+  .opt .label { color: var(--stone); display: flex; justify-content: space-between; margin-bottom: 14px; }
+  .opt .label a { color: var(--gold-2); letter-spacing: .14em; }
+  .sw { display: flex; gap: 12px; }
+  .sw span { width: 38px; height: 38px; border-radius: 50%; outline: 1px solid var(--line); outline-offset: 4px; }
+  .sw .on { outline-color: var(--gold); }
+  .sizes { display: flex; gap: 8px; }
+  .sizes span { width: 52px; height: 48px; display: grid; place-items: center; box-shadow: inset 0 0 0 1px var(--line); font: 400 14px 'Jost'; }
+  .sizes span.on { box-shadow: inset 0 0 0 1px var(--gold); color: var(--gold-2); }
+  .sizes span.off { color: rgba(243,238,229,.3); text-decoration: line-through; }
+  .buy { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 8px; }
+  .perks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 22px; font-size: 12.5px; color: var(--stone); text-align: center; }
+  .perks div { padding: 14px 8px; background: var(--ink-2); }
+  .acc { margin-top: 30px; border-top: 1px solid var(--line); }
+  .acc div { display: flex; justify-content: space-between; padding: 19px 0; border-bottom: 1px solid var(--line); font: 400 13px 'Jost'; letter-spacing: .16em; text-transform: uppercase; }
+  .acc div span:last-child { color: var(--gold); }
+
+  /* worn */
+  .worn { display: grid; grid-template-columns: 1fr 1fr 0.9fr; gap: 18px; align-items: stretch; }
+  .worn .a, .worn .b { aspect-ratio: 3/4; overflow: hidden; }
+  .worn .b { margin-top: 90px; }
+  .worn blockquote { margin: 0; align-self: center; padding-left: 40px; }
+  .worn q { quotes: none; display: block; font: italic 400 44px/1.1 'Bodoni Moda'; margin: 24px 0 26px; }
+  .worn p { color: var(--stone); max-width: 32ch; margin-bottom: 30px; }
+
+  /* atelier */
+  .atelier { background: var(--ivory); color: var(--ink); }
+  .atelier .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 90px; align-items: center; }
+  .atelier .label { color: #8a6a2f; }
+  .atelier h2 { font-size: 66px; line-height: 1; margin: 22px 0 26px; }
+  .atelier em { color: #8a6a2f; }
+  .atelier p { color: #574f44; font-size: 17px; max-width: 44ch; }
+  .atelier-art { display: grid; grid-template-columns: 1fr 0.8fr; gap: 16px; align-items: end; }
+  .atelier-art .a { aspect-ratio: 4/5; overflow: hidden; }
+  .atelier-art .b { aspect-ratio: 3/4; overflow: hidden; margin-bottom: 60px; }
+  .steps { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: 44px; border-top: 1px solid rgba(12,11,9,.15); }
+  .steps div { padding: 22px 0; border-bottom: 1px solid rgba(12,11,9,.15); display: flex; gap: 18px; align-items: baseline; }
+  .steps div:nth-child(odd) { padding-right: 24px; }
+  .steps b { font: italic 400 22px/1 'Bodoni Moda'; color: #8a6a2f; }
+  .steps span { font: 500 12px/1.5 'Jost'; letter-spacing: .2em; text-transform: uppercase; }
+  .steps small { display: block; font: 300 14px/1.5 'Jost'; letter-spacing: 0; text-transform: none; color: #574f44; margin-top: 4px; }
+
+  /* new in */
+  .products { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .product .ph { aspect-ratio: 4/5; overflow: hidden; background: var(--ink-2); position: relative; }
+  .product .tag { position: absolute; left: 14px; top: 14px; font: 500 10px/1 'Jost'; letter-spacing: .22em; text-transform: uppercase; padding: 7px 10px; background: rgba(12,11,9,.7); color: var(--gold-2); }
+  .product h3 { font: 400 21px/1.2 'Bodoni Moda'; margin-top: 18px; display: flex; justify-content: space-between; }
+  .product h3 span { font: 400 15px 'Jost'; color: var(--gold-2); }
+  .product p { color: var(--stone); font-size: 14px; margin-top: 4px; }
+
+  /* appointment */
+  .appt { display: grid; grid-template-columns: 1fr 1fr; background: var(--ink-2); }
+  .appt .ph { min-height: 640px; overflow: hidden; }
+  .appt .body { padding: 90px 84px; }
+  .appt h2 { font-size: 60px; line-height: 1; margin: 22px 0 22px; }
+  .appt .lead { color: var(--stone); max-width: 40ch; margin-bottom: 36px; }
+  .ways { display: grid; gap: 12px; margin-bottom: 30px; }
+  .ways > div { display: grid; grid-template-columns: 22px 1fr auto; gap: 16px; align-items: center; padding: 18px 20px; box-shadow: inset 0 0 0 1px var(--line); }
+  .ways > div.on { box-shadow: inset 0 0 0 1px var(--gold); background: rgba(198,161,91,.06); }
+  .ways i { width: 16px; height: 16px; border-radius: 50%; box-shadow: inset 0 0 0 1px var(--stone); }
+  .ways .on i { box-shadow: inset 0 0 0 5px var(--gold); }
+  .ways b { font: 400 19px/1.2 'Bodoni Moda'; display: block; }
+  .ways span { font-size: 13px; color: var(--stone); }
+  .ways em { font: 400 12px 'Jost'; letter-spacing: .14em; text-transform: uppercase; font-style: normal; }
+
+  footer { border-top: 1px solid var(--line); padding: 90px 0 40px; }
+  .foot { display: grid; grid-template-columns: 1.5fr repeat(3, 1fr); gap: 40px; }
+  .foot .brand { text-align: left; padding: 0; }
+  .foot h4 { margin: 0 0 18px; font: 500 11px/1 'Jost'; letter-spacing: .28em; text-transform: uppercase; color: var(--gold); }
+  .foot li { color: rgba(243,238,229,.7); font-size: 14px; margin-bottom: 10px; }
+  .news { display: flex; border-bottom: 1px solid var(--line); margin-top: 30px; padding-bottom: 12px; justify-content: space-between; color: var(--stone); font-size: 14px; max-width: 340px; }
+  .legal { display: flex; justify-content: space-between; margin-top: 70px; padding-top: 24px; border-top: 1px solid var(--line); color: var(--stone); font-size: 12px; letter-spacing: .06em; }
+
+  @media (max-width: 700px) {
+    body { font-size: 15px; }
+    .wrap { width: calc(100% - 40px); }
+    .announce { font-size: 9.5px; letter-spacing: .16em; }
+    nav { grid-template-columns: 40px 1fr 40px; height: 66px; }
+    nav ul:first-of-type { display: none; }
+    nav ul:last-of-type li:not(:last-child) { display: none; }
+    nav ul:last-of-type { gap: 0; font-size: 10.5px; }
+    .menu-ic { display: grid; gap: 6px; }
+    .menu-ic i { width: 20px; height: 1px; background: var(--ivory); }
+    .brand { font-size: 17px; }
+    .brand small { font-size: 7.5px; }
+    .hero { grid-template-columns: 1fr; min-height: 0; }
+    .hero-art { height: 460px; order: -1; }
+    .thumbs { display: none; }
+    .hero-art .caption { left: 20px; bottom: 20px; }
+    .hero-art .caption b { font-size: 21px; }
+    .hero-art .concept-tag { right: auto; left: 20px; top: 20px; bottom: auto; }
+    .hero-copy { padding: 44px 20px 64px; }
+    .hero h1 { font-size: 56px; margin: 18px 0 20px; }
+    .hero-copy > p { font-size: 16px; }
+    .actions { flex-direction: column; margin-top: 30px; }
+    .hero-meta { gap: 22px; margin-top: 40px; }
+    .hero-meta b { font-size: 18px; }
+    .sec { padding: 76px 0; }
+    .shead { flex-direction: column; align-items: start; gap: 18px; margin-bottom: 32px; }
+    .shead h2 { font-size: 40px; }
+    .cats { grid-template-columns: 1fr 1fr; grid-template-rows: 300px 200px 200px; gap: 10px; }
+    .cat:first-child { grid-row: auto; grid-column: span 2; }
+    .cat p b { font-size: 24px; }
+    .pdp { grid-template-columns: 1fr; gap: 14px; }
+    .pdp-thumbs { grid-template-columns: repeat(4, 1fr); order: 2; }
+    .pdp-main { order: 1; }
+    .pdp-info { order: 3; padding-top: 20px; }
+    .pdp-info h2 { font-size: 42px; }
+    .buy { grid-template-columns: 1fr; }
+    .perks { font-size: 11.5px; }
+    .worn { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .worn .b { margin-top: 50px; }
+    .worn blockquote { grid-column: 1 / -1; padding: 30px 0 0; }
+    .worn q { font-size: 32px; }
+    .atelier .wrap { grid-template-columns: 1fr; gap: 40px; }
+    .atelier h2 { font-size: 42px; }
+    .atelier-art .b { margin-bottom: 40px; }
+    .steps { grid-template-columns: 1fr; }
+    .products { grid-template-columns: 1fr 1fr; gap: 24px 12px; }
+    .product h3 { font-size: 17px; flex-direction: column; gap: 4px; }
+    .appt { grid-template-columns: 1fr; }
+    .appt .ph { min-height: 300px; height: 300px; }
+    .appt .body { padding: 56px 20px 64px; }
+    .appt h2 { font-size: 42px; }
+    .foot { grid-template-columns: 1fr 1fr; }
+    .foot > div:first-child { grid-column: 1 / -1; }
+    .legal { flex-direction: column; gap: 10px; }
+  }
+</style>
+</head>
+<body>
+  <div class="announce">Handmade in 18k gold · Private appointments in the atelier</div>
+  <div class="wrap">
+    <nav>
+      <span class="menu-ic"><i></i><i></i></span>
+      <ul><li>High jewellery</li><li>Rings</li><li>Necklaces</li><li>Bridal</li></ul>
+      <div class="brand">Maison Aurel<small>Fine jewellery</small></div>
+      <ul><li>Search</li><li>Appointments</li><li>Bag (0)</li></ul>
+    </nav>
+  </div>
+
+  <section class="hero" data-shot="hero">
+    <div class="hero-copy">
+      <p class="label">The Ondine collection</p>
+      <h1 class="serif">Gold, shaped <em>by hand.</em></h1>
+      <p>Rings, chains and heirlooms in 18k gold — made to be worn every day and kept for generations.</p>
+      <div class="actions"><a class="btn btn--solid">Discover Ondine</a><a class="btn">Book an appointment</a></div>
+      <div class="hero-meta">
+        <div><b>18k</b>recycled gold</div>
+        <div><b>By hand</b>in one workshop</div>
+        <div><b>For life</b>free resizing &amp; polishing</div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <img src="/tools/photos/aurel/out/rings-mirror.jpg" alt="">
+      <div class="thumbs"><span><img src="/tools/photos/aurel/out/rings-mirror.jpg" alt=""></span><span><img src="/tools/photos/aurel/out/pendant-oval.jpg" alt=""></span><span><img src="/tools/photos/aurel/out/hoops.jpg" alt=""></span></div>
+      <p class="caption"><b>Ondine stack</b>Three rings · 18k yellow gold</p>
+      <span class="concept-tag">Concept study · P. DESIGN</span>
+    </div>
+  </section>
+
+  <section class="sec" data-shot="collections">
+    <div class="wrap">
+      <div class="shead"><div><p class="label">Shop by piece</p><h2 class="serif">The <em>collections</em></h2></div><a class="ulink">View all jewellery</a></div>
+      <div class="cats">
+        <a class="cat"><img src="/tools/photos/aurel/out/rings-dark.jpg" alt="" style="object-position:50% 60%"><p><b>Rings</b><span>48 pieces →</span></p></a>
+        <a class="cat"><img src="/tools/photos/aurel/out/pendant-oval.jpg" alt="" style="object-position:50% 55%"><p><b>Necklaces</b><span>32 →</span></p></a>
+        <a class="cat"><img src="/tools/photos/aurel/out/hoops.jpg" alt="" style="object-position:40% 50%"><p><b>Earrings</b><span>27 →</span></p></a>
+        <a class="cat"><img src="/tools/photos/aurel/out/pearl-pendant.jpg" alt="" style="object-position:50% 55%"><p><b>Pearls</b><span>14 →</span></p></a>
+        <a class="cat"><img src="/tools/photos/aurel/out/bands.jpg" alt="" style="object-position:50% 50%"><p><b>Bridal</b><span>21 →</span></p></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0" data-shot="product">
+    <div class="wrap">
+      <div class="pdp">
+        <div class="pdp-thumbs">
+          <span class="on"><img src="/tools/photos/aurel/out/rings-mirror.jpg" alt=""></span>
+          <span><img src="/tools/photos/aurel/out/ring-black.jpg" alt=""></span>
+          <span><img src="/tools/photos/aurel/out/rings-dark.jpg" alt=""></span>
+          <span><img src="/tools/photos/aurel/out/bands.jpg" alt=""></span>
+        </div>
+        <div class="pdp-main"><img src="/tools/photos/aurel/out/rings-mirror.jpg" alt="" style="object-position:50% 50%"></div>
+        <div class="pdp-info">
+          <p class="crumbs">Rings · Ondine</p>
+          <h2 class="serif">Ondine <em>stack</em></h2>
+          <p class="price">€1,480</p>
+          <p class="meta">Three softly irregular bands, cast from wax carved by hand. 18k yellow gold, 2.4 mm each, worn together or apart.</p>
+          <div class="opt"><p class="label"><span>Gold · Yellow</span></p><div class="sw"><span class="on" style="background:linear-gradient(135deg,#e9c97f,#b88a3c)"></span><span style="background:linear-gradient(135deg,#efd3c2,#c18c78)"></span><span style="background:linear-gradient(135deg,#efefea,#b9b8b1)"></span></div></div>
+          <div class="opt"><p class="label"><span>Size · 52</span><a>Size guide</a></p><div class="sizes"><span>48</span><span>50</span><span class="on">52</span><span>54</span><span class="off">56</span><span>58</span></div></div>
+          <div class="buy"><a class="btn btn--solid">Add to bag</a><a class="btn">Try in the atelier</a></div>
+          <div class="perks"><div>Made to order<br>3 – 4 weeks</div><div>Engraving<br>included</div><div>Free resizing<br>for life</div></div>
+          <div class="acc"><div><span>Materials &amp; care</span><span>+</span></div><div><span>Delivery &amp; returns</span><span>+</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0" data-shot="worn">
+    <div class="wrap">
+      <div class="worn">
+        <div class="a"><img src="/tools/photos/aurel/out/layers-worn.jpg" alt="" style="object-position:50% 40%"></div>
+        <div class="b"><img src="/tools/photos/aurel/out/chain-worn.jpg" alt="" style="object-position:50% 45%"></div>
+        <blockquote><p class="label">Worn</p><q>Made for every day, kept for a lifetime.</q><p>Fine chains layer without tangling, clasps open with one hand, and every piece can be resized or polished in the atelier — always.</p><a class="ulink">Shop necklaces</a></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec atelier" data-shot="atelier">
+    <div class="wrap">
+      <div class="atelier-art">
+        <div class="a"><img src="/tools/photos/aurel/out/bench.jpg" alt="" style="object-position:45% 40%"></div>
+        <div class="b"><img src="/tools/photos/aurel/out/saw.jpg" alt=""></div>
+      </div>
+      <div>
+        <p class="label">The atelier</p>
+        <h2 class="serif">Every piece passes <em>through four hands.</em></h2>
+        <p>A small workshop and a slow process. Visit by appointment to see pieces at the bench before they are finished.</p>
+        <div class="steps">
+          <div><b>i</b><span>Drawing<small>Every piece starts on paper.</small></span></div>
+          <div><b>ii</b><span>Casting<small>Wax carved, then cast in gold.</small></span></div>
+          <div><b>iii</b><span>Setting<small>Stones and pearls, set by eye.</small></span></div>
+          <div><b>iv</b><span>Polishing<small>A soft, lasting finish.</small></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" data-shot="new">
+    <div class="wrap">
+      <div class="shead"><div><p class="label">Just finished</p><h2 class="serif">New in the <em>atelier</em></h2></div><a class="ulink">View all pieces</a></div>
+      <div class="products">
+        <article class="product"><div class="ph"><span class="tag">New</span><img src="/tools/photos/aurel/out/bracelet.jpg" alt=""></div><h3>Marea bracelet <span>€980</span></h3><p>18k yellow gold · curb chain</p></article>
+        <article class="product"><div class="ph"><img src="/tools/photos/aurel/out/pearl-pendant.jpg" alt=""></div><h3>Luna pendant <span>€760</span></h3><p>Baroque pearl · 18k bail</p></article>
+        <article class="product"><div class="ph"><img src="/tools/photos/aurel/out/chain-black.jpg" alt=""></div><h3>Riva chain <span>€1,120</span></h3><p>18k yellow gold · 45 cm</p></article>
+        <article class="product"><div class="ph"><span class="tag">Engravable</span><img src="/tools/photos/aurel/out/pendant-box.jpg" alt=""></div><h3>Tessera bar <span>€640</span></h3><p>18k yellow gold · 2 cm</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="appt" data-shot="appointment">
+    <div class="ph"><img src="/tools/photos/aurel/out/ring-black.jpg" alt="" style="object-position:50% 50%"></div>
+    <div class="body">
+      <p class="label">Private appointments</p>
+      <h2 class="serif">See it in <em>the light.</em></h2>
+      <p class="lead">Try pieces in the atelier, plan a bespoke ring, or speak to a jeweller by video. Appointments are free and unhurried.</p>
+      <div class="ways">
+        <div class="on"><i></i><div><b>Visit the atelier</b><span>60 minutes · try any piece</span></div><em>Tue – Sat</em></div>
+        <div><i></i><div><b>Bespoke consultation</b><span>90 minutes · sketches and stones</span></div><em>By request</em></div>
+        <div><i></i><div><b>Video appointment</b><span>30 minutes · from anywhere</span></div><em>Daily</em></div>
+      </div>
+      <a class="btn btn--solid">Choose a time</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot">
+        <div><div class="brand">Maison Aurel<small style="text-align:left">Fine jewellery</small></div><div class="news"><span>Join the atelier letter</span><span>→</span></div></div>
+        <div><h4>Collections</h4><ul><li>Rings</li><li>Necklaces</li><li>Earrings</li><li>Bridal</li></ul></div>
+        <div><h4>Atelier</h4><ul><li>Our process</li><li>Appointments</li><li>Care guide</li></ul></div>
+        <div><h4>Help</h4><ul><li>Sizing</li><li>Delivery</li><li>Contact</li></ul></div>
+      </div>
+      <div class="legal"><span>Maison Aurel is a fictional brand. Photographs: Unsplash (see credits).</span><span>Concept study designed by P. DESIGN</span></div>
+    </div>
+  </footer>
+</body>
+</html>

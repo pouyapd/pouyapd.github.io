@@ -1,0 +1,211 @@
+/* Orbit — the Lune Atelier preview. The text runs across the top; below it
+   the stage holds six cards, each a complete phone capture (the card has the
+   capture's own proportions, 390 × 844, so nothing is cropped or stretched).
+   Orbit.tsx places every card on the ring with one transform per frame; the
+   stage gives the depth (perspective) and keeps everything inside the card. */
+
+.case--orbit {
+  --w: clamp(150px, min(16vw, calc((100svh - 15rem) / 2.75)), 250px);
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(1.5rem, 1rem + 2vw, 3rem);
+}
+
+.orbit__text {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: var(--space-l) clamp(2rem, 1rem + 4vw, 5rem);
+  align-items: end;
+}
+
+.orbit__side {
+  display: grid;
+  gap: var(--space-m);
+}
+
+.orbit__side .case__note,
+.orbit__side .case__actions {
+  margin: 0;
+}
+
+.case__note {
+  max-inline-size: 38ch;
+  margin: var(--space-m) 0 0;
+  font-size: var(--step--1);
+  line-height: 1.55;
+  color: color-mix(in srgb, var(--ink) 72%, transparent);
+}
+
+.orbit__stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  block-size: calc(var(--w) * 2.164 * 1.22 + var(--w) * 0.5);
+  perspective: 1800px;
+  perspective-origin: 50% 30%;
+  transform-style: preserve-3d;
+  /* the stage is a plane in the 3D scene too: let clicks through it to the cards behind */
+  pointer-events: none;
+}
+
+.orbit__card {
+  grid-area: 1 / 1;
+  inline-size: var(--w);
+  aspect-ratio: 390 / 844;
+  padding: 0;
+  border: 0;
+  border-radius: calc(var(--w) * 0.075);
+  overflow: hidden;
+  background: color-mix(in srgb, var(--ink) 6%, var(--stage));
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--ink) 12%, transparent),
+    0 30px 50px -26px rgb(42 33 29 / 0.5);
+  cursor: pointer;
+  pointer-events: auto;
+  transform-origin: 50% 50%;
+  transition: box-shadow 0.4s var(--ease-out);
+}
+
+.orbit__card picture,
+.orbit__card img {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: contain;
+  background-size: 100% 100%;
+}
+
+.orbit__card[data-chosen='true'] {
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--ink) 30%, transparent),
+    0 40px 70px -28px rgb(42 33 29 / 0.6);
+}
+
+.orbit__card:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 5px;
+}
+
+/* the page in front, and what to do with it */
+.orbit__caption {
+  display: grid;
+  justify-items: center;
+  gap: 0.35rem;
+  max-inline-size: 36rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.orbit__now {
+  margin: 0;
+  font-size: var(--step-1);
+}
+
+.orbit__n {
+  font-size: var(--step--2);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--tracking-label);
+  color: color-mix(in srgb, var(--ink) 80%, transparent);
+}
+
+.orbit__line {
+  margin: 0;
+  min-block-size: 3em;
+  font-size: var(--step--1);
+  line-height: 1.5;
+  color: color-mix(in srgb, var(--ink) 74%, transparent);
+}
+
+.orbit__do {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem 1.25rem;
+  min-block-size: 2.75rem;
+  margin: 0;
+  font-size: var(--step--1);
+}
+
+.orbit__hint {
+  color: color-mix(in srgb, var(--ink) 74%, transparent);
+}
+
+.orbit__do a {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 2.75rem;
+  color: inherit;
+  font-weight: var(--weight-medium);
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
+
+.orbit__do a:focus-visible,
+.orbit__pages a:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+/* the six pages, as plain links */
+.orbit__pages {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25rem 1.25rem;
+  margin: var(--space-m) 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--step--1);
+}
+
+.orbit__pages a {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 2.5rem;
+  color: color-mix(in srgb, var(--ink) 74%, transparent);
+  text-decoration: none;
+  border-block-end: 1px solid transparent;
+}
+
+.orbit__pages a[data-on='true'] {
+  color: var(--ink);
+  border-block-end-color: currentColor;
+}
+
+@media (max-width: 900px) {
+  .orbit__text {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .case--orbit {
+    --w: min(40vw, calc((100svh - 14rem) / 3.2));
+  }
+
+  .orbit__stage {
+    block-size: calc(var(--w) * 2.164 * 1.42 + var(--w) * 0.5);
+  }
+
+  .orbit__now {
+    font-size: var(--step-0);
+  }
+}
+
+/* no JavaScript: the six cards side by side */
+html:not(.js) .orbit__stage {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(9rem, 30%), 1fr));
+  gap: var(--space-m);
+  block-size: auto;
+  perspective: none;
+}
+
+html:not(.js) .orbit__card {
+  grid-area: auto;
+  inline-size: 100%;
+}
+
+html:not(.js) .orbit__caption {
+  display: none;
+}

@@ -1,0 +1,175 @@
+/* Approach: the heading beside four steps, one row each — the number, what
+   happens, and what you have at the end of it. ---------------------------- */
+
+.process__grid,
+.about__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: var(--space-xl) clamp(2rem, 1rem + 5vw, 7rem);
+  align-items: start;
+}
+
+.process__grid .section-header,
+.about__grid .section-header {
+  margin-block-end: 0;
+}
+
+@media (min-width: 901px) {
+  .process__grid > .section-header {
+    position: sticky;
+    inset-block-start: calc(var(--header-h, 5rem) + var(--space-l));
+  }
+}
+
+.process__steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-block-start: var(--border-hairline);
+}
+
+.process-step {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr) minmax(0, 13rem);
+  grid-template-areas:
+    'num title outcome'
+    'num text outcome';
+  gap: var(--space-2xs) var(--space-l);
+  padding-block: var(--space-l);
+  border-block-end: var(--border-hairline);
+}
+
+.process-step__num {
+  grid-area: num;
+  padding-block-start: 0.35em;
+  font-size: var(--step--1);
+  font-variant-numeric: tabular-nums;
+  color: var(--color-accent);
+}
+
+.process-step__title {
+  grid-area: title;
+  margin: 0;
+  font-size: var(--step-1);
+  font-weight: var(--weight-regular);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-snug);
+}
+
+.process-step__text {
+  grid-area: text;
+  max-inline-size: 48ch;
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: var(--step--1);
+  line-height: var(--leading-body);
+}
+
+.process-step__outcome {
+  grid-area: outcome;
+  align-self: start;
+  margin: 0;
+  padding-block-start: 0.45em;
+  font-size: var(--step--1);
+  color: var(--color-text);
+}
+
+@media (max-width: 1100px) {
+  .process-step {
+    grid-template-columns: 3rem minmax(0, 1fr);
+    grid-template-areas:
+      'num title'
+      'num text'
+      'num outcome';
+  }
+
+  .process-step__outcome {
+    padding-block-start: var(--space-2xs);
+  }
+}
+
+.process-step__outcome::before {
+  content: '→ ';
+  color: var(--color-text-subtle);
+}
+
+[dir='rtl'] .process-step__outcome::before {
+  content: '← ';
+}
+
+/* Studio: a short introduction beside three plain points ------------------ */
+
+.about {
+  background: var(--color-bg-raised);
+  border-block-start: var(--border-hairline);
+}
+
+.about__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  min-block-size: 2.75rem;
+  margin-block-start: var(--space-m);
+  color: var(--color-text);
+  font-size: var(--step--1);
+  font-weight: var(--weight-medium);
+  text-decoration: underline;
+  text-decoration-color: var(--color-line-strong);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.35em;
+}
+
+.about__link .icon {
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+@media (hover: hover) {
+  .about__link:hover {
+    text-decoration-color: currentColor;
+  }
+
+  .about__link:hover .icon {
+    transform: translateX(3px);
+  }
+}
+
+.about__points {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-block-start: var(--border-hairline);
+}
+
+.about__points li {
+  padding-block: var(--space-l);
+  border-block-end: var(--border-hairline);
+}
+
+.about__points h3 {
+  margin: 0 0 var(--space-2xs);
+  font-size: var(--step-1);
+  font-weight: var(--weight-regular);
+  letter-spacing: var(--tracking-tight);
+}
+
+.about__points p {
+  max-inline-size: 52ch;
+  margin: 0;
+  color: var(--color-text-muted);
+  line-height: var(--leading-body);
+}
+
+@media (max-width: 900px) {
+  .process__grid,
+  .about__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .process-step {
+    grid-template-columns: 2.25rem minmax(0, 1fr);
+    column-gap: var(--space-s);
+  }
+}

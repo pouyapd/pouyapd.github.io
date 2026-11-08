@@ -1,0 +1,1887 @@
+{
+  "hero": {
+    "portal": {
+      "width": 1672,
+      "height": 941,
+      "widths": [
+        960,
+        1280,
+        1672
+      ],
+      "placeholder": "data:image/webp;base64,UklGRrIAAABXRUJQVlA4IKYAAACQBQCdASogABIAPtFQoUyoJCMiMBgMAQAaCUATpltIpEMC/LBcNJ1qsUXcGo/f2NapJ1TN2AD++F6P4EZ4d0nNN9QoYMQVPahnmKReJzMx3fDD2PYuR/6j/urTs4pcBqlwOir4YeHGsuxt4E2Y5p3vwAmfXU0Q9MEJjghvxER4TBqh/7tf0cpXkvgSW6wS1wtftUOq/s0E7OGSy3ofQ4tcz5dQAAAA"
+    },
+    "portal-portrait": {
+      "width": 680,
+      "height": 941,
+      "widths": [
+        480,
+        680
+      ],
+      "placeholder": "data:image/webp;base64,UklGRmoBAABXRUJQVlA4IF4BAACwCACdASogACwAPsFMn0unpCKhurZoAPAYCWwAnTLQfRyBK+wrTshVzNzTgV0q4SM34Gy/e9tg6t73twV3qeHgjchQRGWU0X/v0ipbfAAA/vuT14x9y/sSGZJLnGpBXAzJ1li1/9yTPrPnqkOTTqFIYJxBzYLD3ijuKc7UJvkTlDVhxCwB+v6nq9G2Ely1v/PSVOW97dSnGiJNG1PFUylVz0AVT14Y5WIHs+sn+1XqgHi/PnpsAm/QWfRymNwavelXED0ugX+utnTiJLa7S9R58uoBwM5icWqKp7kWElj+F3uloETXKeV6zfkDi45dWzGDQAJfrjkZPop1Wl4ieKi5LGtXW/psCmmzVImjv437Oxfmr6172YGy7kYEGFBTsmjz8s/aCj2egCAOcyQaYlQAvBrJmb8NP/0CGYi2kpK0N61qyqJkd40B4Zxi6JEr7Bm1kW6bLO/MemPAT0AAAA=="
+    }
+  },
+  "sites": {
+    "live-anar-desktop": {
+      "width": 1440,
+      "height": 7461,
+      "widths": [
+        720,
+        1080,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAAAwBQCdASogABQAPs1WpEunpKOhsBgMAPAZiUATpnAQNUCEh85rAXfnlfLtIMWYrT8cAAD+7EA03HNn9V8GLedkX2nLQPOOH+DpKEPWb4FAsOg9Q4fTVbmRgYix9HCTgoCIamgY6woIH/cTK4LBZrawY/CpBF4iwCzzcpvucoZhx2j8wQaYJR4AAAA="
+    },
+    "live-anar-mobile": {
+      "width": 780,
+      "height": 20408,
+      "widths": [
+        390,
+        626
+      ],
+      "placeholder": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAAAQBQCdASogABQAPsFMn0unpCKht/qoAPAYCWMAsR+Owzb3/pDiCpi2ElyNgoTq48wAAP7yuBS4zZzE1KJBCMAjQN8mvvMeWIRnY2l/R8Ebx6vxHgft0cYfHep4xeY4CfOwYLeyA20ZdSpMocMHduF2dcqAChY8hmXo+FgBh4kyfQwDe4Z1OYHYnAAQBAAA"
+    },
+    "live-maison-aurel-desktop": {
+      "width": 1440,
+      "height": 7002,
+      "widths": [
+        720,
+        1080,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAACQBQCdASogABQAPtFWpUwoJKOiKA1RABoJYwDIyvZ8eFVJ8bb9Sl60bt9Z6frIvlLJ396zaAD++mtH0vbOyouOwFshEkF828/E86HAmcUS3T0KdGKJ0sLpfkS78Jt+Uu+v75F96PLhHm8zPc69WvGIAARfD2C09FXtzPtP9Yw/hQdlc0YheLzyAeoYhgKW0pFtR7DVOlFxCOBvP/GiWeVK6dAAAA=="
+    },
+    "live-maison-aurel-mobile": {
+      "width": 780,
+      "height": 16650,
+      "widths": [
+        390,
+        767
+      ],
+      "placeholder": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAACwBACdASogABQAPsVMo0unpCOht/qoAPAYiWU7gCBEBTZTq1cXFFk8Kk57LFGQAP7y0aIeOZrf84P/NY4dC47JGo+UrzMBwv4pFlr3DHaiSCA236GdpcPkHlw37gEUA/gtPLStnhJDSx4rCreMFYA74Hv+31TUvCnxe4AA"
+    },
+    "live-p-design-desktop": {
+      "width": 1440,
+      "height": 8789,
+      "widths": [
+        720,
+        1080,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAAAQBACdASogABQAPtFYpEuoJSOhsAgBABoJaQDL4Cm76H64vC/IePvcAAD+8LfsIeLj+etUM78JctDzozC+CGBL96Pb2MZMUo2NoELIeJviqUgAAAA="
+    },
+    "live-p-design-mobile": {
+      "width": 780,
+      "height": 20230,
+      "widths": [
+        390,
+        631
+      ],
+      "placeholder": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAABwBACdASogABQAPtFWpk2oJCOiMBgIAQAaCWVmQFvXmEDn+rY7GPi6ZQ0BaAD+80CXZ9wPSlUmuE6uHP4X1LZDOu7QZR7TDlu8s2585zEIvqfjv3ECUuNoIpWUYB/r29tLPWJVt8YvWTOMWuIx+WjYgHaYTSAA"
+    },
+    "live-tensile-desktop": {
+      "width": 1440,
+      "height": 6377,
+      "widths": [
+        720,
+        1080,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAAAQBQCdASogABQAPtFYpE0oJSMiMBgIAQAaCWMAwqCIwYHAIsmNLjw014rPT71PZiLAAP7l/oNPpxoHQVAJhLuiYWB4eCmrigobPbju0aeCJjEVqynql6lXXnEGPS7XuNA1m9cmQEg3eGWbfzV0JdJ+q7jivHQ72JvJMBwv3SWORzr+yGjprv8MhEtXoC4gAAA="
+    },
+    "live-tensile-mobile": {
+      "width": 780,
+      "height": 18706,
+      "widths": [
+        390,
+        683
+      ],
+      "placeholder": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAACwAwCdASogABQAPtFWpEuoJKOhsAgBABoJQAXf+A8gdwRt9903aAD+6V5x1Dvs/NVRFfOJK60lFK87tAfAoGp4Nd3X/Bnx3UCjuSf/5VWf5SVUbLX/5Ql+mjID6HyB1HeyAAAA"
+    },
+    "maison-aurel-desktop": {
+      "width": 1440,
+      "height": 6705,
+      "widths": [
+        720,
+        1080,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAAAQBQCdASogABQAPtFYpEyoJSOiKA1RABoJYwDH5EXfZXj4x5be7TTF2c1doS+iWoIAAP766cjIptXTZxtDYbb3QkfoXOlFWklzkCv7LmEQ8B9+XgrhuSkhNXygo0MICm9bqNjGFS62VigNRghlp7MWRukno1o5OJdTwntrpBtm6Gn+03aDGwBYe/6R/vzRinOG9CpMxNJZhD/sm66F6wI6YwAAAA=="
+    },
+    "maison-aurel-mobile": {
+      "width": 780,
+      "height": 16132,
+      "widths": [
+        390,
+        780
+      ],
+      "placeholder": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAAAQBQCdASogABQAPs1MpEunpCOht/VYAPAZiWUAx+RFXurI+paLz/KAihxaoxdLsZb4AP76YcUinNraeBYCwflCFrWCbt8jfvM4HJ2D/HbxP+EiIkm+dF4n/thn+i7t2kHq7cY2IOnMd1qVd9m5KkTIl6IlqS+QAZko71biRMILWf4kU8anggAA"
+    },
+    "anar-desktop": {
+      "width": 1440,
+      "height": 6623,
+      "widths": [
+        720,
+        1080,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAACQBACdASogABQAPtFYoEuoJaMhsBgMAQAaCUAToAI//YwPwACdiNCWc6i3fgAA/uNxiRT3OCaTJUjDioKmBMeHiMXXwUUcHY9YKULGrEsj7mebb9wmhNCxi+QmPZH5FE3OWFm5arGpXhKubjcf7IzIk3SaNh079vVAhys9Tk/dG3EyA3yAAA=="
+    },
+    "anar-mobile": {
+      "width": 780,
+      "height": 17728,
+      "widths": [
+        390,
+        720
+      ],
+      "placeholder": "data:image/webp;base64,UklGRqYAAABXRUJQVlA4IJoAAABQBQCdASogABQAPtFYpk0oJKOiMBgIAQAaCUATpf/gE5t9A/dxQMq9llN7o5y1yvrTtgAA/tDaMsrH7FvPT7t7Vz45ih5hly/MlDs5iv35lYrQEjcBTEtgi8IU5ii+IrpLLDeFsFhw/4fLBv/ISsTlStELibARFAPdoDLq9pFt9fWr0NAiLNtXfmtkyObfM2dku/lgIpF/AAAA"
+    },
+    "lune-desktop": {
+      "width": 1440,
+      "height": 7921,
+      "widths": [
+        720,
+        1080,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRswAAABXRUJQVlA4IMAAAABQBQCdASogABQAPtFepE6oJSMiKAqpABoJYwDCgGlf+QRHf6WGK2jBiWWF4Ah3NKP+BwAA/vUH/n+fZHfsm1PyVGHdGCfUe3yCaHvm3yl3pAxVUYmexN/YsI+zfMsFc+9Bu16IGxBPGlsFQ3RDLzGKRKv3NCOkYhw6CArRIKisMoCNkOb7+KZWC3nu1kZM8uqfRfebW9WuaWYAN24rlsoUqX+KqKLwpHeDOg3S6bzPgYTp9Bv12C6kVi5uE0EgAAA="
+    },
+    "lune-mobile": {
+      "width": 780,
+      "height": 20658,
+      "widths": [
+        390,
+        618
+      ],
+      "placeholder": "data:image/webp;base64,UklGRsoAAABXRUJQVlA4IL4AAAAwBQCdASogABQAPtFcqE4oJSQiKAqpABoJZQABHuviisAEnpIjr9f7tf0b7xzdTh8gAAD+2tf8yzzlAFoQVAmW5e0lUp3rdkPglU80h7P9bECuplXmg6OqJ7zgfsDOehs8KG36oJpMvzdBKCGZZWDmmCIx0zyFTmCs4cHEqFQrBsAVFjHwSUkZnpiRlOJu/IBhNOGMAEj6aIbuIIKn4PRmtxubi3Wde0SPIaez8zmzG6KAvA2UIU+c4h7bgzAA"
+    },
+    "meridian-desktop": {
+      "width": 1440,
+      "height": 2913,
+      "widths": [
+        720,
+        1080,
+        1440
+      ],
+      "anchors": [
+        {
+          "label": "Projects",
+          "x": 0.6410481770833333,
+          "y": 0.01184346035015448,
+          "w": 0.04131944444444444,
+          "h": 0.006179196704428424,
+          "top": 0.292825266048747
+        },
+        {
+          "label": "Practice",
+          "x": 0.7101453993055555,
+          "y": 0.01184346035015448,
+          "w": 0.04091796875,
+          "h": 0.006179196704428424,
+          "top": 0.7241943443185719
+        },
+        {
+          "label": "Journal",
+          "x": 0.7788411458333333,
+          "y": 0.01184346035015448,
+          "w": 0.036393229166666666,
+          "h": 0.006179196704428424,
+          "top": 0.5160272914521112
+        },
+        {
+          "label": "Contact",
+          "x": 0.8430121527777777,
+          "y": 0.01184346035015448,
+          "w": 0.0400390625,
+          "h": 0.006179196704428424,
+          "top": 0.9037879763130793
+        }
+      ],
+      "placeholder": "data:image/webp;base64,UklGRqYAAABXRUJQVlA4IJoAAAAwBQCdASogABQAPtFQoUyoJCMiMBgMAQAaCWcAx+gIAgAj21ZCV9w/1CLRPaWC/O5G4AD+9gbf4vzIl2dO+s8xD+2p86VwkKX8YcXBcyrEckSEVlP8EA6MVloJvCalD0XrwJ1OYOyJOTDkashPubg2k9APZ54WdZ8mI5Na2rUOJzxmAA6S3ncZ/23MNPAXhAltP/dyIDxZAAAA"
+    },
+    "meridian-mobile": {
+      "width": 780,
+      "height": 7066,
+      "widths": [
+        390,
+        780
+      ],
+      "placeholder": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAACQBQCdASogABQAPtFUpk2oJCOiMBgIAQAaCWUAxvQ0dLDlapBL7uaaOBPYnqjKg83OiB/qAAD+88jqn8YGkfQyT1KhSrEJyFbu2hJH1Bntp6T5jCJ75Ssd1ozMvur/MNmsVZY7tEporsF46L3Fff9qPvB2uWLA9U3Te22rmZohpM2K534NKncEXJVKAAAA"
+    },
+    "live-lune-desktop": {
+      "width": 1440,
+      "height": 10059,
+      "widths": [
+        720,
+        1080,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRsYAAABXRUJQVlA4ILoAAABwBQCdASogABQAPtFeqE+oJKOiKAgBABoJYwC7AFbRRFYcpW+Zq4yS6j8vUEd+1f1W7hRYAP3jv+fNB5IIpRNpEH7kYjVoUnJ/i/UIRIDsYmURsi8ygeoxJApZjCkdTkAz2O6lP5FXNGQDHHGmrN7Fv6CFHeOI+haKNio/YIHWv8O5InQVrA7otRkHP/j8nPGvb4/i+OvoM2bLDK9OX9ZXelPsdKVIVQG3F/GlaJxi4mCxdBOAZsIicAA="
+    },
+    "live-lune-mobile": {
+      "width": 780,
+      "height": 25668,
+      "widths": [
+        390,
+        497
+      ],
+      "placeholder": "data:image/webp;base64,UklGRq4AAABXRUJQVlA4IKIAAABQBQCdASogABQAPtFipk6oJaMiKAqpABoJZQC3uGj59wAbIbORhUO0H4nmKmOyOGl5bAAA/vvkJ38eZnbfKi1A/7xfR9RPeXtrC3BMLsivCVGa7Rg+MMMZnAVbtBtUMeh/6fpkj2uZXMRYF29vgVdcSYuj4/+7czkUDPZ51o3/qzuhq/DNV014Q+8xePIa6jyrei/bCR1H5v5ogy0eNb48gAA="
+    }
+  },
+  "shots": {
+    "live-anar-shot-hero-desktop": {
+      "width": 1440,
+      "height": 900,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "live-anar-shot-hero-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "live-anar-shot-menu-desktop": {
+      "width": 1440,
+      "height": 900,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "live-anar-shot-menu-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "live-anar-shot-reserve-desktop": {
+      "width": 1440,
+      "height": 900,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "live-anar-shot-reserve-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "live-maison-aurel-shot-appointment-desktop": {
+      "width": 1440,
+      "height": 900,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "live-maison-aurel-shot-appointment-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "live-maison-aurel-shot-bag-desktop": {
+      "width": 1440,
+      "height": 900,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "live-maison-aurel-shot-bag-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "live-maison-aurel-shot-checkout-desktop": {
+      "width": 1440,
+      "height": 900,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "live-maison-aurel-shot-checkout-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "live-maison-aurel-shot-collection-desktop": {
+      "width": 1440,
+      "height": 900,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "live-maison-aurel-shot-collection-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "live-maison-aurel-shot-hero-desktop": {
+      "width": 1440,
+      "height": 900,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "live-maison-aurel-shot-hero-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "live-maison-aurel-shot-product-desktop": {
+      "width": 1440,
+      "height": 900,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "live-maison-aurel-shot-product-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "live-p-design-shot-colour-desktop": {
+      "width": 1440,
+      "height": 900,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "live-p-design-shot-colour-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "live-p-design-shot-hero-desktop": {
+      "width": 1440,
+      "height": 900,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "live-p-design-shot-hero-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "live-p-design-shot-lime-desktop": {
+      "width": 1440,
+      "height": 900,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "live-p-design-shot-lime-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "live-p-design-shot-mark-desktop": {
+      "width": 1440,
+      "height": 900,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "live-p-design-shot-mark-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "live-p-design-shot-work-desktop": {
+      "width": 1440,
+      "height": 900,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "live-p-design-shot-work-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "live-tensile-shot-class-desktop": {
+      "width": 1440,
+      "height": 900,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "live-tensile-shot-class-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "live-tensile-shot-compare-desktop": {
+      "width": 1440,
+      "height": 900,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "live-tensile-shot-compare-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "live-tensile-shot-hero-desktop": {
+      "width": 1440,
+      "height": 900,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "live-tensile-shot-hero-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "live-tensile-shot-memberships-desktop": {
+      "width": 1440,
+      "height": 900,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "live-tensile-shot-memberships-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "live-tensile-shot-timetable-desktop": {
+      "width": 1440,
+      "height": 900,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "live-tensile-shot-timetable-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "live-tensile-shot-trial-desktop": {
+      "width": 1440,
+      "height": 900,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "live-tensile-shot-trial-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "anar-shot-hero-desktop": {
+      "width": 1440,
+      "height": 900,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "anar-shot-hero-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "anar-shot-kitchen-desktop": {
+      "width": 1440,
+      "height": 960,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "anar-shot-kitchen-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "anar-shot-menu-desktop": {
+      "width": 1440,
+      "height": 1214,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "anar-shot-menu-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "anar-shot-private-desktop": {
+      "width": 1440,
+      "height": 1448,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "anar-shot-private-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "anar-shot-reserve-desktop": {
+      "width": 1440,
+      "height": 825,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "anar-shot-reserve-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "anar-shot-tea-desktop": {
+      "width": 1440,
+      "height": 908,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "anar-shot-tea-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "lune-shot-booking-desktop": {
+      "width": 1440,
+      "height": 894,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "lune-shot-booking-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "lune-shot-gallery-desktop": {
+      "width": 1440,
+      "height": 793,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "lune-shot-gallery-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "lune-shot-hero-desktop": {
+      "width": 1440,
+      "height": 1056,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "lune-shot-hero-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "lune-shot-notes-desktop": {
+      "width": 1440,
+      "height": 668,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "lune-shot-notes-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "lune-shot-philosophy-desktop": {
+      "width": 1440,
+      "height": 798,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "lune-shot-philosophy-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "lune-shot-prices-desktop": {
+      "width": 1440,
+      "height": 922,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "lune-shot-prices-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "lune-shot-signature-desktop": {
+      "width": 1440,
+      "height": 834,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "lune-shot-signature-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "lune-shot-treatments-desktop": {
+      "width": 1440,
+      "height": 1170,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "lune-shot-treatments-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "maison-aurel-shot-appointment-desktop": {
+      "width": 1440,
+      "height": 774,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "maison-aurel-shot-appointment-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "maison-aurel-shot-atelier-desktop": {
+      "width": 1440,
+      "height": 746,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "maison-aurel-shot-atelier-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "maison-aurel-shot-collections-desktop": {
+      "width": 1440,
+      "height": 1079,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "maison-aurel-shot-collections-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "maison-aurel-shot-hero-desktop": {
+      "width": 1440,
+      "height": 1143,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "maison-aurel-shot-hero-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "maison-aurel-shot-new-desktop": {
+      "width": 1440,
+      "height": 862,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "maison-aurel-shot-new-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "maison-aurel-shot-product-desktop": {
+      "width": 1440,
+      "height": 887,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "maison-aurel-shot-product-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "maison-aurel-shot-worn-desktop": {
+      "width": 1440,
+      "height": 807,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "maison-aurel-shot-worn-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "live-lune-shot-booking-desktop": {
+      "width": 1440,
+      "height": 900,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "live-lune-shot-booking-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "live-lune-shot-checkout-desktop": {
+      "width": 1440,
+      "height": 900,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "live-lune-shot-checkout-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "live-lune-shot-gallery-desktop": {
+      "width": 1440,
+      "height": 900,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "live-lune-shot-gallery-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "live-lune-shot-hero-desktop": {
+      "width": 1440,
+      "height": 900,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "live-lune-shot-hero-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "live-lune-shot-product-desktop": {
+      "width": 1440,
+      "height": 900,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "live-lune-shot-product-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "live-lune-shot-shop-desktop": {
+      "width": 1440,
+      "height": 900,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "live-lune-shot-shop-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "live-lune-shot-signature-desktop": {
+      "width": 1440,
+      "height": 900,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "live-lune-shot-signature-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    },
+    "live-lune-shot-treatments-desktop": {
+      "width": 1440,
+      "height": 900,
+      "widths": [
+        720,
+        1080,
+        1440
+      ]
+    },
+    "live-lune-shot-treatments-mobile": {
+      "width": 780,
+      "height": 1688,
+      "widths": [
+        390,
+        780
+      ]
+    }
+  },
+  "photos": {
+    "lune-brow-glow": {
+      "width": 1600,
+      "height": 2000,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAABwBACdASoQABQAPtFUo0uoJKMhsAgBABoJZACdMoRwAB/SndRffmOhX7nhAADiThD1K78ckkX6lj3kLL6BwSeH6XDpL8ta6UG4cF9lX6e1mcj8eWy02QvqSxphniybMnFEszctHJ1w5cAA"
+    },
+    "lune-brow-treatment": {
+      "width": 1600,
+      "height": 1032,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAAAQAgCdASoQAAoAAsBMJYwCdIExEJHY7YoAAP7uVymHYPPqAZ61v05or2DfEiKbsKs09pZRSGfEtU+vH3iiYSgnY+Hj94pImiJIgB5d9r3gAA=="
+    },
+    "lune-detail-dropper-sand": {
+      "width": 1600,
+      "height": 2400,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAwCdASoQABgAPtFWo0uoJKMhsAgBABoJYwCsACHpSr+MzUtNG3QA/rkRO2Sd3RnqL25RhAFdiMNbl2Pbv7Q12mIgRkMlpKHliwAA"
+    },
+    "lune-hair-backlit": {
+      "width": 1600,
+      "height": 2400,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAADQAwCdASoQABgAPtFUpEuoJKOhsAgBABoJQAAJVBgzAC9DpI8pQMQA/mbD/ZRr2sCJgKa5Tuqej7xf51Ix2zB536DqN7NnjVEOcyl+irpbI15uj2taLv+tHQddM5hNt6kOmU+cWqWQzK2rezIjk3hZTmmpaDbXTLYl9PdczDAAAA=="
+    },
+    "lune-hair-braid": {
+      "width": 1600,
+      "height": 1064,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAAAQAgCdASoQAAsAAsBMJYgCdADG8ZeGs/WQAPqApw+wazLsHvQPrQKVIAHNAQnfpL3ek+FCWFJo7hcpvL6Laypi4awVOr6V8IPAAA=="
+    },
+    "lune-hair-curl": {
+      "width": 1600,
+      "height": 2847,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAABQBACdASoQABwAPtFUpEuoJKOhsAgBABoJZQCdACL9W16jOkqASIy4KFAgAP7rfDjDdQCsCf5y4sUH6qqNb6ItWrhcdre4GPLvlLE8IalmK9TWtnZa/pPw4MODvoXslZDAytyqo9zU52OUYt1F5/miKBpU2JfGqWSBD12AAAA="
+    },
+    "lune-hair-shoulder": {
+      "width": 1600,
+      "height": 1067,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAAAQAgCdASoQAAsAAsBMJQBOgCFV7l0wcrdAAP3F9IpT/IVi2uPN4aHhj9LrmBfMITNn5BkcgevwJmUAb3UO2Y4AAAA="
+    },
+    "lune-hair-waves-back": {
+      "width": 1600,
+      "height": 2400,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAABwBACdASoQABgAPtFUo0uoJKMhsAgBABoJYwCdBAgBSjxSuC3K+vV5RBn/EAD+8378gcKYyLNE5eSUl+MQdtFoZ1ZmKwUQTF3x1rwgtzcb08lbrnakIl5OlsIUwQdXiLDc6ZHlNMRow2ovdMRSpk9osx4yVtiy6oW93nr3aPpXGegAAAA="
+    },
+    "lune-lash-detail": {
+      "width": 1600,
+      "height": 1160,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAAAwAgCdASoQAAwAAsBMJbACdAEed8thvQdycAD+k85sPdfzKRetp3VW9N5E9FdZsRikMrE+u5rfHNFIUmup4tw4SIDcc4E+8qIHor/QnXhXZpHxQ5sYBBgYAAA="
+    },
+    "lune-lash-extension": {
+      "width": 1600,
+      "height": 2134,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAADQAwCdASoQABUAPtFUo0uoJKMhsAgBABoJQBOgBC2Czb2MSylPtrgA/sdtP5nn/L/TRO2xgU7w+ux/jwXKIWNpgEYMsjTgqwZe+WjZj4R7BQfOu/p0RVYW/wWvIM+fvuZSgAAA"
+    },
+    "lune-lash-treatment": {
+      "width": 1600,
+      "height": 1066,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoQAAsAAsBMJQBOgCFsdm3aswAA/u48UY5EpJryrh8L+hsMJ1Wz019OVgWToP8PCZpr3ATmQO48lcT89FGhpCmVHowG4AAA"
+    },
+    "lune-portrait-auburn": {
+      "width": 1600,
+      "height": 2400,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAAAwBACdASoQABgAPtFUo0uoJKMhsAgBABoJQBOmUABhVcW5g3huo1CIlgAA/tXkrZMnKLB0d7e7hYa0M77dsqk2YTU1rOQu75DxW2wKbV1ISp8/nyPw5p36H4wIuQCKs6Uw77CBuGMUospEX6876moJ6AwEAA=="
+    },
+    "lune-portrait-brows": {
+      "width": 1600,
+      "height": 2407,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAABwBACdASoQABgAPtFUo0uoJKMhsAgBABoJYgCdMoMljEnJ6E76c80UoLeb0AD+2U+PfvWTF4KtIUAdUkYmpnpXPwfrzc5O89idySIz83TchBbwAyrmft3R8gYM6NzYJ1kFqfkz+S85ikz+Dzh4zdOYOIUkkvcFoAA="
+    },
+    "lune-portrait-freckles": {
+      "width": 1600,
+      "height": 2398,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAQBACdASoQABgAPtFUo0uoJKMhsAgBABoJYwAAW9YafLfjzpB37hatgAD8Rmec4xVg3cUDz8jC4Zwkdv9zeDrQ9snfxMoQkt9qNeuJw7RKF0kqsiEeQAAA"
+    },
+    "lune-portrait-hand": {
+      "width": 1600,
+      "height": 2000,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAABwBACdASoQABQAPtFUo0uoJKMhsAgBABoJZgCdMoADKGGbKsvQUupMj3BGAADOMebZOTfqA76ZneBxdDVOUojAWAVS/f2JK/1iXwJIvZDsEON2DrlFRfHN7d6jYDyV2n/4Hqz9le/n3YUSkDkpJjo0ykYF/N8w375PvVZ9uAA="
+    },
+    "lune-portrait-linen": {
+      "width": 1600,
+      "height": 2400,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAADQBACdASoQABgAPtFWo0uoJKMhsAgBABoJYgCdMoR3ACocH1a+9n1mH7M6H1FmYAD+sWWzit/h7lKsJBQ74ZQsKYiT7R+tuwPp/Fka4cK+jWMRNPcvGFTeRfKrBhjRBORt7mdfEXNVwgqZfQBz0ZmxidMfhjThr13/60vOs7LPIcAA"
+    },
+    "lune-portrait-ponytail": {
+      "width": 1600,
+      "height": 2038,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADwAwCdASoQABQAPtFUo0uoJKMhsAgBABoJZQCw7CP4BFwcQ54Z1XEAAP6Tr/OTgZWuIQCQ7hfi4aCk2ieSuJCH4Z6lrOC+nwQXW0Wud8grx/DdxmwcsIGe6IAAAA=="
+    },
+    "lune-portrait-profile": {
+      "width": 1600,
+      "height": 2000,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAAAwBACdASoQABQAPtFUo0uoJKMhsAgBABoJZACdMoADaT0+QmwDuXmha9AA/vGg73X2s98MVOnYqJdSF3LniPZtmlA51L6A33wrDNhGs2UyJf2eZYnypfydi546b2vREoySpo4RDM5lzqvFhOYOWWfOAQmpzTvXq1xMHMAA"
+    },
+    "lune-portrait-sunlight": {
+      "width": 1600,
+      "height": 2400,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRrYAAABXRUJQVlA4IKoAAAAQBQCdASoQABgAPtFUo0uoJKMhsAgBABoJbACdH8II1tgAGlsc7fjRSpMXi9g1EhqAAP7p46PS1U8Br+nReLSCBELjFaQjzRzwM6PEcocUsqlCsjl20mZQyuS/Q1/b9l5wZlP16At4VZ6bYUv3pOLKY7OAd4UzXgQE6xh8kVoRCD5q/ArPn8M7ZOU3awScyf422ZE+UmkWRrm+BMgoyLATJIl2XoiRxtgAAA=="
+    },
+    "lune-portrait-updo": {
+      "width": 1600,
+      "height": 2133,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAACwAwCdASoQABUAPtFUo0uoJKMhsAgBABoJYwCdAB4bIPSEnTgu6AD+50DEiF+oYA+AGI2cX2neqbCCWBYtc8MUClv3i33BzP7E7lD54Khw3of2evzURMcJy9zL9nAA"
+    },
+    "lune-product-amber": {
+      "width": 1600,
+      "height": 2400,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAACwBACdASoQABgAPtFUo0uoJKMhsAgBABoJQBOmUI8DBYqAMy0y8dYrQx+2GgcAAM3xcW+GZSSQyfq6gvfIhpvS10UNTfjpkQeu8B7x8LkjznV+wnr0FGf/S6etJaP32NNueT4IVuRf66okxU/YvUeUWYLya6BDHipn8mDKJ1yDiVDAAAA="
+    },
+    "lune-product-balm-jar": {
+      "width": 1600,
+      "height": 1600,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAAAQAgCdASoQABAAAsBMJZQCdAEOggUjW9aAAP6WNebtBbMPqpjXi35rXNrMdtX7Z1Uvy3Tyqft/sb/pymPgwxKSkAA="
+    },
+    "lune-product-bar": {
+      "width": 1600,
+      "height": 1066,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAADQAQCdASoQAAsAAsBMJYwCdAEN+/rAAAD+6CNWGHhl09tEYWoK3M273qJMBIjnZAAAAA=="
+    },
+    "lune-product-butter": {
+      "width": 1600,
+      "height": 1066,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoQAAsAAsBMJZACdAEJ8NswU/gA/u2tAF+4jC8qHWYJZXV3NwV2NmksR7yu8WeYVekdjFz81c409wxngj4CoJBCZxAAAA=="
+    },
+    "lune-product-dark-dropper": {
+      "width": 1600,
+      "height": 1066,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADQAQCdASoQAAsAAsBMJZQCdAEN3MI0MAD+9wiDnQ9/HCPlXAjnfJounA0je7pGqSjtRK2d8oAAAA=="
+    },
+    "lune-product-drop-white": {
+      "width": 1600,
+      "height": 1066,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAADwAQCdASoQAAsAAsBMJYwCdAEPAqnPQgAA/vU7FCuCDJvl6pOJ7ZhjQgpqiMMgYHoAAA=="
+    },
+    "lune-product-oil-grass": {
+      "width": 1600,
+      "height": 2400,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAABwAwCdASoQABgAPtFYpEwoJSOiMAgBABoJQBOgAwPOO9w46AAA/c6XZpU4Lcr1FhhME64ElY5Cpi/vMJT0zU82CVB2+C2aG6CmX8gA"
+    },
+    "lune-product-tube": {
+      "width": 1600,
+      "height": 2000,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADwAwCdASoQABQAPtFUo0uoJKMhsAgBABoJZQCdACIaVZbcKM1f3EWcAP7Tf2XZE3Eib16Y31bqFhM6yMOe4ymIjDP1nBjuO2d8dPdsAAA="
+    },
+    "lune-room-basin": {
+      "width": 1600,
+      "height": 2400,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAAAwBACdASoQABgAPtFWo0uoJKMhsAgBABoJQBWAA9JmOgZEQ47ZZjURHQAA/vCL1h6xvqlNPniNbkr7ACGCMB1TTrkvsJF5lNIun1IFp8t7v6qL40DQ2cpfcC/+iSXjGIGFp7F9M1Facm5oWGommuxUrOaJ6XhRXGtep4pOGYnizwZDTx9wawAA"
+    },
+    "lune-skin-cream": {
+      "width": 1600,
+      "height": 1702,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAABwAwCdASoQABEAPtFUo0uoJKMhsAgBABoJYwCdMoADTpX4bUAA/up5hXqQwddWlOCwOBW0MVRzR+bJ2AAAAA=="
+    },
+    "lune-skin-dropper": {
+      "width": 1600,
+      "height": 2400,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAABwBACdASoQABgAPtFapEwoJSOiMAgBABoJYgCdMoAC+efM30PTo/nAqjPXAAD+l98yi+trNIJtSrgtQkAwl+Lvd30jlfHZ0wXlBfRCz/9LRQ3tap+KD3Z+V3rbJ1qkuOv56/EFIO2qwaywAAA="
+    },
+    "lune-skin-massage": {
+      "width": 1600,
+      "height": 2398,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAACQBACdASoQABgAPtFWo0uoJKMhsAgBABoJQBOmUI7gBPkA2o73AB8BO+eSU4AA/sKFhkKWqs5bKKIOCi/u/C8VO/6v6Mf6d5bC8B6P6g/UtQ1hLnXgbQX4KyMpGdiiEA3f1u9gmc+iW0jPQzmIAA=="
+    },
+    "lune-skin-serum": {
+      "width": 1600,
+      "height": 2400,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAAAwBACdASoQABgAPtFUo0uoJKMhsAgBABoJQBOmUABAWbEbgbUG7XkJ4KgA8bHYsYctLZd3oiLedsiAz2kcovPkdpLAT/Z7y8ny9qjkD1lpZ4QMSq4CdgAiubjo1LtzhqYfe8xrNCgezdFN7OhyviwA"
+    },
+    "aurel-bands": {
+      "width": 1600,
+      "height": 1062,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADQAQCdASoQAAsAAsBMJZACdADu3s5ZIAD+VAmQ7+upaddnyqb+lL9NtAC5u/lnrBA1LY3PXrX/yCV7s7RaYsAA"
+    },
+    "aurel-bench": {
+      "width": 1600,
+      "height": 2134,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAAAwBACdASoQABUAPtFWo0uoJKMhsAgBABoJYgCdMoACS0j7X0Fx/EcKMQAA/ucvneuJ/KCs1M4dtcq9w56dU+IoVWbm8zwB25jP0UJORsHSmewrsVh4pcH+iLjgJM0lta7tlhXO1p5ibIV2Uz6OvbKWlcqiHnlvGyMJSO7Gu4AAAA=="
+    },
+    "aurel-bracelet": {
+      "width": 1600,
+      "height": 2136,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAAAwBACdASoQABUAPtFWo0uoJKMhsAgBABoJQBOmUGSxhhFyHp8ix5T9DwAA/ukdpr/sR+9PdYKLti1ef1Yzj5lgtUpqWD0qO+k66YRrwXg2l3hDXlFL9t1ce6/w0cpZ884tFFP2vlGgV6gpNzyzCDrmrbuwiDULzCcluAAA"
+    },
+    "aurel-chain-black": {
+      "width": 1600,
+      "height": 1066,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAAAwAgCdASoQAAsAAsBMJZQC7H8AFe+pQ0/eAAD++25z0a2UsVRnngcHlGpJRKnWqHRWLRhtUoS7ZFWC1AAAAA=="
+    },
+    "aurel-chain-worn": {
+      "width": 1600,
+      "height": 1670,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAABQAwCdASoQABEAPtFUo0uoJKMhsAgBABoJZwAATq4RKk6ZwAD+0n9y/Gr2SqNqa0R09uGGNo6kMMIyMSsweuB7g0AN9F3sMAA="
+    },
+    "aurel-hoops": {
+      "width": 1600,
+      "height": 2400,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAAAwBACdASoQABgAPtFYpkwoJSOiMAgBABoJZQDCgCLTGOfXTcIH1VAEOsAA/unX78Fu2VCulQVO8v8jrVeZSLK1iqDGj4gRrtOo1QdAkJ2rlJWi4q4E/BO25PeS8Og/18DQkLspSovYkf/8qrZV6nesrlOY867z9cIQ3+Bxxly8QAAA"
+    },
+    "aurel-layers-worn": {
+      "width": 1600,
+      "height": 2400,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAAAwBACdASoQABgAPtFUo0uoJKMhsAgBABoJQBOmUABd68/CFHcohriAgQAA/qZa5gjPHKBzcBMllBImvTTeBqTmXdRuhJ9qaH9oyitcGAa5AGfbrCh9cbx0ZQPz4izzcKV3KuKx8lCr7T6jiAMCcktvXyoy4DBSesbAAA=="
+    },
+    "aurel-pearl-pendant": {
+      "width": 1600,
+      "height": 2400,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAAAQAgCdASoQABgAAsBMJaQAAudVa3058HSwAP76XqBJeclMZlix4eRd54af5TSUIwfK3AAA"
+    },
+    "aurel-pearls": {
+      "width": 1600,
+      "height": 1064,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAAAQAgCdASoQAAsAAsBMJYwCdH8AFccrb/4QAP6tRK5kOZ3gNbVota+rITnCCFPqudj0UJloEb7ExvGhwnGvwgy+UD0+AAAA"
+    },
+    "aurel-pendant-box": {
+      "width": 1600,
+      "height": 2000,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAAAwAwCdASoQABQALplotFoiqCgoCACYSzgABc7ALFvtTjS4AP74SUF3f89gDUuWUP2YUte+/awAAA=="
+    },
+    "aurel-pendant-oval": {
+      "width": 1600,
+      "height": 2400,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAABQBACdASoQABgAPtFWo0uoJKMhsAgBABoJYgCdMoRwACfJGqerVqZIFDGAAPYDCYZYcDfJws1qXb98QIcbuBwJTjuqR+4yjVmZxfzq5WxUqU+tLFFshjaAAAA="
+    },
+    "aurel-ring-black": {
+      "width": 1600,
+      "height": 1059,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoQAAsAAsBMJZwAAu18ZyagAP74UaYqh/vgK8YM7uVwjaQPAtgAAA=="
+    },
+    "aurel-rings-dark": {
+      "width": 1600,
+      "height": 2000,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAABwAwCdASoQABQAPtFUo0uoJKMhsAgBABoJQBOmUABfhmfnUbAA/vaLX5at9IPqgpF26kLymso8RVoIsG/yh4FuP7Kf72h99hiPU4AA"
+    },
+    "aurel-rings-mirror": {
+      "width": 1600,
+      "height": 2098,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAACwAwCdASoQABUAPtFUo0uoJKMhsAgBABoJZACdACHOMZl/asoxAAD+l7zQke8B0Cod4uGUmMjsVBb8ynJ5qfX6laPtiQyYW9cl+/npbTtpj1J1tdPN+94lT53/n1y/jnb2zXXliUE7iDGlAAA="
+    },
+    "aurel-saw": {
+      "width": 1600,
+      "height": 1066,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADwAQCdASoQAAsAAsBMJQBOgBuUiPgFPAAA/uaNyhTHNzOmj3h0xCY/5+//0rvo4WQ5Q15SdYkTRnwu2jpl5wT/WsFLlbAeHfiLvLqgAAA="
+    },
+    "aurel-stella-render-front": {
+      "width": 1600,
+      "height": 2000,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAwCdASoQABQAPtFWo0uoJKMhsAgBABoJZwAAUWUTwQ8L8dGyYNmYAP71e+GnLjARPMD5X9edo3+imHfFZg5kd+4/wetdRNL06gAA"
+    },
+    "aurel-stella-render": {
+      "width": 1600,
+      "height": 2000,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAACwAwCdASoQABQAPtFUo0uoJKMhsAgBABoJZwC/OB8njpEhc0RHAAD+9XvhpzDO+UnxUySYsKf5Ytc5M9Nflp+uNWQcv+kah77NgUa0jhFmdAAA"
+    },
+    "anar-pomegranate-tree": {
+      "width": 1600,
+      "height": 2400,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAADwAwCdASoQABgAPtFWo0uoJKMhsAgBABoJZACdAywA2HImR6TZwF/AAP7pSUWPXZ4eYFNOaGaO3b0Sfi8F74/6EL/sloAzR73ADssC4J5MgVJtdpqc6tUSS6v2xOjXZxAr9Z7I40Gn0JPX3nIkPvknkfmMSdvXeyw2qo9H4+n+72tVwry2ZYyr0MFdyZQaAAA="
+    },
+    "anar-room-candle": {
+      "width": 1600,
+      "height": 1066,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADwAQCdASoQAAsAAsBMJYwCdAEDHiASWSAA/vS3NSMPFSlbJXWLs5liU+y+6ZFrb5v4pDY7jdB4Z+cnJ2LntJygAAA="
+    },
+    "anar-room-dark": {
+      "width": 1600,
+      "height": 2400,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAAAQBACdASoQABgAPtFapkuoJaOhsAgBABoJYgCdOUAAs4b9lsiQW/TT0AD+2tD/aBoN249nOMhRKBLsEgu1ypgk4y3bNlure2VF2xNHjCa+6adjmP0scPyQZGLNBggSuWLnszjOW+hvdObmWT5FBbzvIdQAAA=="
+    },
+    "anar-room-lights": {
+      "width": 1600,
+      "height": 2400,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAAAQBACdASoQABgAPtFUo0uoJKMhsAgBABoJZgCdMoRwACRWCoaxrKcaAAD+3agpb5f4FSDU0uEK8RjI5p2/xllhdk9EH9xR/jmQcv12PKFOUOT/V1b1LIWzyN4o2Y9R68OGN2BNx/tzPi5dDmc1lqRoF/wc+K+mu8WgAA=="
+    },
+    "anar-room-wood": {
+      "width": 1600,
+      "height": 2400,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAwBACdASoQABgAPtFUo0uoJKMhsAgBABoJYwCdACP7mxulsQ2zmWprOZAA/rxtpq9DUDQZZcD2XJZ7vdHQxjn1j4B1/ojLoa2rU2f67gcDBP483S5WeMAA"
+    },
+    "anar-sabzi": {
+      "width": 1600,
+      "height": 2400,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAAAwBACdASoQABgAPtFWo0uoJKMhsAgBABoJQBOgBEQJDDTbXgO3mD2sDAAA/qT9KDPRK6X/BNJ7R3sJUCyDmXKMpMb4hy7eDecdrd1qTckMmZo0eAUde+AEsSgn1wObgGWU7EN9oPmiuVsd80ICRic2m++LQXfWqk3TVNOIrfIbfsZ3mO/1Hm3ZvFe755MSp3C+9+1wE+aMJ6c7AAA="
+    },
+    "anar-saffron-plate": {
+      "width": 1600,
+      "height": 2400,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAABwBACdASoQABgAPtFWo0uoJKMhsAgBABoJbACdMoLUABFJ53zhIMuqrySiQAD+dMOS9iy9M9+o6FQGqTVu8KcgrhBVcR811ZeG6N00NXe/6ek0cNMtslJw5P6LXQzzK4g7NpzB2SUaF9iQqU4k5RZChz8MUqzVngU7PE+pv/ulH7mq4wip91GIv3CiR1wA"
+    },
+    "anar-samovar": {
+      "width": 1600,
+      "height": 1066,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAAAQAgCdASoQAAsAAsBMJaACdADRNnPra33MAP73+5JFdo6LInunIDBBx6SN3QDnuU0def1fS5MzECZxktRa42R6qp7F7xwVetLP2YAA"
+    },
+    "anar-spread-2": {
+      "width": 1600,
+      "height": 1066,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAADwAQCdASoQAAsAAsBMJbACdAD1iHygQAAA/sBrd/QoJ5tlLThdbHMMD5rPWJgQIVmBoIMSDlJ39Y7ckptmpcMnZ5j+wcLWeX2E2R/aXVkQv2X3Z0xOvfXQ+nQf8r1DPDAAAA=="
+    },
+    "anar-spread": {
+      "width": 1600,
+      "height": 1066,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAQAgCdASoQAAsAAsBMJbACdADPh6yc612AAP6/vemF4TZCXAgVSyYe27cc66GMvAJc0OoJpZ4hs+JTV4f/i61jloqOP9bS+vmosS/dP/QnYD1KDXnNKQAA"
+    },
+    "anar-table-overhead": {
+      "width": 1600,
+      "height": 2845,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRqwAAABXRUJQVlA4IKAAAACQBACdASoQABwAPtFUo0uoJKMhsAgBABoJbACdMoR4GCH4e25qR5semEHde6AA/o3zi9LwmKv1xvHnofq4eaBWRxyAurknqKSu+MEWpY4L+zZZunODVX9IwN4dGYoaQ1zRBlWjQ/UFhQRW7FOnE8N6McOyCskg1euYfwLdw9K3jQ0jqkbGRQJRWvA4MEI9BAX1hIQT7xJ7diXPg7t7YiAA"
+    },
+    "anar-tahdig-2": {
+      "width": 1600,
+      "height": 2400,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAADQBACdASoQABgAPtFWo0uoJKMhsAgBABoJbACdMoR3ACof415ydefMZGkxVkeEQAD+7ECxHoeHzlJIZsJsdnQ1aqIp8Dg5SkoCj+goq8vsyQPWYOKXoHvwKxJHECPmf9tb9ZHuwyW6UbA61KRi3QAyf/UW5Xh2AAA="
+    },
+    "anar-tahdig-3": {
+      "width": 1600,
+      "height": 1066,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAAAwAgCdASoQAAsAAsBMJbACdAEXgPh7LvWiEAD+1vkghQXfKh0tkvFRrqDjum8vNe/3mJ+F8CNw0RH2u0J+hW5p+HyOd6cXgAA="
+    },
+    "anar-tahdig": {
+      "width": 1600,
+      "height": 2400,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAABwBACdASoQABgAPtFUo0uoJKMhsAgBABoJbACdMoR4GCaGsAwHSsxmZr2U4AD+1iISA+W0xTclsPuth1maLsTY3H20cz1C8hK5tHefwUNO5Df5EzOnWxfGFj+DPU2mWdKoalKJihL4yFvlGQKE3OoSij7fHK6EJblNzIvyZKSS9WAA"
+    },
+    "anar-tea-carpet": {
+      "width": 1600,
+      "height": 1066,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAAAQAgCdASoQAAsAAsBMJZACdAEPDOGpY3AAAP713IvwZbv9f4tBnZq0Bmw6LeDTBCzLtSAd8qBu3CgfgdeXIlO13L8Ki4zPAz7/13Tf9ptAu2IYFgA="
+    },
+    "anar-tea-pour": {
+      "width": 1600,
+      "height": 2400,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAACQBACdASoQABgAPtFUo0uoJKMhsAgBABoJQBOmUGYwB66DdU6irAB3+gu2doAA/sPyNWooIgEub0iu9nHyzksm5SsUfIMUXs5K8b7gF/eZY54y7pCqh7R6M5Xe5yltO77q1qeIsSXytk1aHRKfv37+ScNsoLiOGMFxsalXQctgOL4xjGQwjpaLAc8q297TAAA="
+    },
+    "tensile-barbell-dark": {
+      "width": 1600,
+      "height": 1066,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRiwAAABXRUJQVlA4ICAAAAAwAQCdASoQAAsAAsBMJaQAA3AA/vetN2XR9R4IBgAAAA=="
+    },
+    "tensile-bike": {
+      "width": 1600,
+      "height": 1066,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADwAQCdASoQAAsAAsBMJYwCdAEUyaOOqgAA/qMuuOEvHJ+5/c1vCR2LuEv4PTzE2xb1HLzW22pTQiRrlDa+PcGlycAAAA=="
+    },
+    "tensile-boxing": {
+      "width": 1600,
+      "height": 1066,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADwAQCdASoQAAsAAsBMJZwAAn/nzhK1/8AA/tKT8utcL8VjD2QddLXoIwOO57ZN5d+nes0Mc26yaXYW4t4l4Uy2Lc2pag1sxRG/Q2+QIAA="
+    },
+    "tensile-chalk-barbell": {
+      "width": 1600,
+      "height": 2325,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAAAQBACdASoQABcAPtFWpEuoJKOhsAgBABoJZwDImCGtvMiquScL9cHuMAD+6f0b4m2/mK/dwvQO77cbY9g/oNZiQd6QahOKnDWKLPS4ciupIVpzyV9C/Src84sJkWBn2C643L3QeZ8C+y5Bh9RFl/16cvUnj2dIAAA="
+    },
+    "tensile-coach-kettlebell": {
+      "width": 1600,
+      "height": 2400,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADQAwCdASoQABgAPtFUo0uoJKMhsAgBABoJZQDDNCHgG7VZ8QxInAAA/vDJTXCWU4oYe21q+kpSMn9zZKz625DM3BH6G5gMAAA="
+    },
+    "tensile-floor-warm": {
+      "width": 1600,
+      "height": 2402,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAQBACdASoQABgAPtFUo0uoJKMhsAgBABoJZQCsAB4lpKEKc1TkstcKAADOLxstGP3TR4ulqd2+jhdi4l2dkL1MerBWJGdYZMx8ZBtv6YyhZ6kkJDiLrq/2r4ta5/ss2ngAAA=="
+    },
+    "tensile-grip": {
+      "width": 1600,
+      "height": 2399,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAADQBACdASoQABgAPtFUo0uoJKMhsAgBABoJZQC/P3gAm2veRhvHLbra+FiFxMWeAAD+0UUfMHkNspeiD1pvszXcmHxI8mpzXE60FLvIhLI5FEHWZTTyYGMUaUyYqyXnRIfRuCnhpXCTcCre3IkMB+KZ9Gv4nA9loAA="
+    },
+    "tensile-hero-deadlift": {
+      "width": 1600,
+      "height": 1066,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRjAAAABXRUJQVlA4ICQAAADQAQCdASoQAAsAAsBMJaQAAudlw8QoAAD++2kRUVuaHuw2oAA="
+    },
+    "tensile-kettlebell-chalk": {
+      "width": 1600,
+      "height": 1600,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoQABAAAsBMJYwAAlvv7B5gAAD++u/7MAgG8jdzvTxbpKvuBy+zi6lDxHoO/eHP1+zZSs2+lzxeuMnGlAN8JwAA"
+    },
+    "tensile-mobility": {
+      "width": 1600,
+      "height": 1066,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADwAQCdASoQAAsAAsBMJZACdAEQzAQrrwAA+6RFnUn2U2VzVfVOvtOZns46vzRMBdL1WNf40QM9beWRjmzdwH/pSiAAAA=="
+    },
+    "tensile-racks-window": {
+      "width": 1600,
+      "height": 2399,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAABwAwCdASoQABgAPtFWo0uoJKMhsAgBABoJaQAAOvszj+FBtIAA/qN6yDFKzxhwRn+LX2WQZiQ5NYpfkYKTzpKRHLgEigQBDDne/AX8nVOFuR8b326PAAAA"
+    },
+    "tensile-ropes": {
+      "width": 1600,
+      "height": 1066,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADQAQCdASoQAAsAAsBMJZwAAlvdlr3QAAD++UoNxo930qFO8PHwnxgbe/1XBNZ7RHrlPjjAECAAAA=="
+    },
+    "tensile-squat": {
+      "width": 1600,
+      "height": 2000,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAAAQBACdASoQABQAPtFUo0uoJKMhsAgBABoJYwCw7CL4btwIWXt6U6EUAAD+yqQ4OGCf8Wl4GkjOUnrnqfMyunRHOY4II+IlbCTzOvRoEirZtJx1qYmI4rewswcrhr7eVyepJoPsZjlxZpuc7bwaBCZq03k6LHOixQ1v4FU9FY3d+ID4HzfDTW8TrsIX8AAA"
+    },
+    "tensile-trainer-curls": {
+      "width": 1600,
+      "height": 2000,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAABwBACdASoQABQAPtFUo0uoJKMhsAgBABoJaACdMoR3ACT/j8NSR+ZLENdmgAD5czuvuA54gKOH+EbuhGJ+7h7p9HzWS0PBtvAi+1hv7/06O9mAxyQ5fmIhU8QbusWIIFmJOrB1Wqienrf2DwmPGB4RvlMo59Dc/qSAdDNgp9fasvN3dzy8o9hoAAA="
+    },
+    "tensile-trainer-rings": {
+      "width": 1600,
+      "height": 2603,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAADwAwCdASoQABoAPtFUo0uoJKMhsAgBABoJZwAAWgSMVPSMO/+M24qgAP7y5z+2yYbyJOXM5Wfwos+cNknzf3t7o0otpMqHxZpAvX/D3C2kfEETQJJx+arYMzzQ/+V4BwpuK7NDjODPH1F+ZdbzJp1VY3ji0KfF7rAAAA=="
+    },
+    "tensile-trainer-tank": {
+      "width": 1600,
+      "height": 2400,
+      "widths": [
+        480,
+        960,
+        1440
+      ],
+      "placeholder": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAACQBACdASoQABgAPtFUo0uoJKMhsAgBABoJZwC7AB9TeWg3/or996hQh9iDBwAA/vV70mV7r6FjkEJykLrR1X4Ni6X0tby+e2uIv/HcEOmB8NMUxigg2KjQFMpD3ICav889UNCGDQU1vBduaA6ezNJ7L1xkCzPJkEHWwsgYtk56HG5+qlbLBZfoB50ole9cwAA="
+    }
+  }
+}

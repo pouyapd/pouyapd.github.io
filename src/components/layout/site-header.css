@@ -1,0 +1,147 @@
+.site-header {
+  /* the pd monogram alone (no wordmark); taller than wide (104 x 117.5), its bowls about half its height */
+  --logo-h: clamp(2.15rem, 1.95rem + 0.5vw, 2.6rem);
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline: 0;
+  z-index: var(--z-header);
+  transition:
+    transform var(--dur-base) var(--ease-out),
+    background-color var(--dur-base) var(--ease-out),
+    border-color var(--dur-base) var(--ease-out);
+  border-block-end: 1px solid transparent;
+}
+
+.site-header[data-scrolled='true'] {
+  background: rgb(var(--color-scrim) / 0.72);
+  border-block-end-color: var(--color-line);
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+  .site-header[data-scrolled='true'] {
+    background: rgb(var(--color-scrim) / 0.95);
+  }
+}
+
+.site-header[data-tucked='true'] {
+  transform: translateY(-101%);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-l);
+  block-size: var(--header-h);
+}
+
+.site-header__home {
+  display: inline-flex;
+  padding-block: var(--space-2xs);
+  margin-inline-end: auto;
+  border-radius: var(--radius-s);
+}
+
+.site-nav__list {
+  display: flex;
+  gap: clamp(1.25rem, 0.5rem + 1.6vw, 2.75rem);
+}
+
+.site-nav__link {
+  position: relative;
+  display: inline-block;
+  padding-block: var(--space-2xs);
+  font-size: var(--step--2);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgb(242 240 233 / 0.78);
+  transition: color var(--dur-fast) var(--ease-soft);
+}
+
+/* the current-section marker: a small ivory point under the label (lime is kept for actions) */
+.site-nav__link::after {
+  content: '';
+  position: absolute;
+  inset-inline-start: 50%;
+  inset-block-end: -0.35rem;
+  inline-size: 4px;
+  block-size: 4px;
+  margin-inline-start: -2px;
+  border-radius: 50%;
+  background: var(--color-text);
+  opacity: 0;
+  transform: scale(0);
+  transition:
+    opacity var(--dur-base) var(--ease-out),
+    transform var(--dur-base) var(--ease-out);
+}
+
+.site-nav__link[aria-current='true'] {
+  color: var(--color-text);
+}
+
+.site-nav__link[aria-current='true']::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@media (hover: hover) {
+  .site-nav__link:hover {
+    color: var(--color-text);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .site-header__inner {
+    animation: header-in var(--dur-slow) var(--ease-out) 0.25s both;
+  }
+}
+
+@keyframes header-in {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+}
+
+@media (max-width: 900px) {
+  .site-nav,
+  .site-header__cta {
+    display: none;
+  }
+}
+
+/* Over a light stage (light concept pages) the transparent bar uses dark ink;
+   once it fills in on scroll it returns to the usual ivory on charcoal. */
+.site-header__logo--ink {
+  display: none;
+}
+
+.site-header[data-tone='light']:not([data-scrolled='true']) {
+  --color-text: var(--c-charcoal);
+  --color-line-strong: rgb(16 19 21 / 0.32);
+  color: var(--c-charcoal);
+}
+
+.site-header[data-tone='light']:not([data-scrolled='true']) .site-header__logo:not(.site-header__logo--ink) {
+  display: none;
+}
+
+.site-header[data-tone='light']:not([data-scrolled='true']) .site-header__logo--ink {
+  display: block;
+}
+
+.site-header[data-tone='light']:not([data-scrolled='true']) :is(.site-nav__link, .menu-toggle) {
+  color: rgb(16 19 21 / 0.82);
+}
+
+.site-header[data-tone='light']:not([data-scrolled='true']) .btn--ghost {
+  background: rgb(255 255 255 / 0.25);
+}
+
+.site-header[data-tone='light']:not([data-scrolled='true']) .btn--ghost .btn__icon {
+  background: rgb(16 19 21 / 0.08);
+}
