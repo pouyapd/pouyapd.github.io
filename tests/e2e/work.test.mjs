@@ -415,6 +415,21 @@ describe('Tensile Athletic Club — website and live technique module', () => {
     await page.context().close()
   })
 
+  test('once the figure is live, choosing lifts downloads no more stills (they would be hidden)', async () => {
+    const page = await open(browser, '', { viewport: DESKTOP })
+    await scrollToElement(page, '.tech__demo', 40)
+    await until(page, () => document.querySelector('.tq')?.dataset.state === 'live', undefined, 20000)
+    const stills = []
+    page.on('request', (r) => /\/media\/lifts\//.test(r.url()) && stills.push(r.url()))
+    for (const name of ['Bench press', 'Deadlift', 'Back squat']) {
+      await page.click(`.tq__tab:has-text("${name}")`)
+      await page.waitForTimeout(150)
+    }
+    assert.deepEqual(stills, [])
+    assert.deepEqual(page.problems(), [])
+    await page.context().close()
+  })
+
   test('with reduced motion the figure holds until Play', async () => {
     const page = await open(browser, '', { viewport: DESKTOP, reducedMotion: 'reduce' })
     await scrollToElement(page, '.tech__demo', 40)

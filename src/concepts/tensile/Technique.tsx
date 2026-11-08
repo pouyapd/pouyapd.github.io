@@ -49,6 +49,8 @@ export const lifts: { id: Lift; label: string; works: string; cues: string[] }[]
 export function Technique({ classesHref, compact = false }: { classesHref: string; compact?: boolean }) {
   const id = useId()
   const [lift, setLift] = useState<Lift>('squat')
+  // the still under the live figure follows the lift only while it is the picture (before the figure is drawn, or without WebGL)
+  const [stillLift, setStillLift] = useState<Lift>('squat')
   // null until the visitor chooses: then it plays, unless they prefer reduced motion (known once the figure is live)
   const [choice, setPlaying] = useState<boolean | null>(null)
   const canvas = useRef<HTMLCanvasElement>(null)
@@ -64,6 +66,7 @@ export function Technique({ classesHref, compact = false }: { classesHref: strin
 
   const choose = (next: Lift) => {
     setLift(next)
+    if (demo.state !== 'live') setStillLift(next)
     if (playing) demo.play(true)
   }
   const onKey = (e: KeyboardEvent, i: number) => {
@@ -94,8 +97,8 @@ export function Technique({ classesHref, compact = false }: { classesHref: strin
         {/* a still of the same figure (npm run render:lifts) until the live one is drawn: the shader can take seconds to compile on a first visit */}
         <img
           className="tq__still"
-          src={asset(`media/lifts/${lift}-960.webp`)}
-          srcSet={[960, 1680].map((w) => `${asset(`media/lifts/${lift}-${w}.webp`)} ${w}w`).join(', ')}
+          src={asset(`media/lifts/${stillLift}-960.webp`)}
+          srcSet={[960, 1680].map((w) => `${asset(`media/lifts/${stillLift}-${w}.webp`)} ${w}w`).join(', ')}
           sizes="(max-width: 760px) 200vw, 60vw"
           alt=""
           decoding="async"
